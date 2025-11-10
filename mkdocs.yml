@@ -1,9 +1,9 @@
 site_name: Transire Documentation
-site_url: https://docs.transire.dev
+site_url: https://transire.github.io/
 site_description: Cloud-native Go framework. Same code, anywhere.
 repo_url: https://github.com/transire/transire
 repo_name: transire/transire
-edit_uri: edit/main/repos/transire-docs/docs/
+edit_uri: edit/main/repos/transire.github.io/docs/
 
 theme:
   name: material
