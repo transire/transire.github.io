@@ -388,7 +388,7 @@ tofu state show aws_lambda_function.http
 
 ## See Also
 
-- [Provider Overview](/docs/providers/overview.md) - Choose a provider
-- [AWS Deployment](/docs/providers/aws/getting-started.md) - AWS-specific guide
-- [Configuration Reference](/docs/reference/config-schema.md) - Full config options
-- [Manifest Schema](/docs/reference/manifest-schema.md) - Manifest format
+- [Provider Overview](/providers/overview.md) - Choose a provider
+- [AWS Deployment](/providers/aws/getting-started.md) - AWS-specific guide
+- [Configuration Reference](/reference/config-schema.md) - Full config options
+- [Manifest Schema](/reference/manifest-schema.md) - Manifest format

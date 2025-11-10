@@ -200,7 +200,7 @@ Diagnostic decision trees and solutions for common problems.
 
     **Your journey:** Learn → Build → Deploy
 
-    1. [What is Transire?](learn/introduction/what-is-transire.md) · 10 min
+    1. [What is Transire?](intro/what-is-transire.md) · 10 min
     2. [Hello World Tutorial](learn/tutorials/01-hello-world/) · 5 min
     3. [Quick Start Guide](getting-started/quickstart.md) · 15 min
 

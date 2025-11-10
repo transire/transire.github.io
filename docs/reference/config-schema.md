@@ -739,8 +739,8 @@ Configure secrets in your CI provider (GitHub Secrets, etc.) and inject at deplo
 
 ## See Also
 
-- [Manifest Schema](/docs/reference/manifest-schema.md) - Generated manifest format
-- [Error Codes](/docs/reference/error-codes.md) - Configuration error codes
-- [Deployment Guide](/docs/guides/deployment.md) - Deploying with different configurations
-- [Environments Guide](/docs/guides/environments.md) - Managing multiple environments
-- [OpenTofu Backend](/docs/iac/backend.md) - Backend setup and configuration
+- [Manifest Schema](/reference/manifest-schema.md) - Generated manifest format
+- [Error Codes](/reference/error-codes.md) - Configuration error codes
+- [Deployment Guide](/guides/deployment.md) - Deploying with different configurations
+- [Environments Guide](/guides/environments.md) - Managing multiple environments
+- [OpenTofu Backend](/iac/backend.md) - Backend setup and configuration

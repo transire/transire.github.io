@@ -459,7 +459,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 ## See Also
 
-- [Dependency Injection](/docs/sdk/di.md)
-- [Testing Guide](/docs/sdk/testkit.md)
-- [Error Handling](/docs/guides/error-handling.md)
-- [Performance Guide](/docs/guides/performance.md)
+- [Dependency Injection](/sdk/di.md)
+- [Testing Guide](/sdk/testkit.md)
+- [Error Handling](/guides/error-handling.md)
+- [Performance Guide](/guides/performance.md)

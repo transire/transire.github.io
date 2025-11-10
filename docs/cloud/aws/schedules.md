@@ -746,8 +746,8 @@ aws events list-rules --name-prefix myapp-generate-daily-report
 
 ## See Also
 
-- [SDK Scheduled Jobs](/docs/sdk/schedule.md) - Scheduled handler API
-- [AWS HTTP](/docs/cloud/aws/http.md) - HTTP handlers
-- [AWS Queues](/docs/cloud/aws/queues.md) - Fan out work to queues
-- [Idempotency Guide](/docs/guides/idempotency.md) - Idempotent patterns
-- [Testing Guide](/docs/guides/testing.md) - Test scheduled handlers
+- [SDK Scheduled Jobs](/sdk/schedule.md) - Scheduled handler API
+- [AWS HTTP](/cloud/aws/http.md) - HTTP handlers
+- [AWS Queues](/cloud/aws/queues.md) - Fan out work to queues
+- [Idempotency Guide](/guides/idempotency.md) - Idempotent patterns
+- [Testing Guide](/guides/testing.md) - Test scheduled handlers

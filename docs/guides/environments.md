@@ -717,7 +717,7 @@ aws iam list-attached-role-policies \
 
 ## See Also
 
-- [Deployment Guide](/docs/guides/deployment.md) - Deployment workflow
-- [OpenTofu Workspaces](/docs/iac/workspaces.md) - Workspace management
-- [GitHub Actions CI/CD](/docs/ci/github-actions.md) - Automated environments
-- [Config Schema](/docs/reference/config-schema.md) - Configuration reference
+- [Deployment Guide](/guides/deployment.md) - Deployment workflow
+- [OpenTofu Workspaces](/iac/workspaces.md) - Workspace management
+- [GitHub Actions CI/CD](/ci/github-actions.md) - Automated environments
+- [Config Schema](/reference/config-schema.md) - Configuration reference

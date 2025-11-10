@@ -421,8 +421,8 @@ tofu apply
 
 ## See Also
 
-- [IaC Overview](/docs/iac/overview.md)
-- [Backend Configuration](/docs/iac/backend.md)
-- [Workspaces](/docs/iac/workspaces.md)
-- [AWS Deployment](/docs/cloud/aws/deployment.md)
+- [IaC Overview](/iac/overview.md)
+- [Backend Configuration](/iac/backend.md)
+- [Workspaces](/iac/workspaces.md)
+- [AWS Deployment](/cloud/aws/deployment.md)
 - [OpenTofu Documentation](https://opentofu.org/docs/)

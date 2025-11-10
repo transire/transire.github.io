@@ -842,7 +842,7 @@ func setupTestApp(t *testing.T) *testkit.TestApp {
 
 ## See Also
 
-- [HTTP Handlers](/docs/sdk/http.md) - HTTP handler basics
-- [Queue Handlers](/docs/sdk/queue.md) - Queue handler basics
-- [Scheduled Jobs](/docs/sdk/schedule.md) - Schedule handler basics
-- [Testing Guide](/docs/guides/testing.md) - Testing patterns and best practices
+- [HTTP Handlers](/sdk/http.md) - HTTP handler basics
+- [Queue Handlers](/sdk/queue.md) - Queue handler basics
+- [Scheduled Jobs](/sdk/schedule.md) - Schedule handler basics
+- [Testing Guide](/guides/testing.md) - Testing patterns and best practices

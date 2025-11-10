@@ -306,7 +306,7 @@ func TestCreateUser(t *testing.T) {
 }
 ```
 
-See [Testing Guide](/docs/sdk/testkit.md) for more patterns.
+See [Testing Guide](/sdk/testkit.md) for more patterns.
 
 ## Troubleshooting
 
@@ -389,7 +389,7 @@ No code changes needed!
 
 ## See Also
 
-- [AWS Provider](/docs/providers/aws/overview.md) - Deploy to AWS
-- [Deployment Guide](/docs/deployment/overview.md) - Deployment workflow
-- [Testing Guide](/docs/sdk/testkit.md) - Testing patterns
-- [Configuration Reference](/docs/reference/config-schema.md) - Full config
+- [AWS Provider](/providers/aws/overview.md) - Deploy to AWS
+- [Deployment Guide](/deployment/overview.md) - Deployment workflow
+- [Testing Guide](/sdk/testkit.md) - Testing patterns
+- [Configuration Reference](/reference/config-schema.md) - Full config

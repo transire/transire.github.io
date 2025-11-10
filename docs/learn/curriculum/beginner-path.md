@@ -92,8 +92,8 @@ graph LR
 
 ### Materials
 
-1. [What is Transire?](../introduction/what-is-transire.md) - 10 min read
-2. [Core Concepts](../introduction/concepts.md) - 15 min read
+1. [What is Transire?](../../intro/what-is-transire.md) - 10 min read
+2. [Core Concepts](../../intro/concepts.md) - 15 min read
 
 ### Learning Check
 
@@ -150,7 +150,7 @@ After this module, you should have:
 - [x] Made a request with `curl` and received a response
 
 **Time investment:** 5 minutes
-**Next:** [Module 3: HTTP APIs →](#module-3-http-apis)
+**Next:** [Module 3: HTTP APIs →](#module-3-building-http-apis)
 
 ---
 
@@ -213,7 +213,7 @@ After this module, you should be able to:
 - [ ] Handle validation errors gracefully
 
 **Time investment:** 30 minutes
-**Next:** [Module 4: Queue Processing →](#module-4-queue-processing)
+**Next:** [Module 4: Queue Processing →](#module-4-asynchronous-queue-processing)
 
 ---
 

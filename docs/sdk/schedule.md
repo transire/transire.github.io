@@ -741,8 +741,8 @@ app.RegisterScheduled("cron(*/15 * * * ? *)", frequentCheck)
 
 ## See Also
 
-- [HTTP Handlers](/docs/sdk/http.md) - Triggering schedules from HTTP
-- [Queue Handlers](/docs/sdk/queue.md) - Async message processing
-- [Dependency Injection](/docs/sdk/di.md) - Injecting services into scheduled jobs
-- [Testing](/docs/sdk/testkit.md) - Testing scheduled jobs
-- [Configuration Reference](/docs/reference/config-schema.md) - Schedule configuration options
+- [HTTP Handlers](/sdk/http.md) - Triggering schedules from HTTP
+- [Queue Handlers](/sdk/queue.md) - Async message processing
+- [Dependency Injection](/sdk/di.md) - Injecting services into scheduled jobs
+- [Testing](/sdk/testkit.md) - Testing scheduled jobs
+- [Configuration Reference](/reference/config-schema.md) - Schedule configuration options

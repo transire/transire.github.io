@@ -549,7 +549,7 @@ func TestAuthMiddleware(t *testing.T) {
 
 ## See Also
 
-- [Middleware](/docs/sdk/middleware.md)
-- [HTTP Handlers](/docs/sdk/http.md)
-- [Testing Guide](/docs/sdk/testkit.md)
-- [DI Patterns](/docs/guides/di-patterns.md)
+- [Middleware](/sdk/middleware.md)
+- [HTTP Handlers](/sdk/http.md)
+- [Testing Guide](/sdk/testkit.md)
+- [DI Patterns](/guides/di-patterns.md)

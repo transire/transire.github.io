@@ -799,9 +799,9 @@ deploy:
 
 ## See Also
 
-- [OpenTofu Overview](/docs/iac/overview.md) - Understanding IaC basics
-- [Backend Setup](/docs/iac/backend.md) - Configuring remote state
-- [Deployment Guide](/docs/guides/deployment.md) - Production deployment strategies
-- [Environments](/docs/guides/environments.md) - Environment configuration best practices
-- [AWS Deployment](/docs/cloud/aws/deployment.md) - AWS-specific deployment details
-- [CLI: transire deploy](/docs/cli/deploy.md) - Deploy command reference
+- [OpenTofu Overview](/iac/overview.md) - Understanding IaC basics
+- [Backend Setup](/iac/backend.md) - Configuring remote state
+- [Deployment Guide](/guides/deployment.md) - Production deployment strategies
+- [Environments](/guides/environments.md) - Environment configuration best practices
+- [AWS Deployment](/cloud/aws/deployment.md) - AWS-specific deployment details
+- [CLI: transire deploy](/cli/deploy.md) - Deploy command reference

@@ -651,9 +651,9 @@ Monitor queue metrics in production:
 
 ## See Also
 
-- [HTTP Handlers](/docs/sdk/http.md) - Enqueuing from HTTP endpoints
-- [Scheduled Jobs](/docs/sdk/schedule.md) - Time-based execution
-- [Dependency Injection](/docs/sdk/di.md) - Injecting services into handlers
-- [Testing](/docs/sdk/testkit.md) - Testing queue handlers
-- [Error Handling](/docs/sdk/errors.md) - Error handling patterns
-- [Configuration Reference](/docs/reference/config-schema.md) - Queue configuration options
+- [HTTP Handlers](/sdk/http.md) - Enqueuing from HTTP endpoints
+- [Scheduled Jobs](/sdk/schedule.md) - Time-based execution
+- [Dependency Injection](/sdk/di.md) - Injecting services into handlers
+- [Testing](/sdk/testkit.md) - Testing queue handlers
+- [Error Handling](/sdk/errors.md) - Error handling patterns
+- [Configuration Reference](/reference/config-schema.md) - Queue configuration options

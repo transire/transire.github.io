@@ -756,7 +756,7 @@ func TestAuthMiddleware(t *testing.T) {
 
 ## See Also
 
-- [HTTP Handlers](/docs/sdk/http.md) - HTTP handler basics
-- [Error Handling](/docs/sdk/errors.md) - Error handling patterns
-- [Testing](/docs/sdk/testkit.md) - Testing middleware and handlers
-- [Middleware Patterns Guide](/docs/guides/middleware-patterns.md) - Advanced patterns
+- [HTTP Handlers](/sdk/http.md) - HTTP handler basics
+- [Error Handling](/sdk/errors.md) - Error handling patterns
+- [Testing](/sdk/testkit.md) - Testing middleware and handlers
+- [Middleware Patterns Guide](/guides/middleware-patterns.md) - Advanced patterns

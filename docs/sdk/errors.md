@@ -763,8 +763,8 @@ func processOrder(ctx context.Context, order ProcessOrder) error {
 
 ## See Also
 
-- [HTTP Handlers](/docs/sdk/http.md) - HTTP handler basics
-- [Queue Handlers](/docs/sdk/queue.md) - Queue error handling
-- [Middleware](/docs/sdk/middleware.md) - Recovery middleware
-- [Testing](/docs/sdk/testkit.md) - Testing error cases
-- [Error Codes Reference](/docs/reference/error-codes.md) - Complete error code list
+- [HTTP Handlers](/sdk/http.md) - HTTP handler basics
+- [Queue Handlers](/sdk/queue.md) - Queue error handling
+- [Middleware](/sdk/middleware.md) - Recovery middleware
+- [Testing](/sdk/testkit.md) - Testing error cases
+- [Error Codes Reference](/reference/error-codes.md) - Complete error code list

@@ -430,8 +430,8 @@ func TestErrorHandling(t *testing.T) {
 
 ## See Also
 
-- [HTTP Handlers](/docs/sdk/http.md)
-- [Queue Handlers](/docs/sdk/queue.md)
-- [Testing Guide](/docs/sdk/testkit.md)
-- [DI Patterns](/docs/guides/di-patterns.md)
-- [Error Codes Reference](/docs/reference/error-codes.md)
+- [HTTP Handlers](/sdk/http.md)
+- [Queue Handlers](/sdk/queue.md)
+- [Testing Guide](/sdk/testkit.md)
+- [DI Patterns](/guides/di-patterns.md)
+- [Error Codes Reference](/reference/error-codes.md)

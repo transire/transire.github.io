@@ -92,7 +92,7 @@ func getOrder(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-**See Also:** [HTTP Handlers](/docs/sdk/http.md)
+**See Also:** [HTTP Handlers](/sdk/http.md)
 
 ---
 
@@ -155,9 +155,9 @@ func dailyReport(ctx context.Context) error {
 - **Scheduled:** `func(ctx context.Context) error`
 
 **See Also:**
-- [HTTP Handlers](/docs/sdk/http.md)
-- [Queue Handlers](/docs/sdk/queue.md)
-- [Scheduled Jobs](/docs/sdk/schedule.md)
+- [HTTP Handlers](/sdk/http.md)
+- [Queue Handlers](/sdk/queue.md)
+- [Scheduled Jobs](/sdk/schedule.md)
 
 ---
 
@@ -204,7 +204,7 @@ app.GET("/orders/{id}", getOrder)
 app.GET("/users/{id}", getUser)
 ```
 
-**See Also:** [HTTP Handlers](/docs/sdk/http.md)
+**See Also:** [HTTP Handlers](/sdk/http.md)
 
 ---
 
@@ -242,7 +242,7 @@ func main() {
 }
 ```
 
-**See Also:** [Queue Handlers](/docs/sdk/queue.md)
+**See Also:** [Queue Handlers](/sdk/queue.md)
 
 ---
 
@@ -305,7 +305,7 @@ func processOrderBatch(ctx context.Context, msgs []types.ProcessedOrder) error {
 - Type must be defined in an accessible package
 - No interfaces, type parameters, or complex generic types
 
-**See Also:** [Queue Handlers](/docs/sdk/queue.md)
+**See Also:** [Queue Handlers](/sdk/queue.md)
 
 ---
 
@@ -341,7 +341,7 @@ func getOrderItem(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-**See Also:** [HTTP Handlers](/docs/sdk/http.md)
+**See Also:** [HTTP Handlers](/sdk/http.md)
 
 ---
 
@@ -384,7 +384,7 @@ app.GET("/orders/{id}/items/{itemId}", getOrderItem)
 - Must be the final segment in the route
 - Use for catch-all routes or file serving
 
-**See Also:** [HTTP Handlers](/docs/sdk/http.md)
+**See Also:** [HTTP Handlers](/sdk/http.md)
 
 ---
 
@@ -508,7 +508,7 @@ func getOrder(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-**See Also:** [Dependency Injection](/docs/sdk/di.md)
+**See Also:** [Dependency Injection](/sdk/di.md)
 
 ---
 
@@ -600,7 +600,7 @@ transire.Provide(func(os *OrderService) (*PaymentService, error) {
 })
 ```
 
-**See Also:** [DI Patterns](/docs/guides/di-patterns.md)
+**See Also:** [DI Patterns](/guides/di-patterns.md)
 
 ---
 
@@ -634,7 +634,7 @@ deploy:
   timeout_s: 30
 ```
 
-**See Also:** [Config Schema](/docs/reference/config-schema.md)
+**See Also:** [Config Schema](/reference/config-schema.md)
 
 ---
 
@@ -787,7 +787,7 @@ func createOrder(w http.ResponseWriter, r *http.Request) {
 
 **Note:** Type validation is automatic. Mismatched messages are moved to DLQ for inspection.
 
-**See Also:** [Queue Handlers](/docs/sdk/queue.md)
+**See Also:** [Queue Handlers](/sdk/queue.md)
 
 ---
 
@@ -816,7 +816,7 @@ transire init --backend
 transire deploy
 ```
 
-**See Also:** [Backend Setup](/docs/iac/backend.md)
+**See Also:** [Backend Setup](/iac/backend.md)
 
 ---
 
@@ -848,7 +848,7 @@ export AWS_REGION=us-east-1
 aws sts get-caller-identity
 ```
 
-**See Also:** [Deployment Guide](/docs/guides/deployment.md)
+**See Also:** [Deployment Guide](/guides/deployment.md)
 
 ---
 
@@ -892,7 +892,7 @@ Ensure your IAM user/role has deployment permissions:
 
 **Note:** This is a broad policy for development. Use least-privilege in production.
 
-**See Also:** [AWS Deployment](/docs/cloud/aws/deployment.md)
+**See Also:** [AWS Deployment](/cloud/aws/deployment.md)
 
 ---
 
@@ -1014,7 +1014,7 @@ This indicates a bug in Transire. Please:
 
 ## See Also
 
-- [Config Schema](/docs/reference/config-schema.md) - Configuration reference
-- [Manifest Schema](/docs/reference/manifest-schema.md) - Manifest format
-- [Troubleshooting Guide](/docs/guides/troubleshooting.md) - Common issues and solutions
-- [Testing Guide](/docs/guides/testing.md) - Testing strategies
+- [Config Schema](/reference/config-schema.md) - Configuration reference
+- [Manifest Schema](/reference/manifest-schema.md) - Manifest format
+- [Troubleshooting Guide](/guides/troubleshooting.md) - Common issues and solutions
+- [Testing Guide](/guides/testing.md) - Testing strategies

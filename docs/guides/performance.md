@@ -534,7 +534,7 @@ benchcmp before.txt after.txt
 
 ## See Also
 
-- [HTTP Handlers](/docs/sdk/http.md)
-- [Queue Handlers](/docs/sdk/queue.md)
-- [AWS Deployment](/docs/cloud/aws/deployment.md)
-- [DI Patterns](/docs/guides/di-patterns.md)
+- [HTTP Handlers](/sdk/http.md)
+- [Queue Handlers](/sdk/queue.md)
+- [AWS Deployment](/cloud/aws/deployment.md)
+- [DI Patterns](/guides/di-patterns.md)

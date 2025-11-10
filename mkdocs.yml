@@ -107,9 +107,8 @@ nav:
 
   - Learn:
       - Introduction:
-          - What is Transire?: learn/introduction/what-is-transire.md
+          - What is Transire?: intro/what-is-transire.md
           - Core Concepts: intro/concepts.md
-          - When to Use: learn/introduction/when-to-use.md
       - Tutorials:
           - Hello World (5 min): learn/tutorials/01-hello-world.md
           - REST API (15 min): learn/tutorials/02-rest-api.md
@@ -131,109 +130,85 @@ nav:
   - Guides:
       - Development:
           - Local Development: guides/development/local-development.md
-          - Hot Reload: guides/development/hot-reload.md
-          - Debugging: guides/development/debugging.md
           - Testing Strategies: guides/testing.md
       - Deployment:
+          - Overview: guides/deployment.md
           - First Deployment: guides/deployment/first-deployment.md
           - Environments: guides/environments.md
-          - CI/CD Setup: guides/deployment/ci-cd-setup.md
           - Production Checklist: guides/deployment/production-checklist.md
-          - Rollback Strategies: guides/deployment/rollback-strategies.md
-      - Architecture:
-          - HTTP Architecture: guides/architecture/http-architecture.md
-          - Queue Architecture: guides/architecture/queue-architecture.md
-          - Scheduler Architecture: guides/architecture/scheduler-architecture.md
-          - Local vs Cloud: guides/local-vs-cloud.md
       - Patterns:
           - Dependency Injection: guides/di-patterns.md
           - Middleware Patterns: guides/middleware-patterns.md
           - Error Handling: guides/error-handling.md
           - Idempotency: guides/idempotency.md
-          - Security Patterns: guides/patterns/security-patterns.md
+          - Local vs Cloud: guides/local-vs-cloud.md
       - Performance:
           - Performance Guide: guides/performance.md
-          - Optimization Tips: guides/performance/optimization.md
       - Troubleshooting:
           - Diagnostic Guide: guides/troubleshooting/index.md
-          - Deployment Issues: guides/troubleshooting/deployment-issues.md
-          - Runtime Issues: guides/troubleshooting/runtime-issues.md
-          - Queue Issues: guides/troubleshooting/queue-issues.md
+          - General Issues: guides/troubleshooting.md
 
   - Reference:
       - SDK:
           - Overview: sdk/overview.md
-          - HTTP API: reference/sdk/http-api.md
-          - Queue API: reference/sdk/queue-api.md
-          - Schedule API: reference/sdk/schedule-api.md
+          - HTTP: sdk/http.md
+          - Queue: sdk/queue.md
+          - Schedule: sdk/schedule.md
           - Dependency Injection: sdk/di.md
           - Middleware: sdk/middleware.md
           - Error Handling: sdk/errors.md
-          - Response Helpers: reference/sdk/response-helpers.md
-          - Context Helpers: reference/sdk/context-helpers.md
           - Test Kit: sdk/testkit.md
+          - HTTP API Reference: reference/sdk/http-api.md
+          - Queue API Reference: reference/sdk/queue-api.md
+          - Schedule API Reference: reference/sdk/schedule-api.md
       - CLI:
           - Overview: cli/overview.md
+          - Commands: reference/cli/commands.md
           - transire gen: cli/gen.md
           - transire run: cli/run.md
           - transire deploy: cli/deploy.md
           - transire init: cli/init.md
-          - transire destroy: reference/cli/destroy.md
       - Config:
           - Schema: reference/config-schema.md
-          - Validation: reference/config/validation.md
-          - Examples: reference/config/examples.md
       - Manifest:
           - Schema: reference/manifest-schema.md
-          - Understanding: reference/manifest/understanding-manifest.md
       - Error Codes: reference/error-codes.md
       - Glossary: reference/glossary.md
 
-  - Plugins:
-      - Cloud Providers:
-          - Overview: plugins/cloud/overview.md
-          - AWS:
-              - Overview: cloud/aws/overview.md
-              - HTTP (API Gateway): cloud/aws/http.md
-              - Queues (SQS): cloud/aws/queues.md
-              - Schedules (EventBridge): cloud/aws/schedules.md
-              - Permissions: cloud/aws/permissions.md
-              - Deployment: cloud/aws/deployment.md
-              - Troubleshooting: plugins/cloud/aws/troubleshooting.md
-          - Creating Providers: plugins/cloud/creating-providers.md
-      - IaC Providers:
-          - Overview: plugins/iac/overview.md
-          - OpenTofu:
-              - Overview: iac/overview.md
-              - Backend Setup: iac/backend.md
-              - Workspaces: iac/workspaces.md
-              - State Management: plugins/iac/opentofu/state-management.md
-          - Creating Providers: plugins/iac/creating-providers.md
-      - CI Providers:
-          - Overview: plugins/ci/overview.md
-          - GitHub Actions:
-              - Overview: ci/github-actions.md
-              - Workflow Setup: plugins/ci/github-actions/workflow-setup.md
-              - Guard Blocks: plugins/ci/github-actions/guard-blocks.md
-          - Creating Providers: plugins/ci/creating-providers.md
+  - Providers:
+      - Overview: providers/overview.md
+      - Local:
+          - Overview: providers/local/overview.md
+      - AWS:
+          - Overview: cloud/aws/overview.md
+          - HTTP (API Gateway): cloud/aws/http.md
+          - Queues (SQS): cloud/aws/queues.md
+          - Schedules (EventBridge): cloud/aws/schedules.md
+          - Permissions: cloud/aws/permissions.md
+          - Deployment: cloud/aws/deployment.md
+          - Limits: providers/aws/limits.md
+
+  - Infrastructure:
+      - Cloud Providers: plugins/cloud/overview.md
+      - IaC (OpenTofu):
+          - Overview: iac/overview.md
+          - Backend Setup: iac/backend.md
+          - Workspaces: iac/workspaces.md
+          - Alternative: iac/opentofu.md
+      - CI (GitHub Actions):
+          - Overview: ci/github-actions.md
+
+  - Deployment:
+      - Overview: deployment/overview.md
 
   - Examples:
       - Gallery: examples/index.md
-      - Hello World: examples/hello-world/index.md
       - REST API (Orders): examples/orders.md
-      - Queue Processing: examples/queue-processing/index.md
-      - Full-Stack App: examples/full-stack/index.md
-      - Migration Guides:
-          - From AWS SAM: examples/migration/from-aws-sam.md
-          - From Serverless Framework: examples/migration/from-serverless-framework.md
-          - From Lambda Direct: examples/migration/from-lambda-direct.md
 
   - Community:
       - FAQ: community/faq.md
       - Contributing: community/contributing.md
       - Changelog: community/changelog.md
-      - Roadmap: community/roadmap.md
-      - Showcase: community/showcase.md
 
 extra_css:
   - stylesheets/extra.css

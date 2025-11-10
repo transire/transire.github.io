@@ -664,14 +664,14 @@ resource "aws_iam_role_policy_attachment" "http_s3" {
 
 ## Next Steps
 
-- [Environments Guide](/docs/guides/environments.md) - Multi-environment setup
-- [GitHub Actions CI/CD](/docs/ci/github-actions.md) - Automated deployments
-- [OpenTofu Backend](/docs/iac/backend.md) - Backend state management
-- [AWS Overview](/docs/cloud/aws/overview.md) - AWS-specific details
-- [Troubleshooting](/docs/guides/troubleshooting.md) - Common issues
+- [Environments Guide](/guides/environments.md) - Multi-environment setup
+- [GitHub Actions CI/CD](/ci/github-actions.md) - Automated deployments
+- [OpenTofu Backend](/iac/backend.md) - Backend state management
+- [AWS Overview](/cloud/aws/overview.md) - AWS-specific details
+- [Troubleshooting](/guides/troubleshooting.md) - Common issues
 
 ## See Also
 
-- [Quick Start](/docs/getting-started/quickstart.md) - Initial setup
-- [Local vs Cloud](/docs/guides/local-vs-cloud.md) - Environment parity
-- [Testing Guide](/docs/guides/testing.md) - Pre-deployment testing
+- [Quick Start](/getting-started/quickstart.md) - Initial setup
+- [Local vs Cloud](/guides/local-vs-cloud.md) - Environment parity
+- [Testing Guide](/guides/testing.md) - Pre-deployment testing

@@ -507,7 +507,7 @@ func TestIdempotentOrderCreation(t *testing.T) {
 
 ## See Also
 
-- [Queue Handlers](/docs/sdk/queue.md)
-- [Error Handling](/docs/guides/error-handling.md)
-- [Testing Guide](/docs/sdk/testkit.md)
-- [AWS Queues](/docs/cloud/aws/queues.md)
+- [Queue Handlers](/sdk/queue.md)
+- [Error Handling](/guides/error-handling.md)
+- [Testing Guide](/sdk/testkit.md)
+- [AWS Queues](/cloud/aws/queues.md)

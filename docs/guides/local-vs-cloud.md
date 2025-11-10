@@ -704,8 +704,8 @@ Failed messages are retried up to 3 times before being logged as failures.
 
 ## See Also
 
-- [Testing Guide](/docs/guides/testing.md) - Local and integration testing
-- [Deployment Guide](/docs/guides/deployment.md) - Deploying to cloud
-- [Environments Guide](/docs/guides/environments.md) - Multi-environment setup
-- [Performance Guide](/docs/guides/performance.md) - Optimization strategies
-- [Testkit Reference](/docs/sdk/testkit.md) - Testing utilities
+- [Testing Guide](/guides/testing.md) - Local and integration testing
+- [Deployment Guide](/guides/deployment.md) - Deploying to cloud
+- [Environments Guide](/guides/environments.md) - Multi-environment setup
+- [Performance Guide](/guides/performance.md) - Optimization strategies
+- [Testkit Reference](/sdk/testkit.md) - Testing utilities

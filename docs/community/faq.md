@@ -58,7 +58,7 @@ The `transire run` command runs your code as a normal Go process.
 
 ### Can I use middleware?
 
-Yes. Transire supports standard Go HTTP middleware. See the [Middleware Guide](/docs/sdk/middleware.md).
+Yes. Transire supports standard Go HTTP middleware. See the [Middleware Guide](/sdk/middleware.md).
 
 ## Deployment
 
@@ -70,7 +70,7 @@ The `transire deploy` command:
 3. Packages your handlers for cloud execution
 4. Deploys via OpenTofu
 
-See the [Deployment Guide](/docs/guides/deployment.md) for details.
+See the [Deployment Guide](/guides/deployment.md) for details.
 
 ### Can I customize the infrastructure?
 
@@ -78,11 +78,11 @@ Yes. Transire generates OpenTofu files in `infra/resources/` which you can custo
 
 ### How do I manage environments?
 
-Use OpenTofu workspaces. See [Environments Guide](/docs/guides/environments.md).
+Use OpenTofu workspaces. See [Environments Guide](/guides/environments.md).
 
 ### What about CI/CD?
 
-Transire can generate CI/CD workflows. See [GitHub Actions](/docs/ci/github-actions.md) for details.
+Transire can generate CI/CD workflows. See [GitHub Actions](/ci/github-actions.md) for details.
 
 ## Testing
 
@@ -103,7 +103,7 @@ func TestMyHandler(t *testing.T) {
 }
 ```
 
-See the [Testing Guide](/docs/sdk/testkit.md) for more examples.
+See the [Testing Guide](/sdk/testkit.md) for more examples.
 
 ### Can I write integration tests?
 
@@ -112,7 +112,7 @@ Yes. The test kit supports:
 - Queue message injection
 - Schedule trigger simulation
 
-See the [Testing Guide](/docs/sdk/testkit.md).
+See the [Testing Guide](/sdk/testkit.md).
 
 ## Performance
 
@@ -127,7 +127,7 @@ See the [Testing Guide](/docs/sdk/testkit.md).
 - Minimize dependencies
 - Use dependency injection for lazy initialization
 
-See the [Performance Guide](/docs/guides/performance.md).
+See the [Performance Guide](/guides/performance.md).
 
 ### Can I use connection pooling?
 
@@ -166,7 +166,7 @@ func main() {
 2. Verify OpenTofu backend is initialized (`transire init --backend`)
 3. Review error messages in deployment output
 
-For more troubleshooting help, see the [Troubleshooting Guide](/docs/guides/troubleshooting.md).
+For more troubleshooting help, see the [Troubleshooting Guide](/guides/troubleshooting.md).
 
 ## Getting Help
 
@@ -174,13 +174,13 @@ For more troubleshooting help, see the [Troubleshooting Guide](/docs/guides/trou
 
 - Check this FAQ
 - Review the [documentation](/docs/)
-- Read the [Troubleshooting Guide](/docs/guides/troubleshooting.md)
+- Read the [Troubleshooting Guide](/guides/troubleshooting.md)
 - Open an issue on GitHub
 
 ### How can I contribute?
 
-See the [Contributing Guide](/docs/community/contributing.md).
+See the [Contributing Guide](/community/contributing.md).
 
 ### Where's the changelog?
 
-See the [Changelog](/docs/community/changelog.md) for release notes and version history.
+See the [Changelog](/community/changelog.md) for release notes and version history.

@@ -193,7 +193,7 @@ Create custom providers for:
 - Proprietary platforms
 - Development/testing environments
 
-**[Creating Custom Providers →](creating-providers.md)**
+**[Creating Custom Providers →](*Guide coming soon*)**
 
 ---
 
@@ -417,7 +417,7 @@ func init() {
 cloud: mycloud
 ```
 
-**[Full Guide →](creating-providers.md)**
+**[Full Guide →](*Guide coming soon*)**
 
 ---
 
@@ -550,7 +550,7 @@ Third-party providers (when available):
 Want to add support for your cloud?
 
 1. **Check if planned:** [Provider Roadmap](https://github.com/transire/transire/issues?q=label%3Aprovider)
-2. **Read the guide:** [Creating Providers](creating-providers.md)
+2. **Read the guide:** [Creating Providers](*Guide coming soon*)
 3. **Submit PR:** Follow [Contributing Guidelines](../../community/contributing/)
 
 ---
@@ -558,7 +558,7 @@ Want to add support for your cloud?
 ## See Also
 
 - [AWS Provider Documentation](aws/) - Complete AWS reference
-- [Creating Custom Providers](creating-providers.md) - Build your own
+- [Creating Custom Providers](*Guide coming soon*) - Build your own
 - [IaC Providers](../iac/overview/) - Infrastructure as code plugins
 - [CI Providers](../ci/overview/) - CI/CD plugins
 - [Local vs Cloud Guide](../../guides/local-vs-cloud/) - Understanding differences

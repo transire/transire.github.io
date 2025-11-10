@@ -1173,9 +1173,9 @@ transire.Provide(func() (*redis.Client, error) {
 
 ## See Also
 
-- [HTTP Handlers](/docs/sdk/http.md) - HTTP handler reference
-- [Queue Handlers](/docs/sdk/queue.md) - Queue handler reference
-- [Scheduled Jobs](/docs/sdk/schedule.md) - Scheduled job reference
-- [Dependency Injection](/docs/sdk/di.md) - DI patterns
-- [Testing Guide](/docs/guides/testing.md) - Testing strategies
-- [Deployment Guide](/docs/guides/deployment.md) - Deployment best practices
+- [HTTP Handlers](/sdk/http.md) - HTTP handler reference
+- [Queue Handlers](/sdk/queue.md) - Queue handler reference
+- [Scheduled Jobs](/sdk/schedule.md) - Scheduled job reference
+- [Dependency Injection](/sdk/di.md) - DI patterns
+- [Testing Guide](/guides/testing.md) - Testing strategies
+- [Deployment Guide](/guides/deployment.md) - Deployment best practices

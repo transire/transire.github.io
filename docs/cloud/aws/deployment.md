@@ -192,13 +192,13 @@ transire deploy --env production
 transire deploy --env staging
 ```
 
-See [Environments Guide](/docs/guides/environments.md) for details.
+See [Environments Guide](/guides/environments.md) for details.
 
 ## Permissions
 
 Transire generates least-privilege IAM policies for each function.
 
-See [AWS Permissions](/docs/cloud/aws/permissions.md) for details on:
+See [AWS Permissions](/cloud/aws/permissions.md) for details on:
 - Default permissions
 - Custom permissions
 - Security best practices
@@ -293,7 +293,7 @@ tofu destroy
      response.json
    ```
 
-For more troubleshooting, see the [Troubleshooting Guide](/docs/guides/troubleshooting.md).
+For more troubleshooting, see the [Troubleshooting Guide](/guides/troubleshooting.md).
 
 ## Best Practices
 
@@ -306,9 +306,9 @@ For more troubleshooting, see the [Troubleshooting Guide](/docs/guides/troublesh
 
 ## See Also
 
-- [AWS HTTP Handlers](/docs/cloud/aws/http.md)
-- [AWS Queue Handlers](/docs/cloud/aws/queues.md)
-- [AWS Scheduled Handlers](/docs/cloud/aws/schedules.md)
-- [AWS Permissions](/docs/cloud/aws/permissions.md)
-- [Environments Guide](/docs/guides/environments.md)
-- [IaC Overview](/docs/iac/overview.md)
+- [AWS HTTP Handlers](/cloud/aws/http.md)
+- [AWS Queue Handlers](/cloud/aws/queues.md)
+- [AWS Scheduled Handlers](/cloud/aws/schedules.md)
+- [AWS Permissions](/cloud/aws/permissions.md)
+- [Environments Guide](/guides/environments.md)
+- [IaC Overview](/iac/overview.md)

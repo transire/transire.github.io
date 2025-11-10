@@ -997,7 +997,7 @@ Choose your focus:
 ### Community
 
 Share your work:
-- Post project to [Showcase](../../community/showcase.md)
+- Post project to [Showcase](*Coming soon*)
 - Contribute to [Examples](../../examples/)
 - Help others in [Discussions](https://github.com/transire/transire/discussions)
 

@@ -62,18 +62,18 @@ func main() {
 
 ## Documentation Structure
 
-- [HTTP Handlers](/docs/sdk/http.md) - Synchronous HTTP request handling
-- [Queue Handlers](/docs/sdk/queue.md) - Asynchronous message processing
-- [Scheduled Handlers](/docs/sdk/schedule.md) - Cron-based task execution
-- [Dependency Injection](/docs/sdk/di.md) - Managing service dependencies
-- [Middleware](/docs/sdk/middleware.md) - Request/response middleware
-- [Error Handling](/docs/sdk/errors.md) - Error handling patterns
-- [Testing](/docs/sdk/testkit.md) - Testing your application
+- [HTTP Handlers](/sdk/http.md) - Synchronous HTTP request handling
+- [Queue Handlers](/sdk/queue.md) - Asynchronous message processing
+- [Scheduled Handlers](/sdk/schedule.md) - Cron-based task execution
+- [Dependency Injection](/sdk/di.md) - Managing service dependencies
+- [Middleware](/sdk/middleware.md) - Request/response middleware
+- [Error Handling](/sdk/errors.md) - Error handling patterns
+- [Testing](/sdk/testkit.md) - Testing your application
 
 ## Next Steps
 
-Start with the [Quickstart Guide](/docs/getting-started/quickstart.md) to build your first Transire application, or dive into specific handler types:
+Start with the [Quickstart Guide](/getting-started/quickstart.md) to build your first Transire application, or dive into specific handler types:
 
-- Build a REST API with [HTTP Handlers](/docs/sdk/http.md)
-- Process messages with [Queue Handlers](/docs/sdk/queue.md)
-- Schedule tasks with [Scheduled Handlers](/docs/sdk/schedule.md)
+- Build a REST API with [HTTP Handlers](/sdk/http.md)
+- Process messages with [Queue Handlers](/sdk/queue.md)
+- Schedule tasks with [Scheduled Handlers](/sdk/schedule.md)

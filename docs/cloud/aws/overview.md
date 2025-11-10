@@ -441,8 +441,8 @@ Transire enables X-Ray for all Lambda functions.
 
 ## See Also
 
-- [AWS HTTP (API Gateway)](/docs/cloud/aws/http.md) - HTTP endpoint details
-- [AWS Queues (SQS)](/docs/cloud/aws/queues.md) - Queue implementation details
-- [AWS Schedules (EventBridge)](/docs/cloud/aws/schedules.md) - Schedule implementation details
-- [Deployment Guide](/docs/guides/deployment.md) - Deployment best practices
-- [Configuration](/docs/reference/config-schema.md) - Configuration options
+- [AWS HTTP (API Gateway)](/cloud/aws/http.md) - HTTP endpoint details
+- [AWS Queues (SQS)](/cloud/aws/queues.md) - Queue implementation details
+- [AWS Schedules (EventBridge)](/cloud/aws/schedules.md) - Schedule implementation details
+- [Deployment Guide](/guides/deployment.md) - Deployment best practices
+- [Configuration](/reference/config-schema.md) - Configuration options

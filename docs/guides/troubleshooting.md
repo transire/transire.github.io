@@ -63,7 +63,7 @@ func(ctx context.Context, msgs []MessageType) error
 func(ctx context.Context) error
 ```
 
-See [Error Codes](/docs/reference/error-codes.md) for detailed signature requirements.
+See [Error Codes](/reference/error-codes.md) for detailed signature requirements.
 
 ## Local Runtime Issues
 
@@ -375,8 +375,8 @@ See [Error Codes Reference](/docs/reference/error-codes.md#e3001).
 
 If these solutions don't resolve your issue:
 
-1. Check [Error Codes Reference](/docs/reference/error-codes.md)
-2. Review [FAQ](/docs/community/faq.md)
+1. Check [Error Codes Reference](/reference/error-codes.md)
+2. Review [FAQ](/community/faq.md)
 3. Search existing GitHub issues
 4. Create a new issue with:
    - Error message

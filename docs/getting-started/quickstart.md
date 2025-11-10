@@ -57,7 +57,7 @@ Transire CLI v1.0.0
 - Cloud provider account (AWS, Azure, GCP)
 - Cloud provider CLI configured
 
-See [Cloud Deployment](#cloud-deployment) below for provider-specific setup.
+See [Cloud Deployment](#step-7-deploy-to-cloud-optional) below for provider-specific setup.
 
 ## Step 1: Create Project
 

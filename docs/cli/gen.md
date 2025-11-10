@@ -515,8 +515,8 @@ func handler(ctx context.Context, msgs []MyMessage) error {
 
 ## See Also
 
-- [transire run](/docs/cli/run.md) - Running your app locally
-- [transire deploy](/docs/cli/deploy.md) - Deploying to cloud
-- [Configuration](/docs/reference/config-schema.md) - transire.yaml schema
-- [Manifest](/docs/reference/manifest-schema.md) - Manifest format
-- [Error Codes](/docs/reference/error-codes.md) - Complete error reference
+- [transire run](/cli/run.md) - Running your app locally
+- [transire deploy](/cli/deploy.md) - Deploying to cloud
+- [Configuration](/reference/config-schema.md) - transire.yaml schema
+- [Manifest](/reference/manifest-schema.md) - Manifest format
+- [Error Codes](/reference/error-codes.md) - Complete error reference

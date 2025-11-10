@@ -662,9 +662,9 @@ Enable CloudWatch logs and set up alerts for deployment failures.
 
 ## See Also
 
-- [transire init](/docs/cli/init.md) - Initialize backend
-- [transire gen](/docs/cli/gen.md) - Generate manifest
-- [Deployment Guide](/docs/guides/deployment.md) - Deployment best practices
-- [Environments](/docs/guides/environments.md) - Multi-environment setup
-- [AWS Overview](/docs/cloud/aws/overview.md) - AWS-specific details
-- [OpenTofu](/docs/iac/opentofu.md) - IaC provider details
+- [transire init](/cli/init.md) - Initialize backend
+- [transire gen](/cli/gen.md) - Generate manifest
+- [Deployment Guide](/guides/deployment.md) - Deployment best practices
+- [Environments](/guides/environments.md) - Multi-environment setup
+- [AWS Overview](/cloud/aws/overview.md) - AWS-specific details
+- [OpenTofu](/iac/opentofu.md) - IaC provider details

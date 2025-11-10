@@ -31,7 +31,7 @@ See: [Hello World Tutorial](../learn/tutorials/01-hello-world.md)
 
 Go's code representation used by `transire gen` to analyze your code at build time. Enables type-safe manifest generation without runtime reflection.
 
-See: [Core Concepts](../learn/introduction/concepts.md#build-time-manifest)
+See: [Core Concepts](../intro/concepts.md#build-time-manifest)
 
 ---
 

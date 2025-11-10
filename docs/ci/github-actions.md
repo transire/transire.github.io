@@ -540,7 +540,7 @@ aws cloudformation describe-stack-events --stack-name orders-prod
 
 ## See Also
 
-- [Deployment Guide](/docs/guides/deployment.md) - Complete deployment workflow
-- [Environments Guide](/docs/guides/environments.md) - Multi-environment setup
-- [AWS Overview](/docs/cloud/aws/overview.md) - AWS-specific configuration
-- [OpenTofu Backend](/docs/iac/backend.md) - Backend state management
+- [Deployment Guide](/guides/deployment.md) - Complete deployment workflow
+- [Environments Guide](/guides/environments.md) - Multi-environment setup
+- [AWS Overview](/cloud/aws/overview.md) - AWS-specific configuration
+- [OpenTofu Backend](/iac/backend.md) - Backend state management

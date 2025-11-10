@@ -534,7 +534,7 @@ aws s3api put-bucket-replication --bucket transire-tf-state --replication-config
 
 ## See Also
 
-- [transire deploy](/docs/cli/deploy.md) - Deploy after backend init
-- [OpenTofu Backend](/docs/iac/backend.md) - Backend configuration details
-- [Environments](/docs/guides/environments.md) - Multi-environment state management
-- [AWS Overview](/docs/cloud/aws/overview.md) - AWS-specific details
+- [transire deploy](/cli/deploy.md) - Deploy after backend init
+- [OpenTofu Backend](/iac/backend.md) - Backend configuration details
+- [Environments](/guides/environments.md) - Multi-environment state management
+- [AWS Overview](/cloud/aws/overview.md) - AWS-specific details

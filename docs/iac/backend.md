@@ -689,8 +689,8 @@ aws s3api put-bucket-logging \
 
 ## See Also
 
-- [OpenTofu Overview](/docs/iac/overview.md) - Understanding IaC with Transire
-- [Workspaces](/docs/iac/workspaces.md) - Managing multiple environments
-- [Deployment Guide](/docs/guides/deployment.md) - Deploying to production
-- [Environments](/docs/guides/environments.md) - Environment configuration
-- [CLI: transire init](/docs/cli/init.md) - Backend initialization command
+- [OpenTofu Overview](/iac/overview.md) - Understanding IaC with Transire
+- [Workspaces](/iac/workspaces.md) - Managing multiple environments
+- [Deployment Guide](/guides/deployment.md) - Deploying to production
+- [Environments](/guides/environments.md) - Environment configuration
+- [CLI: transire init](/cli/init.md) - Backend initialization command

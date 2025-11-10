@@ -668,8 +668,8 @@ transire.ProvideRequest(func(ctx context.Context, r *http.Request) (*UserContext
 
 ## See Also
 
-- [HTTP Handlers](/docs/sdk/http.md) - Using DI in HTTP handlers
-- [Queue Handlers](/docs/sdk/queue.md) - Using DI in queue handlers
-- [Scheduled Jobs](/docs/sdk/schedule.md) - Using DI in scheduled jobs
-- [Middleware](/docs/sdk/middleware.md) - Using DI in middleware
-- [Testing](/docs/sdk/testkit.md) - Mocking dependencies in tests
+- [HTTP Handlers](/sdk/http.md) - Using DI in HTTP handlers
+- [Queue Handlers](/sdk/queue.md) - Using DI in queue handlers
+- [Scheduled Jobs](/sdk/schedule.md) - Using DI in scheduled jobs
+- [Middleware](/sdk/middleware.md) - Using DI in middleware
+- [Testing](/sdk/testkit.md) - Mocking dependencies in tests

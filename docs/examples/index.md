@@ -311,7 +311,7 @@ Resources:
 app.GET("/hello", helloHandler)
 ```
 
-**[View Migration Guide →](migration/from-aws-sam.md)**
+*Migration guide coming soon*
 
 ---
 
@@ -334,7 +334,7 @@ functions:
 app.GET("/hello", helloHandler)
 ```
 
-**[View Migration Guide →](migration/from-serverless-framework.md)**
+*Migration guide coming soon*
 
 ---
 
@@ -364,7 +364,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-**[View Migration Guide →](migration/from-lambda-direct.md)**
+*Migration guide coming soon*
 
 ---
 

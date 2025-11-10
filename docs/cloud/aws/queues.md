@@ -685,8 +685,8 @@ fields @timestamp, @duration, @message
 
 ## See Also
 
-- [SDK Queue Handlers](/docs/sdk/queue.md) - Queue handler API
-- [AWS HTTP](/docs/cloud/aws/http.md) - Enqueue from HTTP handlers
-- [AWS Schedules](/docs/cloud/aws/schedules.md) - Enqueue from scheduled jobs
-- [Error Handling Guide](/docs/guides/error-handling.md) - Error patterns
-- [Testing Guide](/docs/guides/testing.md) - Test queue handlers
+- [SDK Queue Handlers](/sdk/queue.md) - Queue handler API
+- [AWS HTTP](/cloud/aws/http.md) - Enqueue from HTTP handlers
+- [AWS Schedules](/cloud/aws/schedules.md) - Enqueue from scheduled jobs
+- [Error Handling Guide](/guides/error-handling.md) - Error patterns
+- [Testing Guide](/guides/testing.md) - Test queue handlers

@@ -519,16 +519,16 @@ resource "aws_iam_role_policy_attachment" "http_secrets" {
 
 Now that you understand OpenTofu basics:
 
-1. **Set up backend** - [Backend Setup Guide](/docs/iac/backend.md)
-2. **Manage environments** - [Workspaces Guide](/docs/iac/workspaces.md)
-3. **Deploy your app** - [Deployment Guide](/docs/guides/deployment.md)
-4. **Customize infrastructure** - [AWS Deployment Details](/docs/cloud/aws/deployment.md)
+1. **Set up backend** - [Backend Setup Guide](/iac/backend.md)
+2. **Manage environments** - [Workspaces Guide](/iac/workspaces.md)
+3. **Deploy your app** - [Deployment Guide](/guides/deployment.md)
+4. **Customize infrastructure** - [AWS Deployment Details](/cloud/aws/deployment.md)
 
 ## See Also
 
-- [Backend Setup](/docs/iac/backend.md) - Configure S3 + DynamoDB backend
-- [Workspaces](/docs/iac/workspaces.md) - Manage multiple environments
-- [AWS Overview](/docs/cloud/aws/overview.md) - AWS-specific details
-- [Deployment Guide](/docs/guides/deployment.md) - Production deployment
-- [CLI: transire deploy](/docs/cli/deploy.md) - Deploy command reference
+- [Backend Setup](/iac/backend.md) - Configure S3 + DynamoDB backend
+- [Workspaces](/iac/workspaces.md) - Manage multiple environments
+- [AWS Overview](/cloud/aws/overview.md) - AWS-specific details
+- [Deployment Guide](/guides/deployment.md) - Production deployment
+- [CLI: transire deploy](/cli/deploy.md) - Deploy command reference
 - [OpenTofu Documentation](https://opentofu.org/docs/) - Official OpenTofu docs

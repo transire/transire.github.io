@@ -392,7 +392,7 @@ func main() {
 }
 ```
 
-For more advanced middleware patterns, see the [Middleware Guide](/docs/sdk/middleware.md).
+For more advanced middleware patterns, see the [Middleware Guide](/sdk/middleware.md).
 
 ## Local vs Cloud
 
@@ -483,12 +483,12 @@ func TestGetUser(t *testing.T) {
 }
 ```
 
-For more testing patterns, see the [Testing Guide](/docs/sdk/testkit.md).
+For more testing patterns, see the [Testing Guide](/sdk/testkit.md).
 
 ## See Also
 
-- [Queue Handlers](/docs/sdk/queue.md) - Async message processing
-- [Middleware](/docs/sdk/middleware.md) - Request/response middleware patterns
-- [Testing](/docs/sdk/testkit.md) - Testing HTTP handlers
-- [Dependency Injection](/docs/sdk/di.md) - Injecting services into handlers
-- [Error Handling](/docs/sdk/errors.md) - Error handling best practices
+- [Queue Handlers](/sdk/queue.md) - Async message processing
+- [Middleware](/sdk/middleware.md) - Request/response middleware patterns
+- [Testing](/sdk/testkit.md) - Testing HTTP handlers
+- [Dependency Injection](/sdk/di.md) - Injecting services into handlers
+- [Error Handling](/sdk/errors.md) - Error handling best practices

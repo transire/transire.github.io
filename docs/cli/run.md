@@ -531,8 +531,8 @@ transire run --log-level=debug
 
 ## See Also
 
-- [transire gen](/docs/cli/gen.md) - Generate manifest
-- [transire deploy](/docs/cli/deploy.md) - Deploy to cloud
-- [Configuration](/docs/reference/config-schema.md) - transire.yaml schema
-- [Testing](/docs/guides/testing.md) - Testing strategies
-- [Local vs Cloud](/docs/guides/local-vs-cloud.md) - Parity details
+- [transire gen](/cli/gen.md) - Generate manifest
+- [transire deploy](/cli/deploy.md) - Deploy to cloud
+- [Configuration](/reference/config-schema.md) - transire.yaml schema
+- [Testing](/guides/testing.md) - Testing strategies
+- [Local vs Cloud](/guides/local-vs-cloud.md) - Parity details

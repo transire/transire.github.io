@@ -869,9 +869,9 @@ git diff transire_manifest.json
 
 ## See Also
 
-- [Config Schema](/docs/reference/config-schema.md) - Configuration file reference
-- [Error Codes](/docs/reference/error-codes.md) - Complete error code reference
-- [transire gen](/docs/cli/gen.md) - Manifest generation command
-- [HTTP Handlers](/docs/sdk/http.md) - HTTP handler registration
-- [Queue Handlers](/docs/sdk/queue.md) - Queue handler registration
-- [Scheduled Jobs](/docs/sdk/schedule.md) - Scheduled job registration
+- [Config Schema](/reference/config-schema.md) - Configuration file reference
+- [Error Codes](/reference/error-codes.md) - Complete error code reference
+- [transire gen](/cli/gen.md) - Manifest generation command
+- [HTTP Handlers](/sdk/http.md) - HTTP handler registration
+- [Queue Handlers](/sdk/queue.md) - Queue handler registration
+- [Scheduled Jobs](/sdk/schedule.md) - Scheduled job registration

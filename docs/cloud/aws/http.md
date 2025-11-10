@@ -587,8 +587,8 @@ aws logs tail /aws/lambda/<function-name> --follow
 
 ## See Also
 
-- [AWS Queues (SQS)](/docs/cloud/aws/queues.md) - Async processing
-- [AWS Schedules (EventBridge)](/docs/cloud/aws/schedules.md) - Scheduled jobs
-- [AWS Permissions (IAM)](/docs/cloud/aws/permissions.md) - Fine-grained permissions
-- [Deployment Guide](/docs/guides/deployment.md) - Complete deployment process
-- [Performance Guide](/docs/guides/performance.md) - Optimization patterns
+- [AWS Queues (SQS)](/cloud/aws/queues.md) - Async processing
+- [AWS Schedules (EventBridge)](/cloud/aws/schedules.md) - Scheduled jobs
+- [AWS Permissions (IAM)](/cloud/aws/permissions.md) - Fine-grained permissions
+- [Deployment Guide](/guides/deployment.md) - Complete deployment process
+- [Performance Guide](/guides/performance.md) - Optimization patterns

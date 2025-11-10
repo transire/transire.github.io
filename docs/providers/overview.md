@@ -15,7 +15,7 @@ Transire is cloud-agnostic by design. Write your application once, deploy anywhe
 
 ### Production Ready
 
-- **[AWS](/docs/providers/aws/overview.md)** - Amazon Web Services
+- **[AWS](/providers/aws/overview.md)** - Amazon Web Services
   - Lambda, API Gateway, SQS, EventBridge
   - Battle-tested, production-ready
   - Full feature support
@@ -32,7 +32,7 @@ Transire is cloud-agnostic by design. Write your application once, deploy anywhe
 
 ### Local Development
 
-- **[Local Runtime](/docs/providers/local/overview.md)** - Built-in emulator
+- **[Local Runtime](/providers/local/overview.md)** - Built-in emulator
   - In-memory queues
   - Fixed-rate scheduler
   - Fast development feedback
@@ -205,7 +205,7 @@ Your application code remains unchanged!
 
 ## See Also
 
-- [AWS Provider](/docs/providers/aws/overview.md) - AWS implementation details
-- [Local Provider](/docs/providers/local/overview.md) - Local development runtime
-- [Deployment Guide](/docs/deployment/overview.md) - How to deploy
-- [Configuration Reference](/docs/reference/config-schema.md) - Config options
+- [AWS Provider](/providers/aws/overview.md) - AWS implementation details
+- [Local Provider](/providers/local/overview.md) - Local development runtime
+- [Deployment Guide](/deployment/overview.md) - How to deploy
+- [Configuration Reference](/reference/config-schema.md) - Config options

@@ -344,7 +344,7 @@ For organizations using permission boundaries:
 
 ## See Also
 
-- [AWS Deployment](/docs/cloud/aws/deployment.md)
+- [AWS Deployment](/cloud/aws/deployment.md)
 - [Security Best Practices (AWS)](https://docs.aws.amazon.com/lambda/latest/dg/security.html)
-- [IAM Overview](/docs/iac/overview.md)
-- [Troubleshooting Guide](/docs/guides/troubleshooting.md)
+- [IAM Overview](/iac/overview.md)
+- [Troubleshooting Guide](/guides/troubleshooting.md)
