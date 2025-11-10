@@ -1,0 +1,242 @@
+site_name: Transire Documentation
+site_url: https://docs.transire.dev
+site_description: Cloud-native Go framework. Same code, anywhere.
+repo_url: https://github.com/transire/transire
+repo_name: transire/transire
+edit_uri: edit/main/repos/transire-docs/docs/
+
+theme:
+  name: material
+  # custom_dir: overrides  # Custom templates (not yet implemented)
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+
+  features:
+    - navigation.instant      # Fast page loads (SPA-like)
+    - navigation.tracking     # URL updates on scroll
+    - navigation.tabs         # Top-level tabs
+    - navigation.sections     # Collapsible sections
+    - navigation.indexes      # Section index pages
+    - navigation.top          # Back to top button
+    - navigation.footer       # Previous/next navigation
+    - search.suggest          # Search suggestions
+    - search.highlight        # Highlight search terms
+    - search.share            # Share search results
+    - content.code.copy       # Copy button on code blocks
+    - content.code.annotate   # Code annotations
+    - content.tabs.link       # Linked content tabs
+    - content.action.edit     # Edit button
+    - content.action.view     # View source button
+
+  palette:
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  font:
+    text: Inter
+    code: Fira Code
+
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-\.]+'
+  - meta  # YAML frontmatter support
+  - tags  # Tag support
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX  # Add after setup
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/transire/transire
+      name: Transire on GitHub
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/transire
+      name: Transire on Twitter
+  version:
+    provider: mike  # For versioning (future)
+
+nav:
+  - Home: index.md
+
+  - Learn:
+      - Introduction:
+          - What is Transire?: learn/introduction/what-is-transire.md
+          - Core Concepts: intro/concepts.md
+          - When to Use: learn/introduction/when-to-use.md
+      - Tutorials:
+          - Hello World (5 min): learn/tutorials/01-hello-world.md
+          - REST API (15 min): learn/tutorials/02-rest-api.md
+          - Queue Processing (20 min): learn/tutorials/03-queue-processing.md
+          - Scheduled Jobs (15 min): learn/tutorials/04-scheduled-jobs.md
+          - Dependency Injection (25 min): learn/tutorials/05-dependency-injection.md
+          - Middleware & Auth (30 min): learn/tutorials/06-middleware-auth.md
+          - Production Deploy (45 min): learn/tutorials/07-production-deployment.md
+      - Learning Paths:
+          - Beginner Path (2-3 hrs): learn/curriculum/beginner-path.md
+          - Intermediate Path (4-5 hrs): learn/curriculum/intermediate-path.md
+          - Advanced Path (6-8 hrs): learn/curriculum/advanced-path.md
+
+  - Getting Started:
+      - Quick Start: getting-started/quickstart.md
+      - Installation: getting-started/installation.md
+      - Project Setup: getting-started/project-setup.md
+
+  - Guides:
+      - Development:
+          - Local Development: guides/development/local-development.md
+          - Hot Reload: guides/development/hot-reload.md
+          - Debugging: guides/development/debugging.md
+          - Testing Strategies: guides/testing.md
+      - Deployment:
+          - First Deployment: guides/deployment/first-deployment.md
+          - Environments: guides/environments.md
+          - CI/CD Setup: guides/deployment/ci-cd-setup.md
+          - Production Checklist: guides/deployment/production-checklist.md
+          - Rollback Strategies: guides/deployment/rollback-strategies.md
+      - Architecture:
+          - HTTP Architecture: guides/architecture/http-architecture.md
+          - Queue Architecture: guides/architecture/queue-architecture.md
+          - Scheduler Architecture: guides/architecture/scheduler-architecture.md
+          - Local vs Cloud: guides/local-vs-cloud.md
+      - Patterns:
+          - Dependency Injection: guides/di-patterns.md
+          - Middleware Patterns: guides/middleware-patterns.md
+          - Error Handling: guides/error-handling.md
+          - Idempotency: guides/idempotency.md
+          - Security Patterns: guides/patterns/security-patterns.md
+      - Performance:
+          - Performance Guide: guides/performance.md
+          - Optimization Tips: guides/performance/optimization.md
+      - Troubleshooting:
+          - Diagnostic Guide: guides/troubleshooting/index.md
+          - Deployment Issues: guides/troubleshooting/deployment-issues.md
+          - Runtime Issues: guides/troubleshooting/runtime-issues.md
+          - Queue Issues: guides/troubleshooting/queue-issues.md
+
+  - Reference:
+      - SDK:
+          - Overview: sdk/overview.md
+          - HTTP API: reference/sdk/http-api.md
+          - Queue API: reference/sdk/queue-api.md
+          - Schedule API: reference/sdk/schedule-api.md
+          - Dependency Injection: sdk/di.md
+          - Middleware: sdk/middleware.md
+          - Error Handling: sdk/errors.md
+          - Response Helpers: reference/sdk/response-helpers.md
+          - Context Helpers: reference/sdk/context-helpers.md
+          - Test Kit: sdk/testkit.md
+      - CLI:
+          - Overview: cli/overview.md
+          - transire gen: cli/gen.md
+          - transire run: cli/run.md
+          - transire deploy: cli/deploy.md
+          - transire init: cli/init.md
+          - transire destroy: reference/cli/destroy.md
+      - Config:
+          - Schema: reference/config-schema.md
+          - Validation: reference/config/validation.md
+          - Examples: reference/config/examples.md
+      - Manifest:
+          - Schema: reference/manifest-schema.md
+          - Understanding: reference/manifest/understanding-manifest.md
+      - Error Codes: reference/error-codes.md
+      - Glossary: reference/glossary.md
+
+  - Plugins:
+      - Cloud Providers:
+          - Overview: plugins/cloud/overview.md
+          - AWS:
+              - Overview: cloud/aws/overview.md
+              - HTTP (API Gateway): cloud/aws/http.md
+              - Queues (SQS): cloud/aws/queues.md
+              - Schedules (EventBridge): cloud/aws/schedules.md
+              - Permissions: cloud/aws/permissions.md
+              - Deployment: cloud/aws/deployment.md
+              - Troubleshooting: plugins/cloud/aws/troubleshooting.md
+          - Creating Providers: plugins/cloud/creating-providers.md
+      - IaC Providers:
+          - Overview: plugins/iac/overview.md
+          - OpenTofu:
+              - Overview: iac/overview.md
+              - Backend Setup: iac/backend.md
+              - Workspaces: iac/workspaces.md
+              - State Management: plugins/iac/opentofu/state-management.md
+          - Creating Providers: plugins/iac/creating-providers.md
+      - CI Providers:
+          - Overview: plugins/ci/overview.md
+          - GitHub Actions:
+              - Overview: ci/github-actions.md
+              - Workflow Setup: plugins/ci/github-actions/workflow-setup.md
+              - Guard Blocks: plugins/ci/github-actions/guard-blocks.md
+          - Creating Providers: plugins/ci/creating-providers.md
+
+  - Examples:
+      - Gallery: examples/index.md
+      - Hello World: examples/hello-world/index.md
+      - REST API (Orders): examples/orders.md
+      - Queue Processing: examples/queue-processing/index.md
+      - Full-Stack App: examples/full-stack/index.md
+      - Migration Guides:
+          - From AWS SAM: examples/migration/from-aws-sam.md
+          - From Serverless Framework: examples/migration/from-serverless-framework.md
+          - From Lambda Direct: examples/migration/from-lambda-direct.md
+
+  - Community:
+      - FAQ: community/faq.md
+      - Contributing: community/contributing.md
+      - Changelog: community/changelog.md
+      - Roadmap: community/roadmap.md
+      - Showcase: community/showcase.md
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js

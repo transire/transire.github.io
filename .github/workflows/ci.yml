@@ -1,0 +1,175 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-docs:
+    name: Validate Documentation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check Markdown files exist
+        run: |
+          if [ ! -d "docs" ]; then
+            echo "Error: docs directory not found"
+            exit 1
+          fi
+
+          file_count=$(find docs -name "*.md" | wc -l)
+          if [ "$file_count" -eq 0 ]; then
+            echo "Error: No markdown files found"
+            exit 1
+          fi
+
+          echo "Found $file_count markdown files"
+
+      - name: Validate Markdown links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          config-file: '.github/workflows/markdown-link-check-config.json'
+        continue-on-error: true
+
+      - name: Check for broken internal links
+        run: |
+          echo "Checking for common broken link patterns..."
+
+          # Check for missing referenced files
+          for file in $(find docs -name "*.md"); do
+            echo "Checking $file..."
+            grep -oP '\(/docs/[^)]+\)' "$file" | sed 's/[()]//g' | while read link; do
+              full_path="${link#/docs/}"
+              if [ ! -f "docs/$full_path" ]; then
+                echo "Warning: Broken link in $file: $link"
+              fi
+            done
+          done || true
+
+      - name: Validate YAML frontmatter
+        run: |
+          echo "Validating YAML frontmatter in markdown files..."
+
+          for file in $(find docs -name "*.md"); do
+            # Check if file has frontmatter
+            if head -n 1 "$file" | grep -q "^---$"; then
+              echo "✓ $file has frontmatter"
+            else
+              echo "⚠ Warning: $file missing frontmatter"
+            fi
+          done
+
+  build-test:
+    name: Test MkDocs Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: validate-docs
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Check for MkDocs config
+        id: check_mkdocs
+        run: |
+          if [ -f "mkdocs.yml" ]; then
+            echo "mkdocs_present=true" >> $GITHUB_OUTPUT
+          else
+            echo "mkdocs_present=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install MkDocs
+        if: steps.check_mkdocs.outputs.mkdocs_present == 'true'
+        run: |
+          if [ -f "requirements.txt" ]; then
+            pip install -r requirements.txt
+          else
+            pip install mkdocs mkdocs-material
+          fi
+
+      - name: Build documentation
+        if: steps.check_mkdocs.outputs.mkdocs_present == 'true'
+        run: mkdocs build --strict
+
+      - name: Upload built docs
+        if: steps.check_mkdocs.outputs.mkdocs_present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-docs
+          path: site/
+          retention-days: 7
+
+      - name: Skip MkDocs build
+        if: steps.check_mkdocs.outputs.mkdocs_present == 'false'
+        run: echo "No mkdocs.yml found, skipping MkDocs build"
+
+  validate-examples:
+    name: Validate Example Code
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: validate-docs
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for example code
+        id: check_examples
+        run: |
+          if [ -d "examples" ] && find examples -name "*.go" | grep -q .; then
+            echo "examples_present=true" >> $GITHUB_OUTPUT
+          else
+            echo "examples_present=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set up Go
+        if: steps.check_examples.outputs.examples_present == 'true'
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Cache Go modules
+        if: steps.check_examples.outputs.examples_present == 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-1.23-examples
+
+      - name: Build and test examples
+        if: steps.check_examples.outputs.examples_present == 'true'
+        run: |
+          for example_dir in examples/*/; do
+            if [ -f "$example_dir/go.mod" ]; then
+              echo "Building example: $example_dir"
+              cd "$example_dir"
+
+              go mod download
+              go build -v ./...
+
+              # Run tests if they exist
+              if ls *_test.go 1> /dev/null 2>&1; then
+                echo "Running tests for $example_dir"
+                go test -v ./...
+              fi
+
+              cd - > /dev/null
+            fi
+          done
+
+      - name: Skip example validation
+        if: steps.check_examples.outputs.examples_present == 'false'
+        run: echo "No Go examples found, skipping example validation"
