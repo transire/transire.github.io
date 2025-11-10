@@ -101,7 +101,7 @@ All handlers register with a `transire.App` instance:
 package main
 
 import (
-    "github.com/transire/sdk-go"
+    "github.com/transire/transire-sdk-go"
     "log"
 )
 
@@ -264,7 +264,7 @@ Created once per process (local) or cold start (cloud):
 package main
 
 import (
-    "github.com/transire/sdk-go"
+    "github.com/transire/transire-sdk-go"
 )
 
 func main() {

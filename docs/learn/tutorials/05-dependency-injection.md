@@ -153,7 +153,7 @@ func (l *Logger) Error(msg string, err error) {
 Add to your `main()` function:
 
 ```go
-import "github.com/transire/sdk-go"
+import "github.com/transire/transire-sdk-go"
 
 func main() {
     app := transire.New()
@@ -197,7 +197,7 @@ func main() {
 Inject dependencies into handler functions:
 
 ```go
-import "github.com/transire/sdk-go/response"
+import "github.com/transire/transire-sdk-go/response"
 
 // Handler with injected dependencies
 func listOrders(w http.ResponseWriter, r *http.Request, db *Database, logger *Logger) {
@@ -406,7 +406,7 @@ func listOrders(
 Manually resolve services when needed:
 
 ```go
-import "github.com/transire/sdk-go"
+import "github.com/transire/transire-sdk-go"
 
 func someFunction(ctx context.Context) {
     // Get service from DI container
@@ -596,7 +596,7 @@ package main
 
 import (
     "testing"
-    "github.com/transire/sdk-go/testkit"
+    "github.com/transire/transire-sdk-go/testkit"
 )
 
 func TestListOrders(t *testing.T) {
@@ -903,8 +903,8 @@ import (
     "strconv"
     "time"
 
-    "github.com/transire/sdk-go"
-    "github.com/transire/sdk-go/response"
+    "github.com/transire/transire-sdk-go"
+    "github.com/transire/transire-sdk-go/response"
     _ "github.com/lib/pq"
 )
 

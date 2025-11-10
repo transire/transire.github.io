@@ -61,7 +61,7 @@ package main
 import (
     "context"
     "log"
-    "github.com/transire/sdk-go"
+    "github.com/transire/transire-sdk-go"
 )
 
 func main() {
@@ -235,7 +235,7 @@ import (
     "fmt"
     "log"
     "time"
-    "github.com/transire/sdk-go"
+    "github.com/transire/transire-sdk-go"
 )
 
 type Report struct {
@@ -597,7 +597,7 @@ package main
 
 import (
     "testing"
-    "github.com/transire/sdk-go/testkit"
+    "github.com/transire/transire-sdk-go/testkit"
 )
 
 func TestScheduledJobIntegration(t *testing.T) {

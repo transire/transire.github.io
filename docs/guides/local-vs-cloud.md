@@ -451,9 +451,10 @@ observability:
 ```
 
 **Trace propagation:**
-- Both support HTTP → Queue trace propagation
-- X-Ray integration automatic in cloud
-- OTEL requires manual setup locally
+- 🔮 HTTP → Queue trace propagation is planned for v1.1 (not yet implemented)
+- X-Ray integration will be automatic in cloud when implemented
+- OTEL support will require manual setup locally when implemented
+- For now, manually pass trace IDs via message payloads if needed
 
 ### Metrics
 

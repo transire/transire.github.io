@@ -7,52 +7,76 @@ hide:
 ---
 
 <style>
-.journey-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
+.hero-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, rgba(76, 81, 191, 0.05), rgba(6, 182, 212, 0.05));
+  border-radius: 12px;
+  margin-bottom: 3rem;
 }
-.journey-card {
-  background: var(--md-code-bg-color);
-  border: 2px solid var(--md-default-fg-color--lightest);
-  border-radius: 8px;
-  padding: 1.5rem;
-  transition: all 0.2s;
-  cursor: pointer;
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
-.journey-card:hover {
-  border-color: var(--md-primary-fg-color);
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+.hero-section .tagline {
+  font-size: 1.5rem;
+  color: var(--md-primary-fg-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
-.journey-card h3 {
-  margin-top: 0;
+.hero-section .description {
+  font-size: 1.125rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+.hero-buttons {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
-.journey-card p {
-  margin-bottom: 0.5rem;
-}
-.journey-meta {
-  font-size: 0.85em;
-  color: var(--md-default-fg-color--light);
+@media screen and (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  .hero-section .tagline {
+    font-size: 1.25rem;
+  }
+  .hero-section .description {
+    font-size: 1rem;
+  }
 }
 </style>
 
+<div class="hero-section" markdown>
+
 # Transire
 
-**Build cloud-native apps with Go. Same code, anywhere.**
+<p class="tagline">Build cloud-native apps with Go. Same code, anywhere.</p>
 
+<p class="description">
 Transire is a cloud-native development framework that lets you write your application once and run it anywhere—locally or in the cloud. No serverless complexity. No infrastructure boilerplate. Just code.
+</p>
+
+<div class="hero-buttons">
+<a href="getting-started/quickstart/" class="md-button md-button--primary">
+  Get Started <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:1em;height:1em;display:inline-block;vertical-align:middle;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentColor"/></svg>
+</a>
+<a href="https://github.com/transire/transire" class="md-button">
+  View on GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:1em;height:1em;display:inline-block;vertical-align:middle;"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" fill="currentColor"/></svg>
+</a>
+</div>
+
+</div>
 
 ```go
 package main
 
 import (
     "context"
-    "github.com/transire/sdk-go"
+    "github.com/transire/transire-sdk-go"
 )
 
 func main() {
@@ -71,67 +95,66 @@ func main() {
 }
 ```
 
-Deploy to AWS with one command:
-
-```bash
-$ transire deploy
-✓ Deployed to AWS
-→ API URL: https://api.example.com
-```
+!!! success "One Command Deployment"
+    ```bash
+    $ transire deploy
+    ✓ Deployed to AWS
+    → API URL: https://api.example.com
+    ```
 
 ---
 
 ## Choose Your Journey
 
-<div class="journey-cards" markdown>
+<div class="grid cards" markdown>
 
-<a href="learn/tutorials/01-hello-world/" class="journey-card" markdown>
+-   :rocket:{ .lg .middle } **I'm new here**
 
-### 🚀 I'm new here
+    ---
 
-**Get started in 5 minutes**
+    Get started in 5 minutes
 
-Build and deploy your first Transire app with a guided quick start.
+    Build and deploy your first Transire app with a guided quick start.
 
-<span class="journey-meta">Perfect for: First-time users • Time: 5-15 min</span>
+    _Perfect for: First-time users • Time: 5-15 min_
 
-</a>
+    [:octicons-arrow-right-24: Get Started](learn/tutorials/01-hello-world/)
 
-<a href="learn/curriculum/beginner-path/" class="journey-card" markdown>
+-   :books:{ .lg .middle } **I want to learn deeply**
 
-### 📚 I want to learn deeply
+    ---
 
-**Follow structured learning paths**
+    Follow structured learning paths
 
-Master Transire through progressive tutorials from beginner to advanced.
+    Master Transire through progressive tutorials from beginner to advanced.
 
-<span class="journey-meta">Perfect for: Developers building expertise • Time: 2-8 hours</span>
+    _Perfect for: Developers building expertise • Time: 2-8 hours_
 
-</a>
+    [:octicons-arrow-right-24: Start Learning](learn/curriculum/beginner-path/)
 
-<a href="reference/sdk/overview/" class="journey-card" markdown>
+-   :mag:{ .lg .middle } **I need specific info**
 
-### 🔍 I need specific info
+    ---
 
-**Jump to API reference**
+    Jump to API reference
 
-Quick lookup for specific APIs, CLI commands, or configuration options.
+    Quick lookup for specific APIs, CLI commands, or configuration options.
 
-<span class="journey-meta">Perfect for: Experienced users • Time: Instant</span>
+    _Perfect for: Experienced users • Time: Instant_
 
-</a>
+    [:octicons-arrow-right-24: API Reference](reference/sdk/overview/)
 
-<a href="guides/troubleshooting/" class="journey-card" markdown>
+-   :wrench:{ .lg .middle } **I have a problem**
 
-### 🔧 I have a problem
+    ---
 
-**Troubleshoot your issue**
+    Troubleshoot your issue
 
-Diagnostic decision trees and solutions for common problems.
+    Diagnostic decision trees and solutions for common problems.
 
-<span class="journey-meta">Perfect for: Debugging • Time: 5-20 min</span>
+    _Perfect for: Debugging • Time: 5-20 min_
 
-</a>
+    [:octicons-arrow-right-24: Get Help](guides/troubleshooting/)
 
 </div>
 
@@ -163,7 +186,7 @@ Diagnostic decision trees and solutions for common problems.
     transire deploy   # Cloud
     ```
 
--   :material-safety-check:{ .lg .middle } **Type-Safe Queues**
+-   :material-shield-check:{ .lg .middle } **Type-Safe Queues**
 
     ---
 

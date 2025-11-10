@@ -216,12 +216,16 @@ Server logs show queue processing:
 [INFO] Order order-1 processed successfully
 ```
 
-## Hot Reload (`--watch`)
+## Hot Reload (`--watch`) - Coming in v1.1
 
-Hot reload mode automatically restarts your server when Go files change:
+!!! warning "Roadmap Feature"
+    Hot reload with `--watch` flag is planned for v1.1 and not yet implemented. This section documents the planned behavior.
+
+Hot reload mode will automatically restart your server when Go files change:
 
 ```bash
 $ transire run --watch
+# Coming in v1.1
 ✓ Watching for changes: *.go
 Server listening on http://localhost:8080
 ...
@@ -233,19 +237,21 @@ Restarting server...
 Server listening on http://localhost:8080
 ```
 
-### How It Works
+### Planned Behavior
 
-1. Watches all `*.go` files in current directory and subdirectories
-2. On change, gracefully stops server
-3. Runs `transire gen` to regenerate manifest
-4. If gen fails, keeps old server running and logs error
-5. Rebuilds binary and restarts server
+1. Will watch all `*.go` files in current directory and subdirectories
+2. On change, gracefully stop server
+3. Run `transire gen` to regenerate manifest
+4. If gen fails, keep old server running and log error
+5. Rebuild binary and restart server
 
-### Limitations
+### Expected Limitations
 
-- In-flight requests are cancelled (best-effort via `ctx.Done()`)
-- Queue messages in-memory are lost (re-enqueue after restart)
-- `transire.yaml` changes require manual restart (MVP constraint)
+- In-flight requests will be cancelled (best-effort via `ctx.Done()`)
+- Queue messages in-memory will be lost (re-enqueue after restart)
+- `transire.yaml` changes will require manual restart
+
+**For now**, manually restart with Ctrl+C and `transire run` when you make changes.
 
 ## Configuration
 
@@ -337,13 +343,14 @@ transire run --port 3000
 
 Change HTTP server port.
 
-### `--watch` (default: false)
+### `--watch` (Coming in v1.1)
 
 ```bash
+# Not yet implemented - planned for v1.1
 transire run --watch
 ```
 
-Enable hot reload.
+Will enable hot reload when implemented. For now, manually restart the server.
 
 ### `--queue-workers` (default: 1)
 

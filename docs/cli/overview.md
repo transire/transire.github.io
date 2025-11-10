@@ -27,7 +27,7 @@ The Transire CLI (`transire`) is the command-line tool for building, running, an
 
 - **`transire gen`** - Generate manifest from your Go code
 - **`transire run`** - Start local development server
-- **`transire run --watch`** - Start with hot reload
+- **`transire run --watch`** - (Coming in v1.1) Hot reload
 
 ### Deployment Commands
 

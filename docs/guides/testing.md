@@ -83,7 +83,7 @@ my-app/
 
 ```bash
 # Testkit (included in SDK)
-go get github.com/transire/sdk-go/testkit
+go get github.com/transire/transire-sdk-go/testkit
 
 # Optional: Testify for assertions
 go get github.com/stretchr/testify/assert
@@ -100,7 +100,7 @@ package handlers
 
 import (
     "testing"
-    "github.com/transire/sdk-go/testkit"
+    "github.com/transire/transire-sdk-go/testkit"
 )
 
 func TestListOrders(t *testing.T) {
@@ -257,7 +257,7 @@ Testkit provides:
 ```go
 import (
     "testing"
-    "github.com/transire/sdk-go/testkit"
+    "github.com/transire/transire-sdk-go/testkit"
 )
 
 func TestCreateOrder(t *testing.T) {

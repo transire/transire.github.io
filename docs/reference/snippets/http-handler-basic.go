@@ -7,7 +7,7 @@ package main
 
 import (
     "net/http"
-    "github.com/transire/sdk-go/response"
+    "github.com/transire/transire-sdk-go/response"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {

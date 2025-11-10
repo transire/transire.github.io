@@ -69,8 +69,8 @@ import (
     "context"
     "net/http"
 
-    "github.com/transire/sdk-go"
-    "github.com/transire/sdk-go/response"
+    "github.com/transire/transire-sdk-go"
+    "github.com/transire/transire-sdk-go/response"
 )
 
 func main() {
@@ -322,7 +322,7 @@ transire deploy --environment=dev
 ## Step 7: Install Dependencies
 
 ```bash
-go get github.com/transire/sdk-go@latest
+go get github.com/transire/transire-sdk-go@latest
 go mod tidy
 ```
 

@@ -46,7 +46,7 @@ To start using the SDK:
 ```go
 package main
 
-import "github.com/transire/sdk-go"
+import "github.com/transire/transire-sdk-go"
 
 func main() {
     app := transire.New()

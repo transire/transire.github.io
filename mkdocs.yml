@@ -32,7 +32,7 @@ theme:
     # Light mode
     - scheme: default
       primary: indigo
-      accent: indigo
+      accent: cyan
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -40,7 +40,7 @@ theme:
     # Dark mode
     - scheme: slate
       primary: indigo
-      accent: indigo
+      accent: cyan
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -65,6 +65,7 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+  - pymdownx.inlinehilite
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -149,6 +150,7 @@ nav:
           - General Issues: guides/troubleshooting.md
 
   - Reference:
+      - API Index: reference/api-index.md
       - SDK:
           - Overview: sdk/overview.md
           - HTTP: sdk/http.md
@@ -173,6 +175,7 @@ nav:
       - Manifest:
           - Schema: reference/manifest-schema.md
       - Error Codes: reference/error-codes.md
+      - Implementation Status: reference/implementation-status.md
       - Glossary: reference/glossary.md
 
   - Providers:

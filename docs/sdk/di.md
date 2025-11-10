@@ -52,7 +52,7 @@ Singletons are created once and shared across all invocations:
 import (
     "context"
     "os"
-    "github.com/transire/sdk-go"
+    "github.com/transire/transire-sdk-go"
 )
 
 type OrderService struct {
@@ -110,7 +110,7 @@ Request-scoped dependencies are created per invocation:
 import (
     "context"
     "net/http"
-    "github.com/transire/sdk-go"
+    "github.com/transire/transire-sdk-go"
 )
 
 type RequestID struct {
@@ -215,8 +215,8 @@ import (
     "log"
     "net/http"
     "os"
-    "github.com/transire/sdk-go"
-    "github.com/transire/sdk-go/response"
+    "github.com/transire/transire-sdk-go"
+    "github.com/transire/transire-sdk-go/response"
 )
 
 // Singleton dependencies
@@ -465,7 +465,7 @@ package main
 import (
     "context"
     "testing"
-    "github.com/transire/sdk-go/testkit"
+    "github.com/transire/transire-sdk-go/testkit"
 )
 
 func TestCreateOrder(t *testing.T) {

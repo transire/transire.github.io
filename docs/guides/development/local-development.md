@@ -82,7 +82,7 @@ transire run --port 3000
 transire run --env-file .env.local
 
 # Hot reload enabled
-transire run --watch
+transire run --watch  # Coming in v1.1
 ```
 
 ### What's Running?
@@ -141,7 +141,7 @@ $ transire run
 ### Enable Watch Mode
 
 ```bash
-$ transire run --watch
+$ transire run --watch  # Coming in v1.1
 
 ✓ Starting HTTP server on :8080
 ✓ Watching: *.go
@@ -170,7 +170,7 @@ $ transire run --watch
 **DO:**
 ```bash
 # ✅ Use watch mode during active development
-transire run --watch
+transire run --watch  # Coming in v1.1
 
 # ✅ Keep terminal visible to see reload feedback
 # ✅ Wait for "Restarted in X.Xs" before testing
@@ -525,7 +525,7 @@ dlv debug ./cmd/myapp --headless --listen=:2345 --api-version=2
 
 ```bash
 # Terminal 1: Run app with hot reload
-transire run --watch --env-file .env.local
+transire run --watch  # Coming in v1.1 --env-file .env.local
 
 # Terminal 2: Watch tests
 go test ./... -watch
@@ -540,7 +540,7 @@ curl http://localhost:8080/orders
 
 **1. Start server:**
 ```bash
-$ transire run --watch
+$ transire run --watch  # Coming in v1.1
 
 ✓ Ready: http://localhost:8080
 Watching for changes...
@@ -844,7 +844,7 @@ cat requests.http | grep -A3 "POST" | curl -X POST ...
 
 ```bash
 # Terminal 1: Run app
-transire run --watch
+transire run --watch  # Coming in v1.1
 
 # Terminal 2: Run tests on save
 go test ./... -watch
@@ -856,7 +856,7 @@ curl http://localhost:8080/health
 ### Test with testkit
 
 ```go
-import "github.com/transire/sdk-go/testkit"
+import "github.com/transire/transire-sdk-go/testkit"
 
 func TestCreateOrder(t *testing.T) {
     tk := testkit.New(t)
@@ -921,7 +921,7 @@ transire run --config path/to/transire.yaml
 **Issue:** Changes not triggering reload
 
 **Check:**
-1. Watch mode enabled: `transire run --watch`
+1. Watch mode enabled: `transire run --watch  # Coming in v1.1`
 2. Saving files (not just editing)
 3. Editing `.go` files (not generated files)
 4. No compile errors in terminal
@@ -929,7 +929,7 @@ transire run --config path/to/transire.yaml
 **Solution:**
 ```bash
 # Restart with verbose logging
-transire run --watch --verbose
+transire run --watch  # Coming in v1.1 --verbose
 ```
 
 ---

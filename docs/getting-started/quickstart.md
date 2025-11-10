@@ -53,6 +53,9 @@ $ transire version
 Transire CLI v1.0.0
 ```
 
+!!! tip "Pro Tip: Check Your Setup"
+    If either command fails, revisit the [Installation guide](installation.md) to ensure all dependencies are correctly installed and added to your PATH.
+
 **Optional (for cloud deployment):**
 - Cloud provider account (AWS, Azure, GCP)
 - Cloud provider CLI configured
@@ -72,10 +75,10 @@ cd orders-api
 go mod init github.com/yourusername/orders-api
 
 # Install Transire SDK
-go get github.com/transire/sdk-go@latest
+go get github.com/transire/transire-sdk-go@latest
 ```
 
-**Note:** Cloud provider packages (like `github.com/transire/cloud-aws`) are only needed when deploying. You don't need them for local development.
+**Note:** Cloud provider packages (like `github.com/transire/transire-cloud-aws`) are only needed when deploying. You don't need them for local development.
 
 ## Step 2: Create Application
 
@@ -91,8 +94,8 @@ import (
     "net/http"
     "time"
 
-    "github.com/transire/sdk-go"
-    "github.com/transire/sdk-go/response"
+    "github.com/transire/transire-sdk-go"
+    "github.com/transire/transire-sdk-go/response"
 )
 
 func main() {
@@ -251,6 +254,9 @@ func generateID() string {
 - **Lines 195-214:** Queue handler that processes orders in batches
 - **Lines 216-239:** Scheduled job that generates daily reports
 
+!!! warning "Production Consideration"
+    This example uses an in-memory store (`var orders = make(map[string]Order)`) for simplicity. In production, replace this with a persistent database like PostgreSQL, MySQL, or DynamoDB. Data in memory is lost when the Lambda function terminates.
+
 ## Step 3: Create Configuration
 
 Create `transire.yaml`:
@@ -317,6 +323,9 @@ $ transire gen
 ✓ Generated transire_manifest.json
 ```
 
+!!! info "How Manifest Generation Works"
+    Transire uses Go's AST (Abstract Syntax Tree) to statically analyze your code at build time. This means zero runtime reflection, reliable infrastructure generation, and compile-time type safety. The manifest is used to generate your serverless infrastructure.
+
 View the generated manifest:
 
 ```bash
@@ -357,6 +366,9 @@ $ transire run
 ✓ Scheduler: 1 job (daily-report, next run: tomorrow at 09:00)
 → Ready: http://localhost:8080
 ```
+
+!!! info "Hot Reload Coming Soon"
+    Hot reload with `transire run --watch` is planned for v1.1. For now, manually restart the server when you make changes (Ctrl+C, then `transire run` again).
 
 ## Step 6: Test Locally
 
@@ -433,6 +445,9 @@ $ curl http://localhost:8080/orders/nonexistent
 - ✅ Queue processing orders asynchronously
 - ✅ Scheduled job ready to run at 9 AM
 
+!!! success "Local Development Complete"
+    Your application is fully functional locally. You can develop and test everything without cloud resources. The same code will run identically in production!
+
 ## Step 7: Deploy to Cloud (Optional)
 
 **Ready to deploy?** This quickstart shows AWS deployment as an example. Transire supports multiple cloud providers.
@@ -447,12 +462,12 @@ $ curl http://localhost:8080/orders/nonexistent
 **Prerequisites:**
 1. Install AWS provider package:
    ```bash
-   go get github.com/transire/cloud-aws@latest
+   go get github.com/transire/transire-cloud-aws@latest
    ```
 
 2. Add import to `main.go`:
    ```go
-   import _ "github.com/transire/cloud-aws" // Auto-registers AWS provider
+   import _ "github.com/transire/transire-cloud-aws" // Auto-registers AWS provider
    ```
 
 3. Configure AWS CLI:
@@ -498,6 +513,9 @@ Test your API:
 4. Creates API Gateway, Lambda functions, SQS queues, EventBridge rules
 5. Sets up least-privilege IAM roles
 6. Deploys everything to AWS
+
+!!! warning "AWS Costs"
+    This deployment creates AWS resources that may incur costs. Lambda, API Gateway, and SQS all have generous free tiers, so costs are typically minimal for development. To clean up resources, use OpenTofu directly: `cd infra && tofu destroy`.
 
 **Note:** Local state is perfect for development. For team collaboration or production, use S3 backend (see below).
 
@@ -631,27 +649,26 @@ Here's what Transire deployed:
 
 ## Clean Up
 
-To avoid AWS charges, destroy the deployed resources:
+To avoid AWS charges, destroy the deployed resources using OpenTofu:
 
 ```bash
-$ transire destroy
-⚠ This will destroy all resources for orders-api-dev
-Continue? (yes/no): yes
+$ cd infra
+$ tofu destroy
+# Review the resources to be destroyed
+# Type 'yes' to confirm
 
-✓ Destroying infrastructure
-  → Deleting Lambda functions
-  → Deleting API Gateway
-  → Deleting SQS queues
-  → Deleting EventBridge rules
-  → Deleting IAM roles
-✓ Resources destroyed
+Destroy complete! Resources: 15 destroyed.
 ```
 
-**Note:** This does not delete the S3 backend bucket (to preserve state history).
+**Notes:**
+- This uses OpenTofu directly since Transire delegates infrastructure management to your IaC tool
+- If using S3 backend, the state bucket is preserved for state history (destroy manually if needed)
+- You can also use `terraform destroy` if you're using Terraform instead of OpenTofu
 
 ## What's Next?
 
-Congratulations! You've built and deployed a complete cloud-native application with Transire in 15 minutes.
+!!! success "Congratulations!"
+    You've built and deployed a complete cloud-native application with Transire in 15 minutes. Your app handles HTTP requests, processes queues asynchronously, and runs scheduled jobs—all with the same code running locally and in the cloud!
 
 ### Learn More
 

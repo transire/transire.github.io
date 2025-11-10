@@ -55,7 +55,7 @@ Transire is organized as multiple repositories:
 
 ```bash
 # Clone the repository you want to contribute to
-git clone https://github.com/transire/sdk-go.git
+git clone https://github.com/transire/transire-sdk-go.git
 cd sdk-go
 
 # Install dependencies

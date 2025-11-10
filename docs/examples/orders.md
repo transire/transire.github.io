@@ -101,8 +101,8 @@ go mod init github.com/yourname/orders-api
 Install dependencies:
 
 ```bash
-go get github.com/transire/sdk-go
-go get github.com/transire/sdk-go/response
+go get github.com/transire/transire-sdk-go
+go get github.com/transire/transire-sdk-go/response
 ```
 
 ### Step 2: Data Models
@@ -404,8 +404,8 @@ import (
     "encoding/json"
     "net/http"
 
-    "github.com/transire/sdk-go"
-    "github.com/transire/sdk-go/response"
+    "github.com/transire/transire-sdk-go"
+    "github.com/transire/transire-sdk-go/response"
     "github.com/yourname/orders-api/models"
     "github.com/yourname/orders-api/services"
 )
@@ -524,7 +524,7 @@ import (
     "context"
     "log"
 
-    "github.com/transire/sdk-go"
+    "github.com/transire/transire-sdk-go"
     "github.com/yourname/orders-api/models"
     "github.com/yourname/orders-api/services"
 )
@@ -596,7 +596,7 @@ import (
     "log"
     "time"
 
-    "github.com/transire/sdk-go"
+    "github.com/transire/transire-sdk-go"
     "github.com/yourname/orders-api/services"
 )
 
@@ -667,7 +667,7 @@ import (
     "log"
     "os"
 
-    "github.com/transire/sdk-go"
+    "github.com/transire/transire-sdk-go"
     "github.com/yourname/orders-api/handlers"
     "github.com/yourname/orders-api/services"
 )
@@ -903,7 +903,7 @@ import (
     "net/http"
     "testing"
 
-    "github.com/transire/sdk-go/testkit"
+    "github.com/transire/transire-sdk-go/testkit"
     "github.com/yourname/orders-api/models"
 )
 

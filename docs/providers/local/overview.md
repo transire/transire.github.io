@@ -239,7 +239,7 @@ The local provider is designed for **development convenience**, not **production
 Enable hot reload to automatically restart on code changes:
 
 ```bash
-transire run --watch
+transire run --watch  # Coming in v1.1
 ```
 
 **How it works:**
@@ -376,10 +376,10 @@ When ready to deploy, your code works unchanged:
 
 ```bash
 # 1. Install cloud provider
-go get github.com/transire/cloud-aws@latest
+go get github.com/transire/transire-cloud-aws@latest
 
 # 2. Add import
-import _ "github.com/transire/cloud-aws"
+import _ "github.com/transire/transire-cloud-aws"
 
 # 3. Deploy
 transire deploy --environment=dev

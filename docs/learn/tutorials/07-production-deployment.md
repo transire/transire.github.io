@@ -246,7 +246,7 @@ Manifest saved to transire_manifest.json
     ]
   },
   "dependencies": [
-    "github.com/transire/sdk-go",
+    "github.com/transire/transire-sdk-go",
     "github.com/lib/pq"
   ]
 }

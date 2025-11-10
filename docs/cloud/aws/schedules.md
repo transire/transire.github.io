@@ -61,7 +61,7 @@ Complete → Wait for next trigger
 Run at specific times using cron syntax:
 
 ```go
-import "github.com/transire/sdk-go"
+import "github.com/transire/transire-sdk-go"
 
 func main() {
     app := transire.New()
@@ -99,7 +99,7 @@ func main() {
 Run every N minutes/hours:
 
 ```go
-import "github.com/transire/sdk-go"
+import "github.com/transire/transire-sdk-go"
 
 func main() {
     app := transire.New()

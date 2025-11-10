@@ -63,13 +63,13 @@ cd hello-transire
 go mod init github.com/yourusername/hello-transire
 
 # Install Transire SDK
-go get github.com/transire/sdk-go@latest
+go get github.com/transire/transire-sdk-go@latest
 ```
 
 **Expected output:**
 
 ```
-go: added github.com/transire/sdk-go v1.0.0
+go: added github.com/transire/transire-sdk-go v1.0.0
 ```
 
 ---
@@ -84,8 +84,8 @@ package main
 import (
     "net/http"
 
-    "github.com/transire/sdk-go"
-    "github.com/transire/sdk-go/response"
+    "github.com/transire/transire-sdk-go"
+    "github.com/transire/transire-sdk-go/response"
 )
 
 func main() {
@@ -324,7 +324,7 @@ func getUser(w http.ResponseWriter, r *http.Request) {
 
 ### Import Errors
 
-**Error:** `could not import github.com/transire/sdk-go`
+**Error:** `could not import github.com/transire/transire-sdk-go`
 
 **Solution:** Run `go mod download` to fetch dependencies:
 
@@ -389,8 +389,8 @@ package main
 import (
     "net/http"
 
-    "github.com/transire/sdk-go"
-    "github.com/transire/sdk-go/response"
+    "github.com/transire/transire-sdk-go"
+    "github.com/transire/transire-sdk-go/response"
 )
 
 func main() {

@@ -56,13 +56,13 @@ Deploy in three steps:
 
 ```bash
 # Choose your cloud provider
-go get github.com/transire/cloud-aws@latest
+go get github.com/transire/transire-cloud-aws@latest
 ```
 
 ### 2. Add Provider Import
 
 ```go
-import _ "github.com/transire/cloud-aws" // Auto-registers
+import _ "github.com/transire/transire-cloud-aws" // Auto-registers
 ```
 
 ### 3. Deploy

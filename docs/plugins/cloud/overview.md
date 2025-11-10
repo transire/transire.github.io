@@ -404,7 +404,7 @@ func (p *MyProvider) AdaptHTTPEvent(event interface{}) (*HTTPRequest, error) {
 2. **Register the provider:**
 
 ```go
-import "github.com/transire/sdk-go/providers"
+import "github.com/transire/transire-sdk-go/providers"
 
 func init() {
     providers.Register("mycloud", &MyProvider{})
@@ -427,7 +427,7 @@ cloud: mycloud
 
 ```go
 // ❌ Bad: Importing provider
-import _ "github.com/transire/cloud-aws"
+import _ "github.com/transire/transire-cloud-aws"
 
 func main() {
     app := transire.New()

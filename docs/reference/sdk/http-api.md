@@ -923,7 +923,7 @@ func TestListOrders(t *testing.T) {
 ### Testing with Testkit
 
 ```go
-import "github.com/transire/sdk-go/testkit"
+import "github.com/transire/transire-sdk-go/testkit"
 
 func TestOrdersAPI(t *testing.T) {
     tk := testkit.New(t)
