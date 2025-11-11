@@ -105,7 +105,7 @@ jobs:
 
       - name: Upload built docs
         if: steps.check_mkdocs.outputs.mkdocs_present == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: built-docs
           path: site/
