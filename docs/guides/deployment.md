@@ -142,7 +142,7 @@ cat transire_manifest.json | jq .
 **First deployment only** - Bootstrap OpenTofu backend:
 
 ```bash
-transire init --backend
+transire init backend
 ```
 
 This creates:

@@ -2,70 +2,275 @@
 title: "transire init"
 category: cli
 subcategory: null
-complexity: intermediate
+complexity: beginner
 duration: null
 prerequisites:
   - Go 1.22+
-  - Cloud provider credentials configured (e.g., AWS CLI)
 mcp_use: reference
 mcp_operations:
+  - initialize_workspace
+  - setup_configuration
   - initialize_backend
   - setup_state_storage
 features_covered:
-  - Backend initialization
-  - State storage setup
-  - State locking configuration
+  - Workspace initialization
+  - Configuration file creation
+  - Provider configuration
+  - Backend initialization (optional)
+  - State storage setup (optional)
 code_blocks: true
-last_updated: 2025-10-30
+last_updated: 2025-11-11
 ---
 
 # transire init
 
 ## Overview
 
-`transire init` initializes the infrastructure backend for state storage. This is a **one-time setup** per project that creates the necessary cloud resources for tracking your infrastructure state safely.
+`transire init` initializes a new Transire workspace in your project directory. This is the **first command** you run when starting a new Transire project.
 
 **Purpose:**
-- Create S3 bucket for Terraform/OpenTofu state storage
-- Create DynamoDB table for state locking
-- Configure backend settings in `transire.yaml`
-- Enable safe multi-user deployments
+- Create `.transire/` workspace directory
+- Generate default `transire.yaml` configuration
+- Create `.gitignore` for workspace artifacts
+- Configure cloud, IaC, and CI providers
+- Optionally initialize cloud backend for state storage
 
 ## Usage
 
-### Initialize Backend
+### Initialize Workspace (Default)
 
 ```bash
-transire init --backend
+transire init
 ```
 
-This is the only required command for initialization.
+Creates a new Transire workspace with default providers (AWS, OpenTofu, GitHub).
+
+### Initialize with Custom Providers
+
+```bash
+transire init --cloud azure --iac terraform --ci gitlab
+```
+
+Customize cloud, IaC, and CI providers during initialization.
+
+### Force Re-initialization
+
+```bash
+transire init --force
+```
+
+Reinitialize an existing workspace (overwrites configuration files).
+
+### Initialize Backend (Subcommand)
+
+```bash
+transire init backend
+```
+
+Initialize cloud backend for state storage (S3 bucket and DynamoDB table for AWS). This is a separate, optional step after workspace initialization.
+
+## Workspace Initialization
+
+### When to Run
+
+Run `transire init`:
+
+- ✅ **Once per project** - First command when starting a new Transire project
+- ✅ **After cloning** - When setting up a project on a new machine
+- ✅ **After updates** - Use `--force` to regenerate configuration with new defaults
+- ❌ **Not needed** - If `.transire/` directory and `transire.yaml` already exist
+
+### What It Does
+
+When you run `transire init`, the CLI:
+
+#### 1. Creates Workspace Directory
+
+Creates `.transire/` directory structure:
+
+```
+.transire/
+├── workspace.lock        # Locks workspace to prevent accidental operations
+├── .gitignore           # Ignores workspace artifacts (manifest.json, etc.)
+└── (manifest.json)      # Created later by 'transire gen'
+```
+
+#### 2. Generates Default Configuration
+
+Creates `transire.yaml` with sensible defaults:
+
+```yaml
+service: my-project        # From directory name
+runtime: go
+cloud: aws                 # Default cloud provider
+iac: opentofu             # Default IaC provider
+ci: github                # Default CI provider
+timezone: UTC
+
+deploy:
+  architecture: arm64      # Cost-effective ARM64
+  memory_mb: 256          # Reasonable default
+  timeout_seconds: 30
+
+queues:
+  visibility_timeout_seconds: 30
+  max_receive_count: 3
+
+observability:
+  logging:
+    level: info
+    format: json
+```
+
+#### 3. Creates .gitignore
+
+Adds workspace-specific ignores to `.transire/.gitignore`:
+
+```gitignore
+# Transire workspace artifacts
+manifest.json
+*.lock
+*.tmp
+```
+
+#### 4. Validates Inputs
+
+- Checks provider names against supported providers
+- Prevents path traversal and injection attacks
+- Validates file permissions
+
+#### 5. Confirms Success
+
+Displays created files and next steps.
+
+### Example Output
+
+```bash
+$ transire init
+✓ Workspace initialized successfully
+
+Workspace root: /Users/you/projects/orders-api
+
+Created:
+  • .transire/  (workspace directory)
+  • .transire/workspace.lock
+  • .transire/.gitignore
+  • transire.yaml  (configuration file)
+
+Configured providers:
+  • Cloud: aws
+  • IaC: opentofu
+  • CI: github
+
+Next steps:
+  1. Review and customize transire.yaml
+  2. Create your application code (main.go)
+  3. Run 'transire gen' to generate the manifest
+  4. Run 'transire run' to start local development
+  5. Run 'transire init backend' if deploying to cloud
+```
+
+### Provider Configuration
+
+Customize providers during initialization:
+
+#### Cloud Providers
+
+```bash
+transire init --cloud aws      # Amazon Web Services (default)
+transire init --cloud azure    # Microsoft Azure (coming soon)
+transire init --cloud gcp      # Google Cloud Platform (coming soon)
+```
+
+#### IaC Providers
+
+```bash
+transire init --iac opentofu   # OpenTofu (default, Terraform-compatible)
+transire init --iac terraform  # HashiCorp Terraform
+```
+
+#### CI Providers
+
+```bash
+transire init --ci github      # GitHub Actions (default)
+transire init --ci gitlab      # GitLab CI (coming soon)
+transire init --ci jenkins     # Jenkins (coming soon)
+```
+
+### Command-Line Options
+
+#### `--cloud` (default: aws)
+
+```bash
+transire init --cloud aws
+```
+
+Cloud provider for deployment.
+
+#### `--iac` (default: opentofu)
+
+```bash
+transire init --iac opentofu
+```
+
+Infrastructure as Code provider.
+
+#### `--ci` (default: github)
+
+```bash
+transire init --ci github
+```
+
+CI/CD provider for automated deployments.
+
+#### `--force` (default: false)
+
+```bash
+transire init --force
+```
+
+Force re-initialization, overwriting existing configuration files.
+
+**Warning:** This will overwrite `transire.yaml`. Make sure to back up any custom configuration first.
+
+---
+
+## Backend Initialization (Subcommand)
+
+After initializing your workspace, you can optionally initialize a cloud backend for state storage. This is only needed if you're deploying to the cloud and want shared state management.
+
+### When to Run
+
+Run `transire init backend`:
+
+- ✅ **Once per project** - Before your first cloud deployment
+- ✅ **For team collaboration** - Enable shared state with locking
+- ❌ **Not needed for local development** - Local development doesn't require backend
+- ❌ **Not needed if backend exists** - Check with your team first
+
+### Usage
+
+```bash
+transire init backend
+```
 
 ### With Custom Backend Name
 
 ```bash
-transire init --backend --bucket my-custom-state-bucket
+transire init backend --bucket my-custom-state-bucket
 ```
 
 ### Dry Run
 
 ```bash
-transire init --backend --dry-run
+transire init backend --dry-run
 ```
 
 Shows what resources would be created without creating them.
 
-## When to Run
+### What It Does
 
-Run `transire init --backend`:
-
-- ✅ **Once per project** - Before your first deployment
-- ✅ **Per team member** - If backend config is not committed
-- ❌ **Not needed** - If backend already exists and is configured
-
-## What It Does
-
-When you run `transire init --backend`, the CLI:
+When you run `transire init backend`, the CLI:
 
 ### 1. Loads Configuration
 
@@ -534,7 +739,10 @@ aws s3api put-bucket-replication --bucket transire-tf-state --replication-config
 
 ## See Also
 
-- [transire deploy](/cli/deploy.md) - Deploy after backend init
+- [transire gen](/cli/gen.md) - Generate manifest from code
+- [transire plan](/cli/plan.md) - Preview deployment plan
+- [transire deploy](/cli/deploy.md) - Deploy to cloud
+- [transire run](/cli/run.md) - Run locally
 - [OpenTofu Backend](/iac/backend.md) - Backend configuration details
 - [Environments](/guides/environments.md) - Multi-environment state management
 - [AWS Overview](/cloud/aws/overview.md) - AWS-specific details

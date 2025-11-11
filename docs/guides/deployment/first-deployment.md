@@ -271,7 +271,7 @@ observability:
 One-time setup per AWS account:
 
 ```bash
-$ transire init --backend
+$ transire init backend
 
 Initializing Transire infrastructure backend...
 
@@ -687,7 +687,7 @@ service: my-first-app-v2  # Make unique
 
 **Solution:** Run backend init:
 ```bash
-transire init --backend
+transire init backend
 ```
 
 ---

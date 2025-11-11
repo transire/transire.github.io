@@ -199,7 +199,7 @@ app.Provide(func() *Database { return NewDatabase() })
 
 ```bash
 # Initialize backend first
-transire init --backend
+transire init backend
 
 # Then deploy
 transire deploy

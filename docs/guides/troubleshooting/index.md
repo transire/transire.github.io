@@ -185,7 +185,7 @@ graph LR
     C1 -->|Yes| C3[Check write permissions]
 
     D --> D1[Does bucket exist?]
-    D1 -->|No| D2[Run: transire init --backend]
+    D1 -->|No| D2[Run: transire init backend]
     D1 -->|Yes| D3[Check bucket permissions]
 ```
 
@@ -209,7 +209,7 @@ chmod 755 infra/
 aws s3 ls s3://your-bucket-name
 
 # If not, initialize backend
-transire init --backend
+transire init backend
 
 # Verify bucket was created
 aws s3 ls s3://your-bucket-name

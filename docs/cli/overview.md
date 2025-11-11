@@ -12,7 +12,7 @@ features_covered:
   - Development workflow
   - Deployment workflow
 code_blocks: false
-last_updated: 2025-10-31
+last_updated: 2025-11-11
 ---
 
 # CLI Overview
@@ -23,6 +23,11 @@ The Transire CLI (`transire`) is the command-line tool for building, running, an
 
 ## Core Commands
 
+### Workspace Commands
+
+- **`transire init`** - Initialize workspace and configuration
+- **`transire init backend`** - Initialize cloud backend for state storage
+
 ### Development Commands
 
 - **`transire gen`** - Generate manifest from your Go code
@@ -31,8 +36,9 @@ The Transire CLI (`transire`) is the command-line tool for building, running, an
 
 ### Deployment Commands
 
+- **`transire plan`** - Preview deployment infrastructure
 - **`transire deploy`** - Deploy to cloud via OpenTofu
-- **`transire init --backend`** - Bootstrap cloud backend
+- **`transire deploy --output json`** - Deploy with JSON output for CI/CD
 
 ## Installation
 
@@ -40,34 +46,54 @@ See the [Installation Guide](/getting-started/installation.md) for detailed inst
 
 ## Command Reference
 
+- [transire init](/cli/init.md) - Workspace and backend initialization
 - [transire gen](/cli/gen.md) - Manifest generation
 - [transire run](/cli/run.md) - Local development
+- [transire plan](/cli/plan.md) - Deployment planning
 - [transire deploy](/cli/deploy.md) - Cloud deployment
-- [transire init](/cli/init.md) - Backend initialization
 
 ## Typical Workflow
+
+### First-Time Setup
+
+```bash
+# Initialize workspace (creates .transire/ and transire.yaml)
+transire init
+
+# Create your application code (main.go)
+# ... write your handlers ...
+
+# Generate manifest from code
+transire gen
+
+# Preview what will be deployed (optional)
+transire plan
+```
 
 ### Local Development
 
 ```bash
-# Generate manifest from code
-transire gen
+# Start local server
+transire run
 
-# Start local server with hot reload
+# Or with hot reload (coming in v1.1)
 transire run --watch
 ```
 
 ### Deploying to Cloud
 
 ```bash
-# First time: Initialize backend
-transire init --backend
+# First time: Initialize backend for state storage
+transire init backend
+
+# Preview deployment plan
+transire plan
 
 # Deploy to default (dev) environment
 transire deploy
 
-# Deploy to production
-transire deploy --env production
+# Deploy to production with JSON output
+transire deploy --environment production --output json
 ```
 
 ## Configuration
@@ -85,6 +111,8 @@ transire deploy --help
 
 ## Next Steps
 
+- [Initialize Workspace](/cli/init.md) - Start a new project
 - [Generate Manifest](/cli/gen.md) - Learn about manifest generation
 - [Local Development](/cli/run.md) - Run your app locally
+- [Preview Deployment](/cli/plan.md) - Plan your infrastructure
 - [Deploy to Cloud](/cli/deploy.md) - Deploy your application

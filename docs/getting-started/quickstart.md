@@ -257,9 +257,52 @@ func generateID() string {
 !!! warning "Production Consideration"
     This example uses an in-memory store (`var orders = make(map[string]Order)`) for simplicity. In production, replace this with a persistent database like PostgreSQL, MySQL, or DynamoDB. Data in memory is lost when the Lambda function terminates.
 
-## Step 3: Create Configuration
+## Step 3: Initialize Workspace
 
-Create `transire.yaml`:
+Initialize your Transire workspace:
+
+```bash
+$ transire init
+✓ Workspace initialized successfully
+
+Workspace root: /Users/you/orders-api
+
+Created:
+  • .transire/  (workspace directory)
+  • .transire/workspace.lock
+  • .transire/.gitignore
+  • transire.yaml  (configuration file)
+
+Configured providers:
+  • Cloud: aws
+  • IaC: opentofu
+  • CI: github
+
+Next steps:
+  1. Review and customize transire.yaml
+  2. Create your application code (main.go)
+  3. Run 'transire gen' to generate the manifest
+  4. Run 'transire run' to start local development
+```
+
+This creates the `.transire/` workspace directory and generates a default `transire.yaml` configuration file.
+
+**What just happened?**
+- Created `.transire/` directory for workspace artifacts
+- Generated `transire.yaml` with default configuration
+- Set up workspace lock file to ensure consistency
+
+!!! tip "Customizing Providers"
+    You can customize providers during initialization:
+    ```bash
+    transire init --cloud azure --iac terraform --ci gitlab
+    ```
+
+## Step 4: Customize Configuration (Optional)
+
+The `transire init` command created a default configuration. You can customize it if needed.
+
+Review and edit `transire.yaml` if you want to change defaults:
 
 ```yaml
 version: 1
@@ -306,9 +349,9 @@ env:
     workspace: dev
 ```
 
-**Note:** The default local backend stores state in `infra/terraform.tfstate`. This is perfect for development. For production, use S3 backend (see [Backend Setup guide](../iac/backend.md)).
+**Note:** Since `transire init` already created this file, you can skip this step or customize the values as needed.
 
-## Step 4: Generate Manifest
+## Step 5: Generate Manifest
 
 Run `transire gen` to analyze your code:
 
@@ -355,7 +398,47 @@ $ cat transire_manifest.json
 }
 ```
 
-## Step 5: Run Locally
+## Step 6: Preview Deployment Plan (Optional)
+
+Before running locally or deploying, you can preview what infrastructure will be created:
+
+```bash
+$ transire plan
+✓ Loaded configuration
+✓ Loaded manifest
+✓ Generated deployment plan
+
+Service: orders-api
+Environment: dev
+
+Infrastructure to be created:
+
+  Lambda Functions: 3
+    • orders-api-dev-http (arm64, 256MB, 30s)
+    • orders-api-dev-queue-fulfill-orders (arm64, 256MB, 30s)
+    • orders-api-dev-scheduled-daily-report (arm64, 256MB, 30s)
+
+  SQS Queues: 2
+    • orders-api-dev-fulfill-orders
+    • orders-api-dev-fulfill-orders-dlq (DLQ)
+
+  EventBridge Schedules: 1
+    • orders-api-dev-daily-report (cron: 0 9 * * ? *)
+
+  IAM Roles: 3
+
+Next steps:
+  • Review the generated plan
+  • Run 'transire deploy' to apply the plan
+```
+
+This gives you a preview of what will be deployed without making any changes.
+
+!!! info "Planning vs Deployment"
+    `transire plan` shows what **will be** created.
+    `transire deploy` actually **creates** the resources.
+
+## Step 7: Run Locally
 
 Start the development server:
 
@@ -370,7 +453,7 @@ $ transire run
 !!! info "Hot Reload Coming Soon"
     Hot reload with `transire run --watch` is planned for v1.1. For now, manually restart the server when you make changes (Ctrl+C, then `transire run` again).
 
-## Step 6: Test Locally
+## Step 8: Test Locally
 
 Open a new terminal and test your API:
 
@@ -448,7 +531,7 @@ $ curl http://localhost:8080/orders/nonexistent
 !!! success "Local Development Complete"
     Your application is fully functional locally. You can develop and test everything without cloud resources. The same code will run identically in production!
 
-## Step 7: Deploy to Cloud (Optional)
+## Step 9: Deploy to Cloud (Optional)
 
 **Ready to deploy?** This quickstart shows AWS deployment as an example. Transire supports multiple cloud providers.
 
@@ -519,7 +602,7 @@ Test your API:
 
 **Note:** Local state is perfect for development. For team collaboration or production, use S3 backend (see below).
 
-## Step 8: Test in Production
+## Step 10: Test in Production
 
 Test your deployed API:
 
@@ -712,10 +795,10 @@ infra:
 
 ### Step 2: Initialize S3 Backend
 
-Run the init command to create S3 bucket and DynamoDB table:
+Run the init backend subcommand to create S3 bucket and DynamoDB table:
 
 ```bash
-$ transire init --backend
+$ transire init backend
 ✓ Creating S3 bucket: orders-api-tf-state
 ✓ Enabling versioning on bucket
 ✓ Creating DynamoDB table: tf-locks

@@ -68,6 +68,17 @@ transire deploy --auto-approve
 
 Skips confirmation prompt (use in CI/CD).
 
+### Output Format
+
+```bash
+transire deploy --output json
+transire deploy -o json
+```
+
+Specify output format for deployment results:
+- `text`: Human-readable format with colored output (default)
+- `json`: Machine-readable JSON format for CI/CD integration
+
 ## Prerequisites
 
 ### 1. Cloud Credentials
@@ -123,7 +134,13 @@ When you run `transire deploy`, the CLI:
 - Runs `transire gen` if manifest is outdated
 - Validates all handlers and routes
 
-### 3. Generates Infrastructure Code
+### 3. Generates and Displays Deployment Plan
+
+- Creates a deployment plan showing resources to be created
+- Displays plan before deployment for review
+- Shows Lambda functions, queues, schedules, and IAM roles
+
+### 4. Generates Infrastructure Code
 
 - Reads manifest
 - Generates OpenTofu/Terraform files:
@@ -133,25 +150,34 @@ When you run `transire deploy`, the CLI:
   - EventBridge rules (schedules)
   - IAM roles and policies (least-privilege)
 
-### 4. Plans Changes
+### 5. Plans Changes
 
 - Runs `tofu plan` (or `terraform plan`)
 - Shows what resources will be created/updated/deleted
 - Calculates cost estimates (if available)
 
-### 5. Applies Changes
+### 6. Applies Changes
 
 - Prompts for confirmation (unless `--auto-approve`)
 - Runs `tofu apply`
 - Creates/updates infrastructure
 - Deploys Lambda function code
 
-### 6. Outputs Results
+### 7. Outputs Results
 
-- API Gateway URL
-- Queue names
-- Schedule rules
-- Deployment duration
+Displays deployment results in chosen format:
+
+**Text format (default):**
+- Deployment success message
+- Duration
+- Resource counts (Lambdas, queues, schedules, IAM roles)
+- Next steps
+
+**JSON format (`--output json`):**
+- Structured deployment data
+- Resource details
+- Service and environment information
+- Machine-readable for CI/CD parsing
 
 ## Example Deployment
 
@@ -161,6 +187,28 @@ When you run `transire deploy`, the CLI:
 $ transire deploy
 ✓ Configuration loaded (dev environment)
 ✓ Manifest generated
+
+Deployment Plan:
+
+Service: orders-api
+Environment: dev
+
+Infrastructure to be created:
+
+  Lambda Functions: 3
+    • orders-api-dev-http (arm64, 256MB, 30s)
+    • orders-api-dev-queue-fulfill-orders (arm64, 256MB, 30s)
+    • orders-api-dev-scheduled-daily-report (arm64, 256MB, 30s)
+
+  SQS Queues: 2
+    • orders-api-dev-fulfill-orders
+    • orders-api-dev-fulfill-orders-dlq (DLQ)
+
+  EventBridge Schedules: 1
+    • orders-api-dev-daily-report (cron: 0 9 * * ? *)
+
+  IAM Roles: 3
+
 ✓ Infrastructure code generated
 ✓ Cloud provider: AWS (us-east-1)
 
@@ -198,9 +246,22 @@ Applying changes...
 ✓ EventBridge rules created
 ✓ IAM roles configured
 
-Deployment complete! (45s)
+✓ Deployment completed successfully!
+Duration: 2m 34s
+Environment: dev
+Service: orders-api
 
-API URL: https://abc123.execute-api.us-east-1.amazonaws.com
+Deployed Resources:
+  • Lambda functions: 3
+  • SQS queues: 2
+  • EventBridge schedules: 1
+  • IAM roles: 3
+
+Next steps:
+  • Check your cloud console for endpoint URLs and resource details
+  • View CloudWatch logs for Lambda function output
+  • Run 'transire plan' to verify deployed configuration
+  • Run 'transire destroy' to tear down when done
 ```
 
 ### Subsequent Deploys
@@ -507,15 +568,80 @@ jobs:
         run: transire deploy --env prod --auto-approve
 ```
 
+### JSON Output
+
+For CI/CD integration, use JSON output format:
+
+```bash
+$ transire deploy --output json
+{
+  "service": "orders-api",
+  "environment": "dev",
+  "manifest_path": ".transire/manifest.json",
+  "iac_path": "infra",
+  "resources": {
+    "http_routes": 3,
+    "lambdas": 3,
+    "queues": 2,
+    "schedules": 1,
+    "iam_roles": 3
+  },
+  "details": {
+    "http_routes": [
+      {"method": "GET", "path": "/orders", "handler": "listOrders"},
+      {"method": "POST", "path": "/orders", "handler": "createOrder"}
+    ],
+    "lambdas": [
+      {
+        "name": "orders-api-dev-http",
+        "type": "http",
+        "architecture": "arm64",
+        "memory_mb": 256,
+        "timeout_seconds": 30
+      }
+    ],
+    "queues": [
+      {
+        "name": "orders-api-dev-fulfill-orders",
+        "dlq_name": "orders-api-dev-fulfill-orders-dlq"
+      }
+    ],
+    "schedules": [
+      {
+        "name": "orders-api-dev-daily-report",
+        "expression": "cron(0 9 * * ? *)"
+      }
+    ],
+    "iam_roles": [
+      {"name": "orders-api-dev-http-role", "type": "http"}
+    ]
+  }
+}
+```
+
+**Use cases for JSON output:**
+- Parse deployment results in CI/CD pipelines
+- Automate post-deployment tasks
+- Track deployment history
+- Generate custom reports
+
 ## Command-Line Options
 
-### `--env` (default: first environment)
+### `--environment` (default: dev)
+
+```bash
+transire deploy --environment prod
+```
+
+Deploy to specific environment.
+
+### `--env` (deprecated, use `--environment`)
 
 ```bash
 transire deploy --env prod
 ```
 
-Deploy to specific environment.
+Legacy flag for environment selection. Use `--environment` instead.
 
 ### `--plan` (default: false)
 
@@ -540,6 +666,26 @@ transire deploy --force
 ```
 
 Force regeneration of infrastructure code (useful if templates change).
+
+### `--output` / `-o` (default: text)
+
+```bash
+transire deploy --output json
+transire deploy -o json
+```
+
+Output format for deployment results:
+- `text`: Human-readable colored output (default)
+- `json`: Machine-readable JSON format
+
+**Example usage:**
+```bash
+# CI/CD pipeline
+transire deploy --auto-approve --output json > deployment.json
+
+# Parse results
+cat deployment.json | jq '.resources.lambdas | length'
+```
 
 ## Troubleshooting
 
@@ -662,8 +808,9 @@ Enable CloudWatch logs and set up alerts for deployment failures.
 
 ## See Also
 
-- [transire init](/cli/init.md) - Initialize backend
+- [transire init](/cli/init.md) - Initialize workspace and backend
 - [transire gen](/cli/gen.md) - Generate manifest
+- [transire plan](/cli/plan.md) - Preview deployment plan
 - [Deployment Guide](/guides/deployment.md) - Deployment best practices
 - [Environments](/guides/environments.md) - Multi-environment setup
 - [AWS Overview](/cloud/aws/overview.md) - AWS-specific details
