@@ -63,7 +63,7 @@ package main
 import (
     "context"
     "log"
-    "github.com/transire/transire-sdk-go"
+    "github.com/transire/sdk-go"
 )
 
 type OrderCreated struct {
@@ -113,7 +113,7 @@ The first argument to `RegisterQueue` is the **queue key** - a logical name for 
 Enqueue messages from HTTP handlers or other code using `app.Enqueue`:
 
 ```go
-import "github.com/transire/transire-sdk-go"
+import "github.com/transire/sdk-go"
 
 func createOrder(w http.ResponseWriter, r *http.Request) {
     // Create order in database
@@ -345,8 +345,8 @@ import (
     "encoding/json"
     "log"
     "net/http"
-    "github.com/transire/transire-sdk-go"
-    "github.com/transire/transire-sdk-go/response"
+    "github.com/transire/sdk-go"
+    "github.com/transire/sdk-go/response"
 )
 
 // Message types
@@ -528,7 +528,7 @@ package main
 import (
     "context"
     "testing"
-    "github.com/transire/transire-sdk-go/testkit"
+    "github.com/transire/sdk-go/testkit"
 )
 
 func TestProcessOrderCreated(t *testing.T) {

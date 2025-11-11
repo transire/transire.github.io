@@ -76,7 +76,7 @@ package main
 
 import (
     "context"
-    "github.com/transire/transire-sdk-go"
+    "github.com/transire/sdk-go"
 )
 
 func main() {

@@ -128,7 +128,7 @@ func TestCreateOrder(t *testing.T) {
 #### Integration Testing with Testkit
 
 ```go
-import "github.com/transire/transire-sdk-go/testkit"
+import "github.com/transire/sdk-go/testkit"
 
 func TestOrdersAPI(t *testing.T) {
     tk := testkit.New(t)

@@ -246,7 +246,7 @@ Manifest saved to transire_manifest.json
     ]
   },
   "dependencies": [
-    "github.com/transire/transire-sdk-go",
+    "github.com/transire/sdk-go",
     "github.com/lib/pq"
   ]
 }
@@ -981,7 +981,7 @@ jobs:
 
       - uses: actions/setup-go@v4
         with:
-          go-version: '1.22'
+          go-version: '1.25'
 
       - name: Run tests
         run: go test ./...

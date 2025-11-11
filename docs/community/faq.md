@@ -91,7 +91,7 @@ Transire can generate CI/CD workflows. See [GitHub Actions](/ci/github-actions.m
 Use the built-in test kit:
 
 ```go
-import "github.com/transire/transire-sdk-go/testkit"
+import "github.com/transire/sdk-go/testkit"
 
 func TestMyHandler(t *testing.T) {
     tk := testkit.New(t)

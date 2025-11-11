@@ -235,7 +235,7 @@ func CORSMiddleware(config CORSConfig) func(http.Handler) http.Handler {
 Add middleware to all routes:
 
 ```go
-import "github.com/transire/transire-sdk-go"
+import "github.com/transire/sdk-go"
 
 func main() {
     app := transire.New()
@@ -274,7 +274,7 @@ import (
     "net/http"
     "strings"
 
-    "github.com/transire/transire-sdk-go/response"
+    "github.com/transire/sdk-go/response"
 )
 
 // AuthMiddleware validates JWT tokens
@@ -712,7 +712,7 @@ func TestAuthMiddleware(t *testing.T) {
 ### Integration Test
 
 ```go
-import "github.com/transire/transire-sdk-go/testkit"
+import "github.com/transire/sdk-go/testkit"
 
 func TestProtectedRoute(t *testing.T) {
     tk := testkit.New(t)
@@ -821,8 +821,8 @@ import (
     "strings"
     "time"
 
-    "github.com/transire/transire-sdk-go"
-    "github.com/transire/transire-sdk-go/response"
+    "github.com/transire/sdk-go"
+    "github.com/transire/sdk-go/response"
 )
 
 func main() {

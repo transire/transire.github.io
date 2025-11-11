@@ -62,7 +62,7 @@ Create a new project:
 mkdir orders-api
 cd orders-api
 go mod init github.com/yourusername/orders-api
-go get github.com/transire/transire-sdk-go@latest
+go get github.com/transire/sdk-go@latest
 ```
 
 ---
@@ -130,8 +130,8 @@ import (
     "net/http"
     "time"
 
-    "github.com/transire/transire-sdk-go"
-    "github.com/transire/transire-sdk-go/response"
+    "github.com/transire/sdk-go"
+    "github.com/transire/sdk-go/response"
 )
 
 func main() {
@@ -550,8 +550,8 @@ import (
     "net/http"
     "time"
 
-    "github.com/transire/transire-sdk-go"
-    "github.com/transire/transire-sdk-go/response"
+    "github.com/transire/sdk-go"
+    "github.com/transire/sdk-go/response"
 )
 
 func main() {

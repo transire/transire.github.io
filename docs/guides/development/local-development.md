@@ -856,7 +856,7 @@ curl http://localhost:8080/health
 ### Test with testkit
 
 ```go
-import "github.com/transire/transire-sdk-go/testkit"
+import "github.com/transire/sdk-go/testkit"
 
 func TestCreateOrder(t *testing.T) {
     tk := testkit.New(t)

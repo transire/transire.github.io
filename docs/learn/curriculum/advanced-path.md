@@ -375,7 +375,7 @@ func (g *OrderGateway) GetOrderDetails(ctx context.Context, orderID string) (*Or
 #### Provider Interface
 
 ```go
-// github.com/transire/transire-sdk-go/provider
+// github.com/transire/sdk-go/provider
 package provider
 
 type CloudProvider interface {
@@ -408,7 +408,7 @@ package digitalocean
 
 import (
     "os"
-    "github.com/transire/transire-sdk-go/provider"
+    "github.com/transire/sdk-go/provider"
 )
 
 type Provider struct{}
@@ -502,7 +502,7 @@ package digitalocean
 
 import (
     "testing"
-    "github.com/transire/transire-sdk-go/provider"
+    "github.com/transire/sdk-go/provider"
 )
 
 func TestHTTPAdaptation(t *testing.T) {
@@ -1528,7 +1528,7 @@ transire mycmd
 package pulumi
 
 import (
-    "github.com/transire/transire-sdk-go/iac"
+    "github.com/transire/sdk-go/iac"
 )
 
 type Provider struct{}

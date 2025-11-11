@@ -603,7 +603,7 @@ func TestGenerateDailyReport(t *testing.T) {
 ### Integration Test
 
 ```go
-import "github.com/transire/transire-sdk-go/testkit"
+import "github.com/transire/sdk-go/testkit"
 
 func TestScheduledJob(t *testing.T) {
     tk := testkit.New(t)
@@ -635,7 +635,7 @@ import (
     "log"
     "time"
 
-    "github.com/transire/transire-sdk-go"
+    "github.com/transire/sdk-go"
 )
 
 func main() {

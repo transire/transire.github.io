@@ -53,8 +53,8 @@ package main
 
 import (
     "net/http"
-    "github.com/transire/transire-sdk-go"
-    "github.com/transire/transire-sdk-go/response"
+    "github.com/transire/sdk-go"
+    "github.com/transire/sdk-go/response"
 )
 
 func main() {
@@ -117,7 +117,7 @@ func getUser(w http.ResponseWriter, r *http.Request) {
 Transire provides helpers for common request operations:
 
 ```go
-import "github.com/transire/transire-sdk-go"
+import "github.com/transire/sdk-go"
 
 // URL parameters (from path)
 id := transire.URLParam(r, "id")
@@ -171,7 +171,7 @@ func createUser(w http.ResponseWriter, r *http.Request) {
 The `response` package provides helpers for common response types:
 
 ```go
-import "github.com/transire/transire-sdk-go/response"
+import "github.com/transire/sdk-go/response"
 ```
 
 ### Success Responses
@@ -223,8 +223,8 @@ package main
 import (
     "encoding/json"
     "net/http"
-    "github.com/transire/transire-sdk-go"
-    "github.com/transire/transire-sdk-go/response"
+    "github.com/transire/sdk-go"
+    "github.com/transire/sdk-go/response"
 )
 
 type Order struct {

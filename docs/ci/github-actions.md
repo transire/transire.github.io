@@ -64,7 +64,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.22'
+          go-version: '1.25'
 
       - name: Download dependencies
         run: go mod download
@@ -105,7 +105,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.22'
+          go-version: '1.25'
 
       - name: Install Transire CLI
         run: |
@@ -401,7 +401,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.22'
+          go-version: '1.25'
           cache: true
 
       - name: Install Transire CLI

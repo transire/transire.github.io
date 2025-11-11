@@ -47,7 +47,7 @@ import (
     "log"
     "net/http"
     "time"
-    "github.com/transire/transire-sdk-go"
+    "github.com/transire/sdk-go"
 )
 
 func main() {
@@ -164,7 +164,7 @@ Response
 Catch panics and return 500 errors:
 
 ```go
-import "github.com/transire/transire-sdk-go/middleware"
+import "github.com/transire/sdk-go/middleware"
 
 func main() {
     app := transire.New()
@@ -189,7 +189,7 @@ Add unique ID to each request:
 
 ```go
 import (
-    "github.com/transire/transire-sdk-go/middleware"
+    "github.com/transire/sdk-go/middleware"
     "github.com/google/uuid"
 )
 
@@ -218,7 +218,7 @@ Set maximum request duration:
 
 ```go
 import (
-    "github.com/transire/transire-sdk-go/middleware"
+    "github.com/transire/sdk-go/middleware"
     "time"
 )
 
@@ -250,7 +250,7 @@ func slowHandler(w http.ResponseWriter, r *http.Request) {
 Extract client IP from headers:
 
 ```go
-import "github.com/transire/transire-sdk-go/middleware"
+import "github.com/transire/sdk-go/middleware"
 
 func main() {
     app := transire.New()

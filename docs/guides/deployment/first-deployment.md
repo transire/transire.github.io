@@ -96,7 +96,7 @@ go mod init my-first-app
 ### Install SDK
 
 ```bash
-go get github.com/transire/transire-sdk-go
+go get github.com/transire/sdk-go
 ```
 
 ### Create main.go
@@ -107,8 +107,8 @@ package main
 import (
     "net/http"
 
-    "github.com/transire/transire-sdk-go"
-    "github.com/transire/transire-sdk-go/response"
+    "github.com/transire/sdk-go"
+    "github.com/transire/sdk-go/response"
 )
 
 func main() {

@@ -60,7 +60,7 @@ func getUser(w http.ResponseWriter, r *http.Request) {
 Return JSON errors for better client handling:
 
 ```go
-import "github.com/transire/transire-sdk-go/response"
+import "github.com/transire/sdk-go/response"
 
 type ErrorResponse struct {
     Error   string `json:"error"`

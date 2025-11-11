@@ -28,7 +28,7 @@ This guide covers error handling patterns for Transire applications.
 Use the response package for standard HTTP errors:
 
 ```go
-import "github.com/transire/transire-sdk-go/response"
+import "github.com/transire/sdk-go/response"
 
 func GetUser(w http.ResponseWriter, r *http.Request) {
     id := transire.URLParam(r, "id")

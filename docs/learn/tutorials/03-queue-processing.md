@@ -610,8 +610,8 @@ import (
     "net/http"
     "time"
 
-    "github.com/transire/transire-sdk-go"
-    "github.com/transire/transire-sdk-go/response"
+    "github.com/transire/sdk-go"
+    "github.com/transire/sdk-go/response"
 )
 
 func main() {

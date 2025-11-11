@@ -38,7 +38,7 @@ The same tests run identically in CI/CD and locally.
 The testkit is included in the main SDK:
 
 ```bash
-go get github.com/transire/transire-sdk-go
+go get github.com/transire/sdk-go
 ```
 
 Import in test files:
@@ -46,7 +46,7 @@ Import in test files:
 ```go
 import (
     "testing"
-    "github.com/transire/transire-sdk-go/testkit"
+    "github.com/transire/sdk-go/testkit"
 )
 ```
 
@@ -768,7 +768,7 @@ package main_test
 import (
     "context"
     "testing"
-    "github.com/transire/transire-sdk-go/testkit"
+    "github.com/transire/sdk-go/testkit"
 )
 
 func TestOrderAPI(t *testing.T) {

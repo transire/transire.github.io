@@ -67,7 +67,7 @@ Persistent failures → DLQ
 From an HTTP handler or another queue handler:
 
 ```go
-import "github.com/transire/transire-sdk-go/queue"
+import "github.com/transire/sdk-go/queue"
 
 type ProcessOrder struct {
     OrderID   string  `json:"order_id"`
@@ -147,7 +147,7 @@ Event Source Mapping polls SQS and invokes Lambda with a batch:
 ### 4. Your Handler Processes Batch
 
 ```go
-import "github.com/transire/transire-sdk-go"
+import "github.com/transire/sdk-go"
 
 func processOrders(ctx context.Context, msgs []ProcessOrder) error {
     br := transire.NewBatchResult(len(msgs))

@@ -230,12 +230,12 @@ If you encounter version compatibility issues:
 
 2. Check SDK version in your `go.mod`:
    ```go
-   require github.com/transire/transire-sdk-go v1.0.0
+   require github.com/transire/sdk-go v1.0.0
    ```
 
 3. Update SDK:
    ```bash
-   go get github.com/transire/transire-sdk-go@latest
+   go get github.com/transire/sdk-go@latest
    ```
 
 ## Next Steps

@@ -106,7 +106,7 @@ Providers are installed as Go packages:
 
 ```bash
 # AWS Provider
-go get github.com/transire/transire-cloud-aws@latest
+go get github.com/transire/cloud-aws@latest
 
 # Azure Provider (coming soon)
 go get github.com/transire/transire-cloud-azure@latest
@@ -121,8 +121,8 @@ Cloud providers auto-register via blank imports:
 
 ```go
 import (
-    "github.com/transire/transire-sdk-go"
-    _ "github.com/transire/transire-cloud-aws" // Auto-registers AWS provider
+    "github.com/transire/sdk-go"
+    _ "github.com/transire/cloud-aws" // Auto-registers AWS provider
 )
 ```
 
@@ -191,7 +191,7 @@ Transire's cloud-agnostic design makes migration straightforward:
 go get github.com/transire/transire-cloud-azure@latest
 
 # 2. Update import in main.go
-# import _ "github.com/transire/transire-cloud-aws"    // Old
+# import _ "github.com/transire/cloud-aws"    // Old
 import _ "github.com/transire/transire-cloud-azure"  // New
 
 # 3. Update configuration (optional)

@@ -70,19 +70,19 @@ This creates `go.mod`:
 ```go
 module github.com/yourusername/my-api
 
-go 1.22
+go 1.25
 ```
 
 ### 3. Install Transire SDK
 
 ```bash
-go get github.com/transire/transire-sdk-go@latest
+go get github.com/transire/sdk-go@latest
 ```
 
 If deploying to AWS:
 
 ```bash
-go get github.com/transire/transire-cloud-aws@latest
+go get github.com/transire/cloud-aws@latest
 ```
 
 ### 4. Create Application Entry Point
@@ -97,9 +97,9 @@ import (
     "log"
     "net/http"
 
-    "github.com/transire/transire-sdk-go"
-    "github.com/transire/transire-sdk-go/response"
-    _ "github.com/transire/transire-cloud-aws" // Auto-registers AWS provider
+    "github.com/transire/sdk-go"
+    "github.com/transire/sdk-go/response"
+    _ "github.com/transire/cloud-aws" // Auto-registers AWS provider
 )
 
 func main() {

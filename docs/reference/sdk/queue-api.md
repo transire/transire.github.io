@@ -424,7 +424,7 @@ func fulfillOrders(ctx context.Context, orders []Order, db *Database) error {
 Handle failures per-message:
 
 ```go
-import "github.com/transire/transire-sdk-go"
+import "github.com/transire/sdk-go"
 
 func fulfillOrders(ctx context.Context, orders []Order, db *Database) error {
     // Create batch result tracker
@@ -677,7 +677,7 @@ func TestFulfillOrders(t *testing.T) {
 ### Integration Testing with Testkit
 
 ```go
-import "github.com/transire/transire-sdk-go/testkit"
+import "github.com/transire/sdk-go/testkit"
 
 func TestQueueProcessing(t *testing.T) {
     tk := testkit.New(t)

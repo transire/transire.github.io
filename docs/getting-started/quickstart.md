@@ -75,10 +75,10 @@ cd orders-api
 go mod init github.com/yourusername/orders-api
 
 # Install Transire SDK
-go get github.com/transire/transire-sdk-go@latest
+go get github.com/transire/sdk-go@latest
 ```
 
-**Note:** Cloud provider packages (like `github.com/transire/transire-cloud-aws`) are only needed when deploying. You don't need them for local development.
+**Note:** Cloud provider packages (like `github.com/transire/cloud-aws`) are only needed when deploying. You don't need them for local development.
 
 ## Step 2: Create Application
 
@@ -94,8 +94,8 @@ import (
     "net/http"
     "time"
 
-    "github.com/transire/transire-sdk-go"
-    "github.com/transire/transire-sdk-go/response"
+    "github.com/transire/sdk-go"
+    "github.com/transire/sdk-go/response"
 )
 
 func main() {
@@ -462,12 +462,12 @@ $ curl http://localhost:8080/orders/nonexistent
 **Prerequisites:**
 1. Install AWS provider package:
    ```bash
-   go get github.com/transire/transire-cloud-aws@latest
+   go get github.com/transire/cloud-aws@latest
    ```
 
 2. Add import to `main.go`:
    ```go
-   import _ "github.com/transire/transire-cloud-aws" // Auto-registers AWS provider
+   import _ "github.com/transire/cloud-aws" // Auto-registers AWS provider
    ```
 
 3. Configure AWS CLI:
