@@ -1,7 +1,7 @@
 # Transire Documentation Site Configuration
 site_name: Transire
 site_url: https://transire.github.io
-site_description: Cloud-agnostic Go framework for building production APIs. Write standard Go with Chi routing that runs locally and on AWS Lambda.
+site_description: Cloud-agnostic Go framework for building production APIs with Chi routing on AWS Lambda.
 site_author: Transire Team
 repo_url: https://github.com/transire/transire
 repo_name: transire/transire
