@@ -1,3 +1,44 @@
+---
+title: "Installation"
+description: "Install the Transire CLI and set up your development environment"
+keywords:
+  - installation
+  - install
+  - setup
+  - cli
+  - go install
+  - prerequisites
+  - requirements
+category: getting-started
+difficulty: beginner
+estimated_time: 5 minutes
+prerequisites:
+  - "Go 1.21+"
+  - "Git"
+related_docs:
+  - path: "/getting-started/quickstart/"
+    relationship: "next_step"
+  - path: "/getting-started/your-first-api/"
+    relationship: "next_step"
+mcp_metadata:
+  primary_use_cases:
+    - "Installing Transire CLI for the first time"
+    - "Setting up development environment"
+    - "Troubleshooting installation issues"
+  common_questions:
+    - "How do I install Transire?"
+    - "What are the requirements for Transire?"
+    - "How do I verify Transire is installed?"
+    - "Do I need AWS CLI to use Transire?"
+  troubleshooting_hints:
+    - issue: "command not found"
+      keywords: ["transire", "command not found", "gopath", "path"]
+      solution_section: "#verify-installation"
+    - issue: "go version too old"
+      keywords: ["go", "version", "upgrade", "1.21"]
+      solution_section: "#prerequisites"
+---
+
 # Installation
 
 Learn how to install the Transire CLI.
@@ -215,7 +256,7 @@ go install github.com/transire/transire/cmd/transire@latest
 ### Upgrade to Specific Version
 
 ```bash
-go install github.com/transire/transire/cmd/transire@v0.2.0
+go install github.com/transire/transire/cmd/transire@v0.1.0
 ```
 
 ### Check Current Version
