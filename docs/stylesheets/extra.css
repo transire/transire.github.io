@@ -1,0 +1,61 @@
+/* Custom styles for Transire documentation */
+
+/*
+ * Fix: Reduce left navigation width from ~250px to ~180px
+ * This gives more space to the main content area
+ */
+
+/* Force narrower left sidebar */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    width: 11rem !important; /* Reduced from ~12.1rem */
+  }
+
+  /* Adjust grid to accommodate narrower sidebar */
+  .md-grid {
+    max-width: 61rem; /* Reduce to compensate */
+  }
+}
+
+/* Compact navigation styling */
+.md-nav--primary {
+  font-size: 0.7rem; /* Smaller font throughout */
+}
+
+.md-nav--primary .md-nav__title {
+  font-size: 0.7rem;
+  padding: 0.6rem 0.6rem;
+}
+
+.md-nav--primary .md-nav__link {
+  padding: 0.4rem 0.6rem !important; /* Tighter padding */
+  font-size: 0.7rem;
+}
+
+/* Reduce indentation for nested items */
+.md-nav--primary .md-nav__item--nested > .md-nav {
+  padding-left: 0.4rem; /* Less indentation */
+}
+
+.md-nav--primary .md-nav__link {
+  margin: 0.125rem 0.3rem;
+}
+
+/* Tighter spacing for nested navigation */
+.md-nav--primary .md-nav__item .md-nav__link {
+  padding-left: 0.8rem !important;
+}
+
+.md-nav--primary .md-nav__item .md-nav__item .md-nav__link {
+  padding-left: 1.4rem !important;
+}
+
+.md-nav--primary .md-nav__item .md-nav__item .md-nav__item .md-nav__link {
+  padding-left: 2.0rem !important;
+}
+
+/* Also reduce the "Getting Started" label size */
+.md-nav--primary > .md-nav__list > .md-nav__item--active > .md-nav__link {
+  font-size: 0.65rem;
+  font-weight: 700;
+}

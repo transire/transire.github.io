@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install mkdocs-material
+          pip install mkdocs-htmlproofer-plugin || true
+
+      - name: Lint YAML files
+        run: |
+          pip install yamllint
+          yamllint -d "{extends: default, rules: {line-length: {max: 120}, document-start: disable}}" mkdocs.yml
+
+      - name: Build documentation (strict mode)
+        run: mkdocs build --strict --verbose
+
+      - name: Check for broken links (internal)
+        run: |
+          # Basic check for broken internal links in markdown files
+          echo "Checking for broken internal links..."
+          find docs -name "*.md" -type f -exec grep -H '\[.*\](.*)' {} \; | \
+            grep -v 'http' | \
+            while IFS=: read -r file link; do
+              target=$(echo "$link" | sed -n 's/.*(\(.*\)).*/\1/p')
+              if [ ! -z "$target" ] && [ ! -f "docs/$target" ] && [ ! -f "$target" ]; then
+                echo "⚠️  Potentially broken link in $file: $target"
+              fi
+            done
+
+      - name: Validate build artifacts
+        run: |
+          # Check that critical pages were built
+          test -f site/index.html || (echo "❌ index.html not found" && exit 1)
+          test -f site/getting-started/quickstart/index.html || echo "⚠️  Quickstart page not found"
+          echo "✅ Build artifacts validated"
+
+      - name: Check for TODO/FIXME comments
+        run: |
+          echo "Checking for TODO/FIXME comments in docs..."
+          grep -r "TODO\|FIXME" docs/ && echo "⚠️  Found TODO/FIXME comments" || echo "✅ No TODO/FIXME comments found"
+        continue-on-error: true
