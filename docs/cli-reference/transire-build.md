@@ -1,3 +1,29 @@
+---
+title: "transire build"
+description: "Build deployment artifacts for AWS Lambda"
+keywords:
+  - transire build
+  - build
+  - artifacts
+  - deployment
+  - lambda
+category: cli-reference
+difficulty: intermediate
+estimated_time: 5 minutes
+prerequisites:
+  []
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Building for deployment"
+    - "Creating artifacts"
+    - "Preparing for AWS"
+  common_questions:
+    - "How do I build for deployment?"
+    - "What does build create?"
+    - "Where are artifacts stored?"
+---
+
 # transire build
 
 Build deployable artifacts and generate Infrastructure as Code definitions.

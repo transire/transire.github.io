@@ -1,3 +1,29 @@
+---
+title: "Multi-Function Architecture"
+description: "Split your application into multiple Lambda functions for optimal resource usage"
+keywords:
+  - multi-function
+  - architecture
+  - optimization
+  - lambda functions
+  - resource allocation
+category: guides
+difficulty: advanced
+estimated_time: 30 minutes
+prerequisites:
+  - "Understanding of Lambda architecture"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Optimizing resource usage"
+    - "Scaling specific handlers"
+    - "Reducing cold start times"
+  common_questions:
+    - "When should I use multiple functions?"
+    - "How do I split my application?"
+    - "What are the benefits?"
+---
+
 # Multi-Function Architecture
 
 Learn how to split your application into multiple Lambda functions for optimized resource allocation, scaling, and cost efficiency.

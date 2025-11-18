@@ -1,3 +1,29 @@
+---
+title: "Queue Configuration"
+description: "Configure SQS queue settings for message processing"
+keywords:
+  - queue configuration
+  - sqs
+  - batch size
+  - visibility timeout
+  - dlq
+category: configuration
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  - "Understanding of queues"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Configuring queue behavior"
+    - "Setting batch sizes"
+    - "Configuring retries"
+  common_questions:
+    - "How do I configure queues?"
+    - "What is visibility timeout?"
+    - "How do I set batch size?"
+---
+
 # Queue Configuration
 
 Configure AWS SQS queues for your Transire queue handlers.

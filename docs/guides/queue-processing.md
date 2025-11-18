@@ -1,3 +1,30 @@
+---
+title: "Queue Processing"
+description: "Advanced patterns for processing messages with queue handlers"
+keywords:
+  - queues
+  - sqs
+  - message processing
+  - async
+  - patterns
+  - best practices
+category: guides
+difficulty: intermediate
+estimated_time: 25 minutes
+prerequisites:
+  - "Understanding of queue handlers"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Processing async tasks"
+    - "Handling failures and retries"
+    - "Scaling queue processing"
+  common_questions:
+    - "What are queue processing best practices?"
+    - "How do I handle failed messages?"
+    - "How do I scale queue processing?"
+---
+
 # Queue Processing Patterns
 
 Advanced patterns and best practices for processing messages with Transire queues.

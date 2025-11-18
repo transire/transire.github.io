@@ -1,3 +1,32 @@
+---
+title: "VPC & Existing Resources"
+description: "Configure VPC networking and reference existing AWS resources"
+keywords:
+  - vpc
+  - networking
+  - existing resources
+  - subnets
+  - security groups
+  - dynamodb
+  - s3
+category: configuration
+difficulty: advanced
+estimated_time: 15 minutes
+prerequisites:
+  - "AWS VPC knowledge"
+  - "Understanding of AWS resources"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Connecting to VPC"
+    - "Using existing resources"
+    - "Private networking"
+  common_questions:
+    - "How do I use VPC?"
+    - "How do I reference existing resources?"
+    - "How do I access private resources?"
+---
+
 # VPC & Existing Resources
 
 Configure networking and connect to existing AWS infrastructure.

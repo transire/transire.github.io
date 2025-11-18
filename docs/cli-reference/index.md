@@ -1,3 +1,26 @@
+---
+title: "CLI Reference Overview"
+description: "Overview of Transire CLI commands"
+keywords:
+  - cli
+  - command line
+  - commands
+  - reference
+category: cli-reference
+difficulty: all
+estimated_time: 5 minutes
+prerequisites:
+  []
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Understanding CLI commands"
+    - "Quick reference"
+  common_questions:
+    - "What commands are available?"
+    - "How do I use the CLI?"
+---
+
 # CLI Reference
 
 Complete reference for the Transire command-line interface.

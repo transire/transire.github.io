@@ -1,3 +1,29 @@
+---
+title: "Scheduled Tasks"
+description: "Run periodic tasks and cron jobs with schedule handlers"
+keywords:
+  - scheduled tasks
+  - cron
+  - periodic tasks
+  - eventbridge
+  - timers
+category: guides
+difficulty: intermediate
+estimated_time: 15 minutes
+prerequisites:
+  - "Understanding of cron syntax"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Running periodic tasks"
+    - "Scheduling maintenance jobs"
+    - "Understanding cron patterns"
+  common_questions:
+    - "How do I schedule tasks?"
+    - "What cron expressions are supported?"
+    - "How do I test scheduled tasks?"
+---
+
 # Scheduled Tasks Guide
 
 Learn how to implement and deploy scheduled tasks (cron jobs) with Transire.

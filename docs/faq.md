@@ -1,3 +1,29 @@
+---
+title: "FAQ"
+description: "Frequently asked questions about Transire"
+keywords:
+  - faq
+  - questions
+  - troubleshooting
+  - help
+  - common issues
+category: other
+difficulty: all
+estimated_time: 10 minutes
+prerequisites:
+  []
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Finding answers"
+    - "Troubleshooting"
+    - "Common questions"
+  common_questions:
+    - "Where can I find answers?"
+    - "How do I troubleshoot?"
+    - "What are common issues?"
+---
+
 # Frequently Asked Questions
 
 Common questions about Transire and their answers.

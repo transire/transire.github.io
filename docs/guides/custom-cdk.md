@@ -1,3 +1,30 @@
+---
+title: "Custom CDK Extensions"
+description: "Extend generated infrastructure with custom AWS CDK code"
+keywords:
+  - cdk
+  - custom infrastructure
+  - aws resources
+  - extensions
+  - customization
+category: guides
+difficulty: advanced
+estimated_time: 25 minutes
+prerequisites:
+  - "CDK knowledge"
+  - "TypeScript basics"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Adding custom AWS resources"
+    - "Modifying generated infrastructure"
+    - "Integrating existing resources"
+  common_questions:
+    - "How do I add custom CDK code?"
+    - "How do I modify generated infrastructure?"
+    - "Can I add custom AWS resources?"
+---
+
 # Custom CDK Extensions
 
 Learn how to extend Transire's generated CDK infrastructure with custom AWS resources and configurations.

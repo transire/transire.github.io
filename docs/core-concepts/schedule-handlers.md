@@ -1,3 +1,39 @@
+---
+title: "Schedule Handlers"
+description: "Run scheduled tasks and cron jobs with Transire's SchedulerHandler interface"
+keywords:
+  - schedule handlers
+  - cron jobs
+  - scheduled tasks
+  - periodic tasks
+  - SchedulerHandler interface
+  - eventbridge
+  - timers
+category: core-concepts
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  - "Understanding of cron syntax"
+  - "Basic scheduling concepts"
+related_docs:
+  - path: "/guides/scheduled-tasks/"
+    relationship: "deep_dive"
+  - path: "/configuration/schedules/"
+    relationship: "related"
+  - path: "/examples/simple-api/"
+    relationship: "related"
+mcp_metadata:
+  primary_use_cases:
+    - "Running periodic tasks"
+    - "Scheduling cron jobs"
+    - "Understanding schedule patterns"
+  common_questions:
+    - "How do I run scheduled tasks?"
+    - "How do I use cron syntax?"
+    - "How do I test schedules locally?"
+    - "How do schedules work on AWS?"
+---
+
 # Schedule Handlers
 
 Learn how to run scheduled tasks (cron jobs) with Transire's `SchedulerHandler` interface.

@@ -1,3 +1,39 @@
+---
+title: "HTTP Handlers"
+description: "Build HTTP APIs with Transire using Chi router and standard Go HTTP patterns"
+keywords:
+  - http handlers
+  - chi router
+  - rest api
+  - http.HandlerFunc
+  - middleware
+  - routing
+  - endpoints
+category: core-concepts
+difficulty: intermediate
+estimated_time: 15 minutes
+prerequisites:
+  - "Go HTTP basics"
+  - "Understanding of Chi router"
+related_docs:
+  - path: "/getting-started/your-first-api/"
+    relationship: "prerequisite"
+  - path: "/guides/local-development/"
+    relationship: "deep_dive"
+  - path: "/examples/simple-api/"
+    relationship: "related"
+mcp_metadata:
+  primary_use_cases:
+    - "Building REST APIs"
+    - "Creating HTTP endpoints"
+    - "Understanding routing"
+  common_questions:
+    - "How do I create HTTP endpoints?"
+    - "How do I use Chi middleware?"
+    - "How do I handle requests and responses?"
+    - "How do I access the router?"
+---
+
 # HTTP Handlers
 
 Learn how to build HTTP APIs with Transire using the Chi router and standard Go HTTP patterns.

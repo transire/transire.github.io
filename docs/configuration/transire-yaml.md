@@ -1,3 +1,29 @@
+---
+title: "transire.yaml Reference"
+description: "Complete reference for the Transire configuration file"
+keywords:
+  - transire.yaml
+  - configuration
+  - config file
+  - yaml
+  - settings
+category: configuration
+difficulty: all
+estimated_time: 10 minutes
+prerequisites:
+  - "Basic YAML knowledge"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Configuring project settings"
+    - "Understanding config options"
+    - "Customizing behavior"
+  common_questions:
+    - "What goes in transire.yaml?"
+    - "What config options are available?"
+    - "How do I customize settings?"
+---
+
 # transire.yaml Reference
 
 Complete reference for the Transire configuration file.

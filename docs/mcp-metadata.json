@@ -1,0 +1,358 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-01-18T00:00:00Z",
+  "site_url": "https://transire.github.io",
+  "site_name": "Transire Documentation",
+  "site_description": "Cloud-agnostic Go framework for building production APIs with Chi routing on AWS Lambda",
+
+  "documentation_structure": {
+    "quick_starts": [
+      {
+        "title": "Quickstart",
+        "path": "/getting-started/quickstart/",
+        "description": "Get your first Transire API running in under 5 minutes",
+        "use_for": ["first_time_setup", "new_project"]
+      },
+      {
+        "title": "Your First API",
+        "path": "/getting-started/your-first-api/",
+        "description": "Detailed walkthrough of creating your first API",
+        "use_for": ["first_api", "tutorial"]
+      }
+    ],
+
+    "core_learning_paths": {
+      "beginner": {
+        "name": "Getting Started Path",
+        "description": "For developers new to Transire",
+        "estimated_time": "30 minutes",
+        "order": [
+          "/getting-started/installation/",
+          "/getting-started/quickstart/",
+          "/getting-started/your-first-api/",
+          "/core-concepts/application-runtime/",
+          "/core-concepts/http-handlers/"
+        ]
+      },
+      "intermediate": {
+        "name": "Advanced Features Path",
+        "description": "Adding queues, schedules, and deployment",
+        "estimated_time": "2 hours",
+        "order": [
+          "/core-concepts/queue-handlers/",
+          "/core-concepts/schedule-handlers/",
+          "/guides/queue-processing/",
+          "/guides/scheduled-tasks/",
+          "/guides/deploying-to-aws/"
+        ]
+      },
+      "advanced": {
+        "name": "Production Architecture Path",
+        "description": "Multi-function apps, VPC, custom infrastructure",
+        "estimated_time": "3 hours",
+        "order": [
+          "/guides/multi-function-architecture/",
+          "/configuration/vpc-existing/",
+          "/guides/custom-cdk/",
+          "/guides/testing/"
+        ]
+      }
+    },
+
+    "troubleshooting_index": {
+      "path": "/faq/",
+      "common_issues": [
+        {
+          "issue": "Port already in use",
+          "solution_path": "/getting-started/quickstart/#troubleshooting",
+          "keywords": ["port", "bind", "address in use"]
+        },
+        {
+          "issue": "Command not found",
+          "solution_path": "/getting-started/installation/",
+          "keywords": ["command not found", "path", "gopath"]
+        },
+        {
+          "issue": "Build errors",
+          "solution_path": "/guides/local-development/",
+          "keywords": ["build", "compile", "error"]
+        }
+      ]
+    },
+
+    "examples_by_complexity": {
+      "beginner": [
+        {
+          "name": "Simple API",
+          "path": "/examples/simple-api/",
+          "description": "Basic REST API with queue and schedule handlers",
+          "features": ["http", "queues", "schedules"],
+          "lines_of_code": 200
+        }
+      ],
+      "intermediate": [
+        {
+          "name": "Todo App",
+          "path": "/examples/todo-app/",
+          "description": "Todo application with database integration",
+          "features": ["http", "database", "crud"],
+          "lines_of_code": 500
+        }
+      ],
+      "advanced": [
+        {
+          "name": "Full Application",
+          "path": "/examples/full-app/",
+          "description": "Production-ready application with all features",
+          "features": ["http", "queues", "schedules", "database", "vpc", "multi-function"],
+          "lines_of_code": 1000
+        }
+      ]
+    }
+  },
+
+  "common_workflows": {
+    "create_new_app": {
+      "name": "Create a New Transire Application",
+      "steps": [
+        {
+          "title": "Install CLI",
+          "docs": ["/getting-started/installation/"]
+        },
+        {
+          "title": "Initialize Project",
+          "docs": ["/cli-reference/transire-init/", "/getting-started/quickstart/"]
+        },
+        {
+          "title": "Run Locally",
+          "docs": ["/cli-reference/transire-run/", "/guides/local-development/"]
+        }
+      ]
+    },
+
+    "deploy_to_aws": {
+      "name": "Deploy to AWS Lambda",
+      "steps": [
+        {
+          "title": "Configure AWS",
+          "docs": ["/guides/deploying-to-aws/"]
+        },
+        {
+          "title": "Configure Lambda Settings",
+          "docs": ["/configuration/lambda/", "/configuration/transire-yaml/"]
+        },
+        {
+          "title": "Build",
+          "docs": ["/cli-reference/transire-build/"]
+        },
+        {
+          "title": "Deploy",
+          "docs": ["/cli-reference/transire-deploy/"]
+        }
+      ]
+    },
+
+    "add_queue_handler": {
+      "name": "Add Queue Handler",
+      "steps": [
+        {
+          "title": "Understand Queue Handlers",
+          "docs": ["/core-concepts/queue-handlers/"]
+        },
+        {
+          "title": "Implement Handler",
+          "docs": ["/guides/queue-processing/", "/api-reference/handlers/"]
+        },
+        {
+          "title": "Configure Queue",
+          "docs": ["/configuration/queues/"]
+        },
+        {
+          "title": "Test Locally",
+          "docs": ["/cli-reference/transire-dev/"]
+        }
+      ]
+    },
+
+    "add_schedule_handler": {
+      "name": "Add Scheduled Task",
+      "steps": [
+        {
+          "title": "Understand Schedule Handlers",
+          "docs": ["/core-concepts/schedule-handlers/"]
+        },
+        {
+          "title": "Implement Handler",
+          "docs": ["/guides/scheduled-tasks/", "/api-reference/handlers/"]
+        },
+        {
+          "title": "Configure Schedule",
+          "docs": ["/configuration/schedules/"]
+        },
+        {
+          "title": "Test Locally",
+          "docs": ["/cli-reference/transire-dev/"]
+        }
+      ]
+    },
+
+    "configure_vpc": {
+      "name": "Configure VPC and Existing Resources",
+      "steps": [
+        {
+          "title": "Understand VPC Configuration",
+          "docs": ["/configuration/vpc-existing/"]
+        },
+        {
+          "title": "Reference Existing Resources",
+          "docs": ["/configuration/vpc-existing/", "/configuration/transire-yaml/"]
+        }
+      ]
+    },
+
+    "multi_function_architecture": {
+      "name": "Split into Multiple Lambda Functions",
+      "steps": [
+        {
+          "title": "Understand Multi-Function Architecture",
+          "docs": ["/guides/multi-function-architecture/"]
+        },
+        {
+          "title": "Configure Functions",
+          "docs": ["/configuration/transire-yaml/"]
+        },
+        {
+          "title": "Deploy",
+          "docs": ["/guides/deploying-to-aws/"]
+        }
+      ]
+    },
+
+    "custom_infrastructure": {
+      "name": "Add Custom Infrastructure",
+      "steps": [
+        {
+          "title": "Understand CDK Extensions",
+          "docs": ["/guides/custom-cdk/"]
+        },
+        {
+          "title": "Write Extension",
+          "docs": ["/guides/custom-cdk/"]
+        },
+        {
+          "title": "Configure",
+          "docs": ["/configuration/transire-yaml/"]
+        }
+      ]
+    }
+  },
+
+  "keyword_mapping": {
+    "setup": ["installation", "init", "quickstart", "getting started", "first app"],
+    "deploy": ["deployment", "aws", "lambda", "cdk", "cloud", "production"],
+    "queue": ["sqs", "messages", "queue-handlers", "async", "background"],
+    "schedule": ["cron", "eventbridge", "scheduled-tasks", "timer", "periodic"],
+    "local": ["development", "run", "hot reload", "localhost", "dev mode"],
+    "config": ["configuration", "transire.yaml", "settings", "environment"],
+    "http": ["routes", "handlers", "chi", "rest", "api", "endpoints"],
+    "test": ["testing", "unit tests", "integration tests", "e2e"],
+    "vpc": ["network", "private", "subnets", "security groups"],
+    "database": ["dynamodb", "rds", "existing resources"],
+    "error": ["troubleshooting", "debug", "fix", "issue", "problem"],
+    "cli": ["command", "transire init", "transire run", "transire deploy"]
+  },
+
+  "category_metadata": {
+    "getting-started": {
+      "description": "Installation, quickstart, and first API tutorials",
+      "audience": "Beginners new to Transire",
+      "pages": 3
+    },
+    "core-concepts": {
+      "description": "Understanding Transire's architecture and abstractions",
+      "audience": "All developers",
+      "pages": 5
+    },
+    "guides": {
+      "description": "Step-by-step tutorials for specific tasks",
+      "audience": "Intermediate to advanced",
+      "pages": 7
+    },
+    "configuration": {
+      "description": "Configuration reference for transire.yaml and settings",
+      "audience": "All developers",
+      "pages": 6
+    },
+    "cli-reference": {
+      "description": "Complete CLI command reference",
+      "audience": "All developers",
+      "pages": 6
+    },
+    "api-reference": {
+      "description": "Go package API documentation",
+      "audience": "Developers writing code",
+      "pages": 5
+    },
+    "examples": {
+      "description": "Complete working example applications",
+      "audience": "All developers",
+      "pages": 3
+    }
+  },
+
+  "search_optimization": {
+    "boost_terms": {
+      "transire": 2.0,
+      "handler": 1.5,
+      "lambda": 1.5,
+      "queue": 1.5,
+      "schedule": 1.5,
+      "deploy": 1.5,
+      "configuration": 1.3,
+      "chi": 1.3
+    },
+
+    "synonyms": {
+      "setup": ["install", "initialize", "bootstrap"],
+      "deploy": ["deployment", "publish", "release"],
+      "queue": ["sqs", "message queue", "async"],
+      "schedule": ["cron", "timer", "periodic"],
+      "handler": ["function", "processor", "worker"],
+      "local": ["development", "dev", "localhost"],
+      "error": ["issue", "problem", "bug", "fail"]
+    }
+  },
+
+  "mcp_hints": {
+    "when_user_asks_about": {
+      "getting_started": "Use get_started tool or fetch /getting-started/quickstart/",
+      "installation": "Fetch /getting-started/installation/",
+      "first_app": "Fetch /getting-started/your-first-api/ and /examples/simple-api/",
+      "deployment": "Fetch /guides/deploying-to-aws/",
+      "queues": "Fetch /core-concepts/queue-handlers/ and /guides/queue-processing/",
+      "schedules": "Fetch /core-concepts/schedule-handlers/ and /guides/scheduled-tasks/",
+      "configuration": "Fetch /configuration/transire-yaml/",
+      "testing": "Fetch /guides/testing/",
+      "errors": "Use troubleshoot tool or fetch /faq/",
+      "examples": "Fetch appropriate page from /examples/"
+    },
+
+    "preload_for_common_tasks": {
+      "new_user": [
+        "/getting-started/quickstart/",
+        "/cli-reference/transire-init/",
+        "/examples/simple-api/"
+      ],
+      "deployment": [
+        "/guides/deploying-to-aws/",
+        "/cli-reference/transire-deploy/",
+        "/configuration/lambda/"
+      ],
+      "development": [
+        "/guides/local-development/",
+        "/cli-reference/transire-run/",
+        "/guides/testing/"
+      ]
+    }
+  }
+}

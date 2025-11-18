@@ -1,3 +1,29 @@
+---
+title: "Testing"
+description: "Write unit, integration, and E2E tests for Transire applications"
+keywords:
+  - testing
+  - unit tests
+  - integration tests
+  - e2e tests
+  - test patterns
+category: guides
+difficulty: intermediate
+estimated_time: 20 minutes
+prerequisites:
+  - "Understanding of Go testing"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Writing unit tests"
+    - "Testing HTTP handlers"
+    - "Testing queue and schedule handlers"
+  common_questions:
+    - "How do I test my handlers?"
+    - "How do I mock dependencies?"
+    - "How do I test locally vs cloud?"
+---
+
 # Testing Your Application
 
 Learn how to test Transire applications locally and write automated tests.

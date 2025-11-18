@@ -1,3 +1,29 @@
+---
+title: "Messages & Events"
+description: "Message and event types for queue and schedule handlers"
+keywords:
+  - messages
+  - events
+  - Message
+  - ScheduleEvent
+  - types
+  - api
+category: api-reference
+difficulty: intermediate
+estimated_time: 5 minutes
+prerequisites:
+  - "Go basics"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Understanding message types"
+    - "Working with events"
+  common_questions:
+    - "What message types exist?"
+    - "How do I access message data?"
+    - "What is ScheduleEvent?"
+---
+
 # Message Types
 
 Queue message and schedule event types.

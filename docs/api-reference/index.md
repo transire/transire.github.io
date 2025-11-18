@@ -1,3 +1,26 @@
+---
+title: "API Reference Overview"
+description: "Overview of Transire Go packages and APIs"
+keywords:
+  - api reference
+  - go packages
+  - documentation
+  - api
+category: api-reference
+difficulty: intermediate
+estimated_time: 5 minutes
+prerequisites:
+  - "Go basics"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Understanding APIs"
+    - "Package reference"
+  common_questions:
+    - "What packages are available?"
+    - "How do I use the API?"
+---
+
 # API Reference
 
 Complete Go API documentation for the Transire framework.

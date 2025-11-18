@@ -1,3 +1,29 @@
+---
+title: "Local Development"
+description: "Develop and test Transire applications locally with hot reload"
+keywords:
+  - local development
+  - hot reload
+  - testing
+  - transire run
+  - development workflow
+category: guides
+difficulty: beginner
+estimated_time: 15 minutes
+prerequisites:
+  - "Completed Quickstart"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Setting up local development environment"
+    - "Testing locally with hot reload"
+    - "Debugging Transire applications"
+  common_questions:
+    - "How do I run my app locally?"
+    - "How does hot reload work?"
+    - "How do I test queues and schedules locally?"
+---
+
 # Local Development
 
 Best practices for developing Transire applications locally with hot reload, simulators, and debugging.

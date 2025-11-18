@@ -1,3 +1,29 @@
+---
+title: "Todo App Example"
+description: "Todo application with database integration"
+keywords:
+  - example
+  - todo app
+  - database
+  - crud
+  - full app
+category: examples
+difficulty: intermediate
+estimated_time: 30 minutes
+prerequisites:
+  - "Understanding of databases"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Building CRUD apps"
+    - "Database integration"
+    - "Complete application"
+  common_questions:
+    - "How do I integrate a database?"
+    - "Show me a real app"
+    - "How do I structure my code?"
+---
+
 # Todo App Example
 
 A comprehensive example application demonstrating database integration, authentication, and real-world patterns.

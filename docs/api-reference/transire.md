@@ -1,3 +1,29 @@
+---
+title: "Package transire"
+description: "Core Transire package with App, Runtime, and main types"
+keywords:
+  - package transire
+  - App
+  - Runtime
+  - core types
+  - api
+category: api-reference
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  - "Go basics"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Using core APIs"
+    - "Understanding App"
+    - "Runtime detection"
+  common_questions:
+    - "What is in package transire?"
+    - "How do I use App?"
+    - "What types are available?"
+---
+
 # Package transire
 
 Main application API for creating and running Transire applications.
