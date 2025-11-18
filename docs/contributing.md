@@ -1,3 +1,29 @@
+---
+title: "Contributing"
+description: "Guide for contributing to Transire"
+keywords:
+  - contributing
+  - development
+  - pull requests
+  - issues
+  - community
+category: other
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  - "Go development"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Contributing code"
+    - "Reporting issues"
+    - "Development setup"
+  common_questions:
+    - "How do I contribute?"
+    - "How do I report issues?"
+    - "How do I set up development?"
+---
+
 # Contributing to Transire
 
 Learn how to contribute to Transire development and help build the future of cloud-agnostic Go serverless frameworks.

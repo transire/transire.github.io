@@ -1,3 +1,29 @@
+---
+title: "Full Application Example"
+description: "Production-ready application with all Transire features"
+keywords:
+  - example
+  - full application
+  - production
+  - complete
+  - advanced
+category: examples
+difficulty: advanced
+estimated_time: 45 minutes
+prerequisites:
+  - "Completed other examples"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Production patterns"
+    - "Complete feature set"
+    - "Best practices"
+  common_questions:
+    - "Show me a production app"
+    - "What does a complete app look like?"
+    - "What are best practices?"
+---
+
 # Full App Example
 
 Reference for building production-grade applications with Transire.

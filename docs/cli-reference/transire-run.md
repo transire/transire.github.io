@@ -1,3 +1,28 @@
+---
+title: "transire run"
+description: "Run Transire application locally with hot reload"
+keywords:
+  - transire run
+  - local development
+  - hot reload
+  - dev server
+category: cli-reference
+difficulty: beginner
+estimated_time: 5 minutes
+prerequisites:
+  []
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Running locally"
+    - "Development workflow"
+    - "Testing"
+  common_questions:
+    - "How do I run locally?"
+    - "What does run do?"
+    - "How do I change the port?"
+---
+
 # transire run
 
 Start your Transire application in local development mode with hot reload.

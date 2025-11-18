@@ -1,3 +1,28 @@
+---
+title: "transire init"
+description: "Initialize a new Transire project"
+keywords:
+  - transire init
+  - initialize
+  - new project
+  - scaffold
+  - setup
+category: cli-reference
+difficulty: beginner
+estimated_time: 5 minutes
+prerequisites:
+  []
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Creating new projects"
+    - "Scaffolding applications"
+  common_questions:
+    - "How do I create a new project?"
+    - "What does init create?"
+    - "What flags are available?"
+---
+
 # transire init
 
 Initialize a new Transire project with scaffolded code and configuration.

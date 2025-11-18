@@ -1,3 +1,38 @@
+---
+title: "Configuration System"
+description: "Understanding Transire's configuration with transire.yaml and environment variables"
+keywords:
+  - configuration
+  - transire.yaml
+  - config
+  - environment variables
+  - settings
+  - configuration merging
+category: core-concepts
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  - "Basic YAML knowledge"
+  - "Understanding of environment variables"
+related_docs:
+  - path: "/configuration/transire-yaml/"
+    relationship: "deep_dive"
+  - path: "/configuration/environment/"
+    relationship: "related"
+  - path: "/guides/deploying-to-aws/"
+    relationship: "related"
+mcp_metadata:
+  primary_use_cases:
+    - "Configuring Transire applications"
+    - "Understanding configuration precedence"
+    - "Managing environment-specific settings"
+  common_questions:
+    - "How do I configure my app?"
+    - "What goes in transire.yaml?"
+    - "How do environment variables work?"
+    - "What is configuration merging?"
+---
+
 # Configuration
 
 Learn how Transire's configuration system works and how to customize your application behavior.

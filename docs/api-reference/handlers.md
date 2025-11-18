@@ -1,3 +1,28 @@
+---
+title: "Handlers"
+description: "Handler interfaces for HTTP, queues, and schedules"
+keywords:
+  - handlers
+  - QueueHandler
+  - SchedulerHandler
+  - interfaces
+  - api
+category: api-reference
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  - "Go interfaces"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Implementing handlers"
+    - "Understanding interfaces"
+  common_questions:
+    - "What handler interfaces exist?"
+    - "How do I implement handlers?"
+    - "What methods are required?"
+---
+
 # Handler Interfaces
 
 Queue and schedule handler interfaces for background processing.

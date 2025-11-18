@@ -1,3 +1,46 @@
+---
+title: "Quickstart"
+description: "Get your first Transire API running in under 5 minutes"
+keywords:
+  - quickstart
+  - getting started
+  - installation
+  - first app
+  - tutorial
+  - transire init
+  - local development
+category: getting-started
+difficulty: beginner
+estimated_time: 5 minutes
+prerequisites:
+  - "Go 1.21+"
+  - "Basic familiarity with Go and http.Handler"
+related_docs:
+  - path: "/getting-started/installation/"
+    relationship: "prerequisite"
+  - path: "/getting-started/your-first-api/"
+    relationship: "next_step"
+  - path: "/core-concepts/application-runtime/"
+    relationship: "deep_dive"
+mcp_metadata:
+  primary_use_cases:
+    - "First time Transire setup"
+    - "Creating a new project"
+    - "Running app locally for first time"
+  common_questions:
+    - "How do I create a new Transire app?"
+    - "How do I install Transire?"
+    - "How do I run my app locally?"
+    - "What files does transire init create?"
+  troubleshooting_hints:
+    - issue: "Port already in use"
+      keywords: ["port", "bind", "address in use"]
+      solution_section: "#port-already-in-use"
+    - issue: "Command not found"
+      keywords: ["transire", "command not found", "gopath"]
+      solution_section: "#transire-command-not-found"
+---
+
 # Quickstart
 
 Get your first Transire API running locally in under 5 minutes.

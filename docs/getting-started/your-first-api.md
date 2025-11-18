@@ -1,3 +1,40 @@
+---
+title: "Your First API"
+description: "Build a complete REST API for a todo list application with Transire"
+keywords:
+  - tutorial
+  - first api
+  - rest api
+  - todo app
+  - crud
+  - http handlers
+  - chi router
+category: getting-started
+difficulty: beginner
+estimated_time: 20 minutes
+prerequisites:
+  - "Completed Quickstart"
+  - "Go basics"
+  - "HTTP/REST concepts"
+related_docs:
+  - path: "/getting-started/quickstart/"
+    relationship: "prerequisite"
+  - path: "/core-concepts/http-handlers/"
+    relationship: "deep_dive"
+  - path: "/examples/todo-app/"
+    relationship: "related"
+mcp_metadata:
+  primary_use_cases:
+    - "Learning Transire through hands-on tutorial"
+    - "Building first REST API"
+    - "Understanding CRUD operations"
+  common_questions:
+    - "How do I create HTTP endpoints?"
+    - "How do I handle request/response?"
+    - "How do I structure a Transire app?"
+    - "How do I test my API locally?"
+---
+
 # Your First API
 
 Build a complete REST API for a todo list application with Transire.

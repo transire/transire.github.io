@@ -1,3 +1,40 @@
+---
+title: "Application & Runtime"
+description: "Understanding Transire's App abstraction and automatic runtime detection for local and cloud deployment"
+keywords:
+  - application
+  - runtime
+  - app
+  - transire.New
+  - runtime detection
+  - local development
+  - lambda
+  - chi router
+category: core-concepts
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  - "Completed Quickstart"
+  - "Basic Go knowledge"
+related_docs:
+  - path: "/getting-started/quickstart/"
+    relationship: "prerequisite"
+  - path: "/core-concepts/http-handlers/"
+    relationship: "next_step"
+  - path: "/guides/local-development/"
+    relationship: "deep_dive"
+mcp_metadata:
+  primary_use_cases:
+    - "Understanding how Transire apps work"
+    - "Learning about runtime detection"
+    - "Understanding local vs cloud execution"
+  common_questions:
+    - "How does Transire detect runtime?"
+    - "What is the App abstraction?"
+    - "How does the same code run locally and on Lambda?"
+    - "What methods are available on App?"
+---
+
 # Application & Runtime
 
 Learn how Transire's App abstraction and runtime detection enable your Go code to run locally and on AWS Lambda without changes.

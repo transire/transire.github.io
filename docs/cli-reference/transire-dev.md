@@ -1,3 +1,29 @@
+---
+title: "transire dev"
+description: "Development utilities for testing queues and schedules"
+keywords:
+  - transire dev
+  - development tools
+  - testing
+  - queues
+  - schedules
+category: cli-reference
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  []
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Testing queues locally"
+    - "Triggering schedules"
+    - "Development utilities"
+  common_questions:
+    - "How do I test queues?"
+    - "How do I trigger schedules?"
+    - "What dev commands exist?"
+---
+
 # transire dev
 
 Development utilities for testing queues and schedules during local development.

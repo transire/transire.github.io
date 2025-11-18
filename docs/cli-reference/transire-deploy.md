@@ -1,3 +1,29 @@
+---
+title: "transire deploy"
+description: "Deploy Transire application to AWS"
+keywords:
+  - transire deploy
+  - deployment
+  - aws
+  - cdk
+  - cloudformation
+category: cli-reference
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  - "AWS CLI configured"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Deploying to AWS"
+    - "Updating deployment"
+    - "Production deployment"
+  common_questions:
+    - "How do I deploy to AWS?"
+    - "How do I update?"
+    - "What does deploy do?"
+---
+
 # transire deploy
 
 Deploy your Transire application to AWS using CDK.

@@ -1,3 +1,29 @@
+---
+title: "Schedule Configuration"
+description: "Configure scheduled task settings and cron expressions"
+keywords:
+  - schedule configuration
+  - cron
+  - eventbridge
+  - timezone
+  - enabled
+category: configuration
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  - "Understanding of cron syntax"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Configuring scheduled tasks"
+    - "Setting timezones"
+    - "Enabling/disabling schedules"
+  common_questions:
+    - "How do I configure schedules?"
+    - "How do I set timezone?"
+    - "How do I disable a schedule?"
+---
+
 # Schedule Configuration
 
 Configure AWS EventBridge scheduled tasks for your Transire schedule handlers.

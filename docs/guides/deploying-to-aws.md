@@ -1,3 +1,31 @@
+---
+title: "Deploying to AWS"
+description: "Deploy Transire applications to AWS Lambda with CDK"
+keywords:
+  - deployment
+  - aws
+  - lambda
+  - cdk
+  - cloudformation
+  - production
+category: guides
+difficulty: intermediate
+estimated_time: 20 minutes
+prerequisites:
+  - "AWS account"
+  - "AWS CLI configured"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Deploying to AWS for the first time"
+    - "Understanding AWS infrastructure"
+    - "Managing deployments"
+  common_questions:
+    - "How do I deploy to AWS?"
+    - "What AWS resources are created?"
+    - "How do I update my deployment?"
+---
+
 # Deploying to AWS
 
 Learn how to deploy your Transire application to AWS Lambda with API Gateway, SQS, and EventBridge.

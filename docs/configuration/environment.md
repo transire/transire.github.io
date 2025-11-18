@@ -1,3 +1,29 @@
+---
+title: "Environment Variables"
+description: "Configure environment variables for your Transire application"
+keywords:
+  - environment variables
+  - env vars
+  - configuration
+  - secrets
+  - settings
+category: configuration
+difficulty: beginner
+estimated_time: 5 minutes
+prerequisites:
+  []
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Setting environment variables"
+    - "Managing secrets"
+    - "Configuration per environment"
+  common_questions:
+    - "How do I set env vars?"
+    - "How do I manage secrets?"
+    - "Where do env vars go?"
+---
+
 # Environment Variables
 
 Configure environment variables for your Transire Lambda functions.

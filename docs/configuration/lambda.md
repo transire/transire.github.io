@@ -1,3 +1,30 @@
+---
+title: "Lambda Settings"
+description: "Configure AWS Lambda function settings for your Transire application"
+keywords:
+  - lambda
+  - aws lambda
+  - function settings
+  - memory
+  - timeout
+  - architecture
+category: configuration
+difficulty: intermediate
+estimated_time: 10 minutes
+prerequisites:
+  - "Basic Lambda knowledge"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Configuring Lambda resources"
+    - "Optimizing performance"
+    - "Setting timeouts"
+  common_questions:
+    - "How do I configure Lambda?"
+    - "What memory should I use?"
+    - "How do I set timeout?"
+---
+
 # Lambda Configuration
 
 Detailed configuration options for AWS Lambda functions in Transire.

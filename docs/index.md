@@ -1,3 +1,30 @@
+---
+title: "Transire Documentation"
+description: "Cloud-agnostic Go framework for building production APIs with Chi routing"
+keywords:
+  - transire
+  - go framework
+  - lambda
+  - chi router
+  - cloud-agnostic
+  - serverless
+category: other
+difficulty: all
+estimated_time: 5 minutes
+prerequisites:
+  []
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Getting started"
+    - "Understanding Transire"
+    - "Overview"
+  common_questions:
+    - "What is Transire?"
+    - "Why use Transire?"
+    - "How do I get started?"
+---
+
 # Transire
 
 ## Cloud-Agnostic Go Framework for Building Production APIs

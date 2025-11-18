@@ -1,3 +1,39 @@
+---
+title: "Queue Handlers"
+description: "Process SQS messages in batches with Transire's QueueHandler interface"
+keywords:
+  - queue handlers
+  - sqs
+  - message processing
+  - batch processing
+  - async processing
+  - QueueHandler interface
+  - retries
+category: core-concepts
+difficulty: intermediate
+estimated_time: 15 minutes
+prerequisites:
+  - "Understanding of message queues"
+  - "Basic async concepts"
+related_docs:
+  - path: "/guides/queue-processing/"
+    relationship: "deep_dive"
+  - path: "/configuration/queues/"
+    relationship: "related"
+  - path: "/examples/simple-api/"
+    relationship: "related"
+mcp_metadata:
+  primary_use_cases:
+    - "Processing async tasks"
+    - "Handling background jobs"
+    - "Understanding queue patterns"
+  common_questions:
+    - "How do I process queue messages?"
+    - "How do I handle failed messages?"
+    - "How do I configure retries?"
+    - "How do I test queues locally?"
+---
+
 # Queue Handlers
 
 Learn how to process SQS messages in batches with Transire's QueueHandler interface, including retry semantics and configuration.

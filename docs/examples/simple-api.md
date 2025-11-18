@@ -1,3 +1,30 @@
+---
+title: "Simple API Example"
+description: "Complete example of a REST API with queues and schedules"
+keywords:
+  - example
+  - simple api
+  - rest
+  - queues
+  - schedules
+  - tutorial
+category: examples
+difficulty: beginner
+estimated_time: 20 minutes
+prerequisites:
+  - "Completed Quickstart"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Learning by example"
+    - "Understanding complete app"
+    - "REST API patterns"
+  common_questions:
+    - "How do I build a REST API?"
+    - "Show me a complete example"
+    - "How do handlers work together?"
+---
+
 # Simple API Example
 
 A complete walkthrough of the `simple-api` example, demonstrating HTTP handlers, queue processing, and scheduled tasks.

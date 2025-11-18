@@ -1,3 +1,26 @@
+---
+title: "Configuration Types"
+description: "Configuration structs and types"
+keywords:
+  - configuration types
+  - config structs
+  - types
+  - api
+category: api-reference
+difficulty: intermediate
+estimated_time: 5 minutes
+prerequisites:
+  - "Go structs"
+related_docs: []
+mcp_metadata:
+  primary_use_cases:
+    - "Understanding config types"
+    - "Programmatic configuration"
+  common_questions:
+    - "What config types exist?"
+    - "How do I use config programmatically?"
+---
+
 # Configuration Types
 
 Go configuration structs for handlers and applications.
