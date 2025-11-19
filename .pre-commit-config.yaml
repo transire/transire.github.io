@@ -1,0 +1,67 @@
+repos:
+  # YAML Linting - matches CI yamllint check
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args: [--format, parsable, --strict]
+        types: [yaml]
+
+  # MkDocs build with strict mode - matches CI mkdocs build --strict
+  - repo: local
+    hooks:
+      - id: mkdocs-build-strict
+        name: MkDocs Build (Strict Mode)
+        entry: bash
+        language: system
+        files: ^(docs/.*|mkdocs\.yml)$
+        pass_filenames: false
+        always_run: false
+        args:
+          - -c
+          - |
+            if [ ! -d ".venv" ]; then
+              echo "Creating virtual environment for MkDocs..."
+              python3 -m venv .venv
+              source .venv/bin/activate
+              pip install mkdocs-material
+            else
+              source .venv/bin/activate
+            fi
+            mkdocs build --strict --verbose
+
+  # Additional useful hooks for documentation quality
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+        exclude: ^(\.github/workflows/|mkdocs\.yml)
+      - id: check-json
+      - id: check-toml
+      - id: end-of-file-fixer
+        exclude: \.min\.(css|js)$
+      - id: trailing-whitespace
+        exclude: \.min\.(css|js)$
+      - id: check-merge-conflict
+      - id: check-added-large-files
+      - id: mixed-line-ending
+
+  # Markdown linting for documentation quality
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.41.0
+    hooks:
+      - id: markdownlint
+        args: [--fix, --disable, MD013, MD033, MD041]
+        files: \.md$
+
+ci:
+  autofix_commit_msg: |
+    [pre-commit.ci] auto fixes from pre-commit.com hooks
+
+    for more information, see https://pre-commit.ci
+  autofix_prs: true
+  autoupdate_branch: ''
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false

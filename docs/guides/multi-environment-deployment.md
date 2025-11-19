@@ -492,7 +492,7 @@ transire deploy --environment prod
 - [Configuration Reference](../configuration/transire-yaml.md) – Customize per-environment settings
 - [Deploying to AWS](deploying-to-aws.md) – Complete AWS deployment guide
 - [Environment Variables](../configuration/environment.md) – Manage secrets and config
-- [CI/CD Integration](../examples/cicd-pipelines.md) – Automate deployments
+- [CI/CD Integration](../examples/full-app.md) – Automate deployments
 
 ---
 
