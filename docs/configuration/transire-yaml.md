@@ -7,6 +7,9 @@ keywords:
   - config file
   - yaml
   - settings
+  - resource naming
+  - environment support
+  - multi-environment
 category: configuration
 difficulty: all
 estimated_time: 10 minutes
@@ -18,10 +21,14 @@ mcp_metadata:
     - "Configuring project settings"
     - "Understanding config options"
     - "Customizing behavior"
+    - "Resource naming configuration"
+    - "Environment-specific settings"
   common_questions:
     - "What goes in transire.yaml?"
     - "What config options are available?"
     - "How do I customize settings?"
+    - "How are resources named across environments?"
+    - "How does the name field affect resource naming?"
 ---
 
 # transire.yaml Reference
@@ -132,7 +139,7 @@ development:
 
 | Field | Type | Required | Default | Description |
 |-------|------|----------|---------|-------------|
-| `name` | string | Yes | – | Project name (used for stack naming) |
+| `name` | string | Yes | – | Project name (used as AppName in `{AppName}-{Environment}-{ResourceName}` naming) |
 | `language` | string | No | `go` | Programming language (only `go` supported in MVP) |
 | `cloud` | string | No | `aws` | Cloud provider (only `aws` supported in MVP) |
 | `runtime` | string | No | `lambda` | Runtime platform (only `lambda` supported in MVP) |
@@ -140,6 +147,46 @@ development:
 | `ci` | string | No | `github` | CI/CD platform (only `github` supported in MVP) |
 
 Source: [`pkg/transire/config.go:12-31`](https://github.com/transire/transire/blob/main/pkg/transire/config.go)
+
+---
+
+### Resource Naming & Environment Support
+
+Transire automatically names all AWS resources using the pattern:
+```
+{AppName}-{Environment}-{ResourceName}
+```
+
+**How it works:**
+- **AppName**: Derived from the `name` field in `transire.yaml`
+- **Environment**: Specified via CLI flag `--environment` (defaults to `dev`)
+- **ResourceName**: Specific to resource type (e.g., `main`, `email-queue`, `daily-cleanup`)
+
+**Examples:**
+
+```yaml
+# transire.yaml
+name: my-api
+```
+
+```bash
+# Commands produce different resource names
+transire deploy --environment dev
+# → Stack: my-api-dev
+# → Lambda: my-api-dev-main
+# → API: my-api-dev-api
+# → Queue: my-api-dev-email-queue
+
+transire deploy --environment prod
+# → Stack: my-api-prod
+# → Lambda: my-api-prod-main
+# → API: my-api-prod-api
+# → Queue: my-api-prod-email-queue
+```
+
+This ensures complete resource isolation between environments.
+
+Source: [`internal/cli/commands/build.go:87-91`](https://github.com/transire/transire/blob/main/internal/cli/commands/build.go), [`internal/providers/aws/cdk_generator.go`](https://github.com/transire/transire/blob/main/internal/providers/aws/cdk_generator.go)
 
 ---
 

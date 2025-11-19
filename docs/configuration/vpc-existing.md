@@ -390,7 +390,7 @@ environment:
 Transire generates IAM policies and resource imports:
 
 ```typescript
-// infrastructure/lib/my-api-stack.ts (generated)
+// infrastructure/lib/my-api-dev.ts (generated)
 
 // VPC configuration
 const mainFunction = new lambda.Function(this, 'MainFunction', {

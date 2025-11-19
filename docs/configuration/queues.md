@@ -316,15 +316,15 @@ Source: Example adapted from [`examples/simple-api/transire.yaml:30-38`](https:/
 When you run `transire build`, CDK generates:
 
 ```typescript
-// infrastructure/lib/my-api-stack.ts (generated)
+// infrastructure/lib/my-api-dev.ts (generated)
 
 // SQS Queue + DLQ
 const emailQueue = new sqs.Queue(this, 'EmailQueue', {
-  queueName: 'email-queue',
+  queueName: 'my-api-dev-email-queue',
   visibilityTimeout: cdk.Duration.seconds(30),
   deadLetterQueue: {
     queue: new sqs.Queue(this, 'EmailQueueDLQ', {
-      queueName: 'email-queue-dlq',
+      queueName: 'my-api-dev-email-queue-dlq',
     }),
     maxReceiveCount: 3,
   },
@@ -385,7 +385,7 @@ Key metrics to monitor:
 
 ```bash
 aws sqs get-queue-attributes \
-  --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/email-queue-dlq \
+  --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/my-api-dev-email-queue-dlq \
   --attribute-names ApproximateNumberOfMessages
 ```
 

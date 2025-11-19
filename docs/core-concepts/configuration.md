@@ -109,7 +109,7 @@ ci: github          # Only 'github' supported in MVP
 ```
 
 **Used for:**
-- CloudFormation stack naming (`my-api-stack`)
+- CloudFormation stack naming (`my-api-dev`, `my-api-prod`)
 - IAM role naming
 - Resource tagging
 

@@ -245,7 +245,7 @@ Yes! Two approaches:
 
 **1. Edit generated CDK** (after `transire build`):
 ```typescript
-// .transire/cdk/lib/main-stack.ts
+// infrastructure/lib/my-api-dev.ts
 // Add custom resources here
 ```
 
@@ -332,7 +332,7 @@ Follow [GitHub discussions](https://github.com/transire/transire/discussions) fo
 
 **Via CloudFormation:**
 ```bash
-aws cloudformation rollback-stack --stack-name my-api-stack
+aws cloudformation rollback-stack --stack-name my-api-dev
 ```
 
 **Via CDK:**

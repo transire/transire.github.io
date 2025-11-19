@@ -256,13 +256,13 @@ Source: [`internal/providers/aws/lambda_builder.go`](https://github.com/transire
 
 ```bash
 aws lambda get-function-configuration \
-  --function-name my-api-stack-WebFunction-ABC123
+  --function-name my-api-dev-web-ABC123
 ```
 
 Output:
 ```json
 {
-  "FunctionName": "my-api-stack-WebFunction-ABC123",
+  "FunctionName": "my-api-dev-web-ABC123",
   "Runtime": "provided.al2023",
   "MemorySize": 256,
   "Timeout": 30,

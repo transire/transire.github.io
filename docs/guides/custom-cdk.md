@@ -67,7 +67,7 @@ When you run `transire build`, Transire generates:
 │   ├── bin/
 │   │   └── cdk.ts           # CDK app entry point
 │   ├── lib/
-│   │   └── main-stack.ts    # Generated stack
+│   │   └── my-api-dev.ts    # Generated stack
 │   ├── cdk.json             # CDK configuration
 │   ├── package.json         # Node.js dependencies
 │   └── tsconfig.json        # TypeScript config
@@ -589,7 +589,7 @@ new cdk.CfnOutput(stack, 'BucketName', {
 transire deploy
 # Outputs:
 # DatabaseEndpoint = mydb.abc123.us-east-1.rds.amazonaws.com
-# BucketName = my-api-stack-uploads
+# BucketName = my-api-dev-uploads
 ```
 
 ---

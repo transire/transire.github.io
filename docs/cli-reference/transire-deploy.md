@@ -7,6 +7,9 @@ keywords:
   - aws
   - cdk
   - cloudformation
+  - multi-environment
+  - environment-isolation
+  - dev staging prod
 category: cli-reference
 difficulty: intermediate
 estimated_time: 10 minutes
@@ -18,10 +21,15 @@ mcp_metadata:
     - "Deploying to AWS"
     - "Updating deployment"
     - "Production deployment"
+    - "Multi-environment deployment"
+    - "Environment isolation"
   common_questions:
     - "How do I deploy to AWS?"
     - "How do I update?"
     - "What does deploy do?"
+    - "How do I deploy to different environments?"
+    - "How are environments isolated?"
+    - "What's the resource naming pattern?"
 ---
 
 # transire deploy
@@ -71,7 +79,7 @@ Source: [`internal/cli/commands/deploy.go:13-106`](https://github.com/transire/t
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
 | `-c, --config` | string | `transire.yaml` | Path to configuration file |
-| `-e, --environment` | string | `""` | Deployment environment (dev, staging, prod) |
+| `-e, --environment` | string | `dev` | Deployment environment (dev, staging, prod) |
 | `--dry-run` | bool | `false` | Preview changes without applying |
 | `-r, --region` | string | `$AWS_DEFAULT_REGION` | AWS region (defaults to env var or `us-east-1`) |
 
@@ -95,7 +103,7 @@ Output:
 [CDK output...]
 
 ✅ Deployment completed successfully
-🎯 Stack: my-api-stack
+🎯 Stack: my-api-dev
 🌍 Region: us-east-1
 📊 API Endpoint: https://abc123.execute-api.us-east-1.amazonaws.com
 ```
@@ -114,13 +122,25 @@ transire deploy --dry-run
 
 Shows CloudFormation diff without applying changes.
 
-### Deploy to production environment
+### Deploy to specific environments
 
 ```bash
-transire deploy --environment production
+# Deploy to development (default)
+transire deploy
+# or explicitly
+transire deploy --environment dev
+
+# Deploy to staging
+transire deploy --environment staging
+
+# Deploy to production
+transire deploy --environment prod
+
+# Combine with region for multi-region deployments
+transire deploy --environment prod --region us-west-2
 ```
 
-Environment can be used to switch between configurations or profiles.
+Environment isolation ensures resources are named `{AppName}-{Environment}-{ResourceName}` preventing conflicts across environments.
 
 ---
 
@@ -166,22 +186,22 @@ Transire automates these steps via [`internal/providers/aws/cdk_deployer.go`](ht
 After successful deployment:
 
 **Lambda Functions:**
-- One or more Lambda functions (depending on `functions` configuration)
+- One or more Lambda functions (named `{AppName}-{Environment}-{HandlerName}`)
 - Lambda aliases (`live`) for each function
 - IAM execution roles with necessary permissions
 
 **API Gateway (if HTTP handlers present):**
-- HTTP API v2
+- HTTP API v2 (named `{AppName}-{Environment}-api`)
 - Default integration to Lambda function
 - Publicly accessible endpoint
 
 **SQS (if queue handlers present):**
-- One queue per `QueueHandler`
-- Dead Letter Queue (DLQ) for each queue
+- One queue per `QueueHandler` (named `{AppName}-{Environment}-{QueueName}`)
+- Dead Letter Queue (DLQ) for each queue (named `{AppName}-{Environment}-{QueueName}-dlq`)
 - Lambda event source mappings
 
 **EventBridge (if schedule handlers present):**
-- One rule per `SchedulerHandler`
+- One rule per `SchedulerHandler` (named `{AppName}-{Environment}-{RuleName}`)
 - Lambda targets for each rule
 
 **VPC (if configured):**
@@ -204,12 +224,12 @@ cdk outputs
 
 Example outputs:
 ```
-my-api-stack.ApiEndpoint = https://abc123.execute-api.us-east-1.amazonaws.com
-my-api-stack.FunctionName = my-api-stack-MainFunction-ABC123
+my-api-dev.ApiEndpoint = https://abc123.execute-api.us-east-1.amazonaws.com
+my-api-dev.FunctionName = my-api-dev-MainFunction-ABC123
 ```
 
 Or via AWS Console:
-CloudFormation → Stacks → `my-api-stack` → Outputs
+CloudFormation → Stacks → `my-api-dev` → Outputs
 
 ---
 
@@ -273,7 +293,7 @@ To update:
 
 CDK will show a diff of changes before applying:
 ```
-Stack my-api-stack
+Stack my-api-dev
 Resources
 [~] AWS::Lambda::Function MainFunction
  └─ [~] Code
@@ -302,13 +322,13 @@ cdk destroy
 ### View CloudFormation Stack
 
 ```bash
-aws cloudformation describe-stacks --stack-name my-api-stack
+aws cloudformation describe-stacks --stack-name my-api-dev
 ```
 
 ### View Lambda Function
 
 ```bash
-aws lambda get-function --function-name my-api-stack-MainFunction-ABC123
+aws lambda get-function --function-name my-api-dev-MainFunction-ABC123
 ```
 
 ### View API Gateway
@@ -320,7 +340,7 @@ aws apigatewayv2 get-apis
 ### View CloudWatch Logs
 
 ```bash
-aws logs tail /aws/lambda/my-api-stack-MainFunction-ABC123 --follow
+aws logs tail /aws/lambda/my-api-dev-MainFunction-ABC123 --follow
 ```
 
 ---

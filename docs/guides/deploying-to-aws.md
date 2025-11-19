@@ -8,6 +8,9 @@ keywords:
   - cdk
   - cloudformation
   - production
+  - multi-environment
+  - dev staging prod
+  - environment deployment
 category: guides
 difficulty: intermediate
 estimated_time: 20 minutes
@@ -20,10 +23,14 @@ mcp_metadata:
     - "Deploying to AWS for the first time"
     - "Understanding AWS infrastructure"
     - "Managing deployments"
+    - "Multi-environment deployment"
+    - "Environment-specific deployment"
   common_questions:
     - "How do I deploy to AWS?"
     - "What AWS resources are created?"
     - "How do I update my deployment?"
+    - "How do I deploy to different environments?"
+    - "How do I deploy to production?"
 ---
 
 # Deploying to AWS
@@ -52,12 +59,16 @@ Before deploying, ensure you have:
 ### 1. Build Artifacts
 
 ```bash
+# Build for development (default environment)
 transire build
+
+# Or explicitly specify environment
+transire build --environment dev
 ```
 
 This creates:
 - Lambda deployment package (`dist/function.zip`)
-- CDK TypeScript infrastructure (`infrastructure/lib/`)
+- CDK TypeScript infrastructure with environment-specific naming (`infrastructure/lib/`)
 
 ### 2. Install CDK Dependencies
 
@@ -72,7 +83,12 @@ This installs the AWS CDK TypeScript dependencies needed for deployment.
 ### 3. Deploy to AWS
 
 ```bash
+# Deploy to development environment (default)
 transire deploy
+
+# Deploy to specific environment
+transire deploy --environment staging
+transire deploy --environment prod
 ```
 
 Transire will:
@@ -89,16 +105,16 @@ Transire will:
 
 ✨  Synthesis time: 3.21s
 
-my-api-stack: deploying...
-my-api-stack: creating CloudFormation changeset...
+my-api-dev: deploying...
+my-api-dev: creating CloudFormation changeset...
 
- ✅  my-api-stack
+ ✅  my-api-dev
 
 Outputs:
-my-api-stack.ApiEndpoint = https://abc123.execute-api.us-east-1.amazonaws.com
+my-api-dev.ApiEndpoint = https://abc123.execute-api.us-east-1.amazonaws.com
 
 Stack ARN:
-arn:aws:cloudformation:us-east-1:123456789012:stack/my-api-stack/...
+arn:aws:cloudformation:us-east-1:123456789012:stack/my-api-dev/...
 ```
 
 ---
@@ -127,7 +143,11 @@ aws sts get-caller-identity
 ### Step 2: Build Lambda Artifacts
 
 ```bash
+# Build for development environment (default)
 transire build
+
+# For production deployment, specify environment
+transire build --environment prod
 ```
 
 **What happens:**
@@ -143,14 +163,14 @@ ls -lh dist/
 # Should show function.zip
 
 ls infrastructure/lib/
-# Should show my-api-stack.ts
+# Should show my-api-dev.ts
 ```
 
 ---
 
 ### Step 3: Review Generated Infrastructure
 
-Open `infrastructure/lib/my-api-stack.ts` to see generated resources:
+Open `infrastructure/lib/my-api-dev.ts` to see generated resources:
 
 ```typescript
 // Lambda Function
@@ -170,8 +190,13 @@ const api = new apigatewayv2.HttpApi(this, 'HttpApi', {
 
 // SQS Queue (if queue handlers present)
 const emailQueue = new sqs.Queue(this, 'EmailQueue', {
-  queueName: 'email-queue',
-  deadLetterQueue: { queue: new sqs.Queue(this, 'EmailQueueDLQ'), maxReceiveCount: 3 },
+  queueName: 'my-api-dev-email-queue',
+  deadLetterQueue: {
+    queue: new sqs.Queue(this, 'EmailQueueDLQ', {
+      queueName: 'my-api-dev-email-queue-dlq'
+    }),
+    maxReceiveCount: 3
+  },
 });
 
 // EventBridge Rule (if schedule handlers present)
@@ -201,7 +226,12 @@ This step is only needed once after running `transire build` for the first time.
 ### Step 5: Deploy Infrastructure
 
 ```bash
+# Deploy to development environment (default)
 transire deploy
+
+# Deploy to production with dry-run first
+transire deploy --environment prod --dry-run
+transire deploy --environment prod
 ```
 
 **First deployment** requires CDK bootstrap:
@@ -231,19 +261,19 @@ curl https://abc123.execute-api.us-east-1.amazonaws.com/health
 **View CloudFormation stack:**
 ```bash
 aws cloudformation describe-stacks \
-  --stack-name my-api-stack \
+  --stack-name my-api-dev \
   --query 'Stacks[0].StackStatus'
 ```
 
 **View Lambda function:**
 ```bash
 aws lambda get-function \
-  --function-name my-api-stack-MainFunction-ABC123
+  --function-name my-api-dev-MainFunction-ABC123
 ```
 
 **View CloudWatch logs:**
 ```bash
-aws logs tail /aws/lambda/my-api-stack-MainFunction-ABC123 --follow
+aws logs tail /aws/lambda/my-api-dev-MainFunction-ABC123 --follow
 ```
 
 ---
@@ -270,7 +300,7 @@ transire deploy --dry-run
 
 Shows CloudFormation diff without applying:
 ```
-Stack my-api-stack
+Stack my-api-dev
 Resources
 [+] AWS::Lambda::Function MainFunction
 [+] AWS::ApiGatewayV2::Api HttpApi
@@ -338,7 +368,7 @@ transire deploy
 
 **CDK shows diff before deploying:**
 ```
-Stack my-api-stack
+Stack my-api-dev
 IAM Statement Changes
 ┌───┬────────────┬────────┬────────────┬──────────┬──────────┐
 │   │ Resource   │ Effect │ Action     │ Principal│ Condition│
@@ -363,7 +393,7 @@ Do you wish to deploy these changes (y/n)?
 
 ```bash
 aws cloudformation describe-stack-events \
-  --stack-name my-api-stack \
+  --stack-name my-api-dev \
   --max-items 10
 ```
 
@@ -374,7 +404,7 @@ aws cloudformation describe-stack-events \
 aws cloudwatch get-metric-statistics \
   --namespace AWS/Lambda \
   --metric-name Invocations \
-  --dimensions Name=FunctionName,Value=my-api-stack-MainFunction-ABC123 \
+  --dimensions Name=FunctionName,Value=my-api-dev-MainFunction-ABC123 \
   --start-time $(date -u -d '1 hour ago' +%Y-%m-%dT%H:%M:%S) \
   --end-time $(date -u +%Y-%m-%dT%H:%M:%S) \
   --period 3600 \
@@ -388,7 +418,7 @@ aws cloudwatch get-metric-statistics \
 aws cloudwatch get-metric-statistics \
   --namespace AWS/ApiGateway \
   --metric-name Count \
-  --dimensions Name=ApiName,Value=my-api-stack-HttpApi \
+  --dimensions Name=ApiName,Value=my-api-dev-api \
   --start-time $(date -u -d '1 hour ago' +%Y-%m-%dT%H:%M:%S) \
   --end-time $(date -u +%Y-%m-%dT%H:%M:%S) \
   --period 3600 \
@@ -423,7 +453,7 @@ cdk bootstrap aws://$(aws sts get-caller-identity --query Account --output text)
 **Check CloudFormation events:**
 ```bash
 aws cloudformation describe-stack-events \
-  --stack-name my-api-stack \
+  --stack-name my-api-dev \
   --query 'StackEvents[?ResourceStatus==`CREATE_FAILED`]'
 ```
 
@@ -444,7 +474,7 @@ Common issues:
 
 **Check Lambda logs:**
 ```bash
-aws logs tail /aws/lambda/my-api-stack-MainFunction-ABC123 --follow
+aws logs tail /aws/lambda/my-api-dev-MainFunction-ABC123 --follow
 ```
 
 Common issues:

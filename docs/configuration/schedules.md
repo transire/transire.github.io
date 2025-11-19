@@ -402,7 +402,7 @@ schedules:
 When you run `transire build`, CDK generates:
 
 ```typescript
-// infrastructure/lib/my-api-stack.ts (generated)
+// infrastructure/lib/my-api-dev.ts (generated)
 
 const dailyCleanupRule = new events.Rule(this, 'DailyCleanupRule', {
   ruleName: 'daily-cleanup',
@@ -458,7 +458,7 @@ Key metrics for EventBridge rules:
 View schedule execution logs:
 
 ```bash
-aws logs tail /aws/lambda/my-api-stack-MainFunction-ABC123 --follow --filter-pattern "daily-cleanup"
+aws logs tail /aws/lambda/my-api-dev-MainFunction-ABC123 --follow --filter-pattern "daily-cleanup"
 ```
 
 Example log output:

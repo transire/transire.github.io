@@ -743,6 +743,7 @@ go test ./...
 ### Build
 
 ```bash
+# Build for development environment (default)
 transire build
 ```
 
@@ -752,16 +753,19 @@ transire build
 # Configure AWS credentials first
 aws configure
 
-# Deploy
+# Deploy to development environment
 transire deploy
+
+# Or explicitly specify environment
+transire deploy --environment dev
 ```
 
 **Output:**
 ```
-✅  todo-api-stack
+✅  todo-api-dev
 
 Outputs:
-todo-api-stack.ApiEndpoint = https://abc123.execute-api.us-east-1.amazonaws.com
+todo-api-dev.ApiEndpoint = https://abc123.execute-api.us-east-1.amazonaws.com
 ```
 
 ### Setup RDS Database

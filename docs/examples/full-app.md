@@ -510,7 +510,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-go@v4
       - run: go install github.com/transire/transire/cmd/transire@latest
-      - run: transire build --config transire.prod.yaml
+      - run: transire build --config transire.prod.yaml --environment prod
       - uses: actions/upload-artifact@v3
         with:
           name: dist

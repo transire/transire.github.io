@@ -7,6 +7,9 @@ keywords:
   - artifacts
   - deployment
   - lambda
+  - multi-environment
+  - environment-specific
+  - dev staging prod
 category: cli-reference
 difficulty: intermediate
 estimated_time: 5 minutes
@@ -18,10 +21,14 @@ mcp_metadata:
     - "Building for deployment"
     - "Creating artifacts"
     - "Preparing for AWS"
+    - "Multi-environment builds"
+    - "Environment-specific resource naming"
   common_questions:
     - "How do I build for deployment?"
     - "What does build create?"
     - "Where are artifacts stored?"
+    - "How do I build for different environments?"
+    - "How are resources named in different environments?"
 ---
 
 # transire build
@@ -98,8 +105,9 @@ CDK generation source: [`internal/providers/aws/cdk_generator.go`](https://githu
 |------|------|---------|-------------|
 | `-c, --config` | string | `transire.yaml` | Path to configuration file |
 | `-o, --output` | string | `dist` | Output directory for artifacts |
+| `-e, --environment` | string | `dev` | Target environment (dev, staging, prod) |
 
-Source: [`internal/cli/commands/build.go:104-105`](https://github.com/transire/transire/blob/main/internal/cli/commands/build.go)
+Source: [`internal/cli/commands/build.go:112-115`](https://github.com/transire/transire/blob/main/internal/cli/commands/build.go)
 
 ---
 
@@ -133,6 +141,19 @@ transire build --output ./build
 transire build --config production-transire.yaml
 ```
 
+### Build for specific environment
+
+```bash
+# Build for staging environment
+transire build --environment staging
+
+# Build for production
+transire build --environment prod
+
+# Combine with other flags
+transire build --environment staging --output ./staging-build
+```
+
 ---
 
 ## Output Artifacts
@@ -144,7 +165,7 @@ dist/
 └── function.zip        # Lambda deployment package (ARM64 binary)
 
 infrastructure/lib/
-└── my-api-stack.ts    # Generated CDK stack definition
+└── my-api-dev.ts    # Generated CDK stack definition
 ```
 
 For multi-function configurations:
@@ -212,6 +233,7 @@ export class MyApiStack extends cdk.Stack {
 
     // Lambda function
     const mainFunction = new lambda.Function(this, 'MainFunction', {
+      functionName: 'my-api-dev-main',
       runtime: lambda.Runtime.PROVIDED_AL2023,
       handler: 'bootstrap',
       code: lambda.Code.fromAsset('../dist/function.zip'),
@@ -222,6 +244,7 @@ export class MyApiStack extends cdk.Stack {
 
     // API Gateway
     const api = new apigatewayv2.HttpApi(this, 'HttpApi', {
+      apiName: 'my-api-dev-api',
       defaultIntegration: new HttpLambdaIntegration(
         'DefaultIntegration',
         mainFunction
@@ -230,16 +253,19 @@ export class MyApiStack extends cdk.Stack {
 
     // SQS Queue + DLQ
     const emailQueue = new sqs.Queue(this, 'EmailQueue', {
-      queueName: 'email-queue',
+      queueName: 'my-api-dev-email-queue',
       visibilityTimeout: cdk.Duration.seconds(30),
       deadLetterQueue: {
-        queue: new sqs.Queue(this, 'EmailQueueDLQ'),
+        queue: new sqs.Queue(this, 'EmailQueueDLQ', {
+          queueName: 'my-api-dev-email-queue-dlq',
+        }),
         maxReceiveCount: 3,
       },
     });
 
     // EventBridge rule
     const dailyCleanup = new events.Rule(this, 'DailyCleanupRule', {
+      ruleName: 'my-api-dev-daily-cleanup',
       schedule: events.Schedule.cron({ minute: '0', hour: '2' }),
     });
     dailyCleanup.addTarget(new LambdaFunction(mainFunction));

@@ -539,12 +539,12 @@ Source: [`internal/providers/aws/cdk_generator.go:142-158`](https://github.com/t
 
 **View Lambda logs:**
 ```bash
-aws logs tail /aws/lambda/my-api-stack-MainFunction-ABC123 --follow
+aws logs tail /aws/lambda/my-api-dev-MainFunction-ABC123 --follow
 ```
 
 **View EventBridge rule status:**
 ```bash
-aws events describe-rule --name my-api-stack-DailyCleanupRule
+aws events describe-rule --name my-api-dev-daily-cleanup
 ```
 
 **View failed executions:**
@@ -552,7 +552,7 @@ aws events describe-rule --name my-api-stack-DailyCleanupRule
 aws cloudwatch get-metric-statistics \
   --namespace AWS/Lambda \
   --metric-name Errors \
-  --dimensions Name=FunctionName,Value=my-api-stack-MainFunction-ABC123 \
+  --dimensions Name=FunctionName,Value=my-api-dev-MainFunction-ABC123 \
   --start-time 2025-01-01T00:00:00Z \
   --end-time 2025-01-02T00:00:00Z \
   --period 3600 \

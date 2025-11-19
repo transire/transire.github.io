@@ -428,7 +428,7 @@ vpc:
 ### Deploy
 
 ```bash
-transire build
+transire build --environment production
 transire deploy --environment production
 ```
 

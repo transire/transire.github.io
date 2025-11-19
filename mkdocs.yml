@@ -59,6 +59,7 @@ nav:
       - Local Development: guides/local-development.md
       - Testing: guides/testing.md
       - Deploying to AWS: guides/deploying-to-aws.md
+      - Multi-Environment Deployment: guides/multi-environment-deployment.md
       - Queue Processing: guides/queue-processing.md
       - Scheduled Tasks: guides/scheduled-tasks.md
       - Multi-Function Architecture: guides/multi-function-architecture.md

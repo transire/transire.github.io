@@ -111,7 +111,7 @@ my-api/
 │   ├── bin/
 │   │   └── app.ts           # CDK app entry point
 │   ├── lib/
-│   │   └── my-api-stack.ts  # CDK stack (auto-generated)
+│   │   └── my-api-dev.ts  # CDK stack (auto-generated)
 │   ├── package.json
 │   └── tsconfig.json
 └── .github/

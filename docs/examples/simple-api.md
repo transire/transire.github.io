@@ -487,7 +487,7 @@ transire deploy
 
 **Stack outputs:**
 ```
-my-api-stack.ApiEndpoint = https://abc123.execute-api.us-east-1.amazonaws.com
+my-api-dev.ApiEndpoint = https://abc123.execute-api.us-east-1.amazonaws.com
 ```
 
 ---
@@ -502,13 +502,13 @@ curl https://abc123.execute-api.us-east-1.amazonaws.com/health
 **Send message to SQS:**
 ```bash
 aws sqs send-message \
-  --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/email-queue \
+  --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/simple-api-dev-email-queue \
   --message-body '{"to":"user@example.com","subject":"Test","body":"Hello"}'
 ```
 
 **View logs:**
 ```bash
-aws logs tail /aws/lambda/my-api-stack-MainFunction-ABC123 --follow
+aws logs tail /aws/lambda/my-api-dev-MainFunction-ABC123 --follow
 ```
 
 ---

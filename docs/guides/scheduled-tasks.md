@@ -566,13 +566,13 @@ See: [Schedule Configuration](../configuration/schedules.md)
 View execution logs:
 
 ```bash
-aws logs tail /aws/lambda/my-api-stack-MainFunction-ABC123 --follow
+aws logs tail /aws/lambda/my-api-dev-MainFunction-ABC123 --follow
 ```
 
 Filter by schedule name:
 
 ```bash
-aws logs tail /aws/lambda/my-api-stack-MainFunction-ABC123 \
+aws logs tail /aws/lambda/my-api-dev-MainFunction-ABC123 \
   --follow \
   --filter-pattern "daily-cleanup"
 ```
