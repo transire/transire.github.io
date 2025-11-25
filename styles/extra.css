@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --md-primary-fg-color: #f59e0b;
+  --md-accent-fg-color: #0ea5e9;
+}
+
+.md-header, .md-tabs {
+  background: linear-gradient(120deg, #0f172a 0%, #0ea5e9 50%, #f97316 100%);
+}
+
+.hero {
+  background: radial-gradient(circle at 20% 20%, rgba(14,165,233,0.15), transparent 35%),
+              radial-gradient(circle at 80% 0%, rgba(249,115,22,0.15), transparent 25%),
+              linear-gradient(135deg, #0f172a 0%, #111827 60%, #0b1021 100%);
+  color: #f8fafc;
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(17, 24, 39, 0.35);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  margin: 0.2rem 0 0.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero .lede {
+  margin-bottom: 1.2rem;
+  max-width: 60ch;
+  color: #e2e8f0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero .cta {
+  background: #f59e0b;
+  color: #0f172a;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.35);
+}
+
+.hero .ghost {
+  border: 1px solid rgba(226, 232, 240, 0.4);
+  color: #e2e8f0;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.md-typeset code { font-family: "IBM Plex Mono", monospace; }
+
+@media (max-width: 720px) {
+  .hero { padding: 1.75rem; }
+  .hero h1 { font-size: 1.6rem; }
+}
