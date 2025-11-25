@@ -1,0 +1,49 @@
+site_name: Transire
+site_description: Cloud-agnostic Go webapp framework for HTTP, queue, and schedule handlers with zero-boilerplate local and AWS dispatchers.
+site_author: Transire
+site_url: https://transire.github.io
+repo_url: https://github.com/transire/transire
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: amber
+      accent: teal
+  font:
+    text: "Space Grotesk"
+    code: "IBM Plex Mono"
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - toc.integrate
+    - search.highlight
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - codehilite
+  - tables
+  - toc:
+      permalink: true
+  - def_list
+  - footnotes
+nav:
+  - Overview: index.md
+  - Quickstart: quickstart.md
+  - Concepts: concepts.md
+  - Local Dev: local-development.md
+  - AWS Deploy: aws-deploy.md
+  - CLI Reference: cli.md
+  - Examples: examples.md
+  - Extensibility: extensibility.md
+extra_css:
+  - styles/extra.css
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/transire/transire
+      name: Transire on GitHub
