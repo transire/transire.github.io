@@ -20,21 +20,18 @@ Transire builds and deploys AWS assets with a single CLI. The output is a Lambda
 
 ## transire.yaml
 
-`transire.yaml` captures only names and regions:
+`transire.yaml` captures only the app name and optional per-env AWS profiles:
 
 ```yaml
 app:
   name: my-app
-aws:
-  region: us-east-1
 envs:
   dev:
     profile: transire-sandbox
-    region: us-east-1
 ```
 
 - `app.name` drives the CloudFormation stack name (`<name>-stack`) and resource names (`<app>-<queue>-<env>` for queues, schedules, and API).
-- Each `env` can override AWS profile and region. You choose which env to deploy via `--env`.
+- Each `env` can override AWS profile. You choose which env to deploy via `--env`. Regions come from the AWS SDK default chain (env vars, shared config, profile defaults).
 
 ## Build assets
 
@@ -58,14 +55,22 @@ What deploy does:
 1. Runs the same build as `transire build`.
 2. Runs `npm install` inside `dist/aws/cdk` (once per environment) then `npx cdk deploy --require-approval never` with your chosen profile and env context.
 
-> `--env` is required. Defaults: `--profile transire-sandbox`, region falls back to `aws.region` in `transire.yaml` unless overridden by `--region`.
+> `--env` is required. Deploy uses the AWS SDK default region resolution (env vars, shared config, or the profile default). There is no `--region` flag; set the region in your AWS config or export `AWS_REGION`/`AWS_DEFAULT_REGION` before running deploy.
+
+The same AWS SDK region resolution is used by `transire info`, `transire send`, and `transire trigger` when `--env` points at AWS.
+
+If you hit `SSM parameter /cdk-bootstrap/hnb659fds/version not found`, bootstrap the target account/region once from `dist/aws/cdk`:
+
+```shell
+AWS_REGION=<region> AWS_DEFAULT_REGION=<region> npx cdk bootstrap --profile <aws-profile>
+```
 
 ## Inspect outputs
 
 After deploy, fetch endpoints, queue URLs, and schedule names:
 
 ```shell
-transire info --env dev --profile <aws-profile> --region <region>
+transire info --env dev --profile <aws-profile>
 ```
 
 `transire send` and `transire trigger` use these outputs automatically when targeting AWS.
