@@ -31,7 +31,7 @@ The local dispatcher mounts helpers under `/_transire`:
 - `POST /_transire/queues/{name}` — sends a payload to a queue handler.
 - `POST /_transire/schedules/{name}` — triggers a schedule handler immediately.
 
-`transire send` and `transire trigger` call these for you when `--env` is omitted or set to `local`.
+`transire send` and `transire trigger` call these for you when `--env` is omitted or set to `local`. They default to `http://localhost:8080`; if you run the dev server on another port, set `TRANSIRE_PORT` or `TRANSIRE_HTTP_ADDR` before calling the CLI so it hits the right place.
 
 ## Work with queues locally
 

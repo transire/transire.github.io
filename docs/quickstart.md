@@ -35,7 +35,8 @@ The scaffold gives you:
 
 - `cmd/app/main.go` that wires the chi router, handlers, and dispatcher auto-selection.
 - HTTP handler that enqueues work, queue handlers that chain into an audit queue, and a heartbeat schedule.
-- `transire.yaml` with an app name, default AWS region, and an example `dev` environment.
+- `transire.yaml` with an app name and an example `dev` environment (optionally pin an AWS profile per env; regions use the AWS SDK default chain).
+- `cmd/app` is required for `transire run|build|deploy`; if you started with an older layout, move your entrypoint to `./cmd/app`.
 
 ## Run locally
 
