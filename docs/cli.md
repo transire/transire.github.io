@@ -40,6 +40,7 @@ transire build [--manifest transire.yaml]
 
 - Discovers queues and schedules by scanning your Go code.
 - Compiles a Lambda bootstrap (`linux/amd64`) and writes a CDK app under `dist/aws`.
+- Requires a main package at `./cmd/app`; move your entrypoint there if migrating an older project.
 
 ## deploy
 

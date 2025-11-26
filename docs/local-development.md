@@ -21,6 +21,7 @@ transire run --port 8080 --watch=true
 - Defaults to port 8080; override with `--port`, `TRANSIRE_PORT`, `PORT`, or `TRANSIRE_HTTP_ADDR`.
 - `--watch` is enabled by default and restarts on Go/YAML changes (ignores `.git`, `dist`, `vendor`, `node_modules`).
 - Runs `go run ./cmd/app`, so any code you add to `cmd/app` participates.
+- `cmd/app` is required for `transire run|build|deploy`; if you started with an older layout, move your entrypoint to `./cmd/app`.
 
 ## Health and control endpoints
 
