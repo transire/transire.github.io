@@ -44,6 +44,8 @@ Outputs under `dist/aws`:
 - `lambda/bootstrap` and `lambda/bootstrap.zip` compiled for `linux/amd64`.
 - `cdk/` with `package.json`, `cdk.json`, and TypeScript sources describing the stack.
 
+If `infra/extend.ts` exists in your project root, the generated CDK imports and calls your `configure` and `extend` functions to customize Lambda settings or add resources like DynamoDB tables. See [Extensibility: Add custom AWS infrastructure](extensibility.md#add-custom-aws-infrastructure) for details.
+
 ## Deploy
 
 ```shell

@@ -40,6 +40,7 @@ transire build [--manifest transire.yaml]
 
 - Discovers queues and schedules by scanning your Go code.
 - Compiles a Lambda bootstrap (`linux/amd64`) and writes a CDK app under `dist/aws`.
+- If `infra/extend.ts` exists, the generated CDK imports it and calls `configure`/`extend` for custom Lambda settings or additional resources.
 - Requires a main package at `./cmd/app`; move your entrypoint there if migrating an older project.
 
 ## deploy
@@ -49,7 +50,7 @@ transire deploy --env <name> [--profile transire-sandbox] [--manifest transire.y
 ```
 
 - Runs the build, installs CDK dependencies in `dist/aws/cdk`, and executes `npx cdk deploy --require-approval never`.
-- `--env` is required; defaults to profile `transire-sandbox` and uses manifest regions unless overridden by `--region`.
+- `--env` is required; deploy relies on the AWS SDK default region chain (env vars, shared config, or the profile default). There is no `--region` flag for deploy.
 
 ## info
 
@@ -58,28 +59,28 @@ transire info [--env <name>] [--profile transire-sandbox]
 ```
 
 - Always prints discovered queues and schedules from your code.
-- When `--env` is provided, fetches CloudFormation outputs (API endpoint, queue URLs, schedule names) using the given profile/region.
+- When `--env` is provided, fetches CloudFormation outputs (API endpoint, queue URLs, schedule names) using the given profile and AWS SDK region defaults (override with `--region` if needed).
 
 ## send
 
 ```shell
-transire send <queue> <message> [--env local] [--base64]
+transire send <queue> <message> [--env local] [--profile transire-sandbox] [--region <region>] [--manifest transire.yaml] [--base64]
 ```
 
 - Validates the queue exists in the current project.
-- Local/default: POSTs to `/_transire/queues/{name}` on the dev server.
-- AWS: resolves queue URL from stack outputs and sends via SQS.
+- Local/default: POSTs to `/_transire/queues/{name}` on the dev server (honors `TRANSIRE_HTTP_ADDR`/`PORT`/`TRANSIRE_PORT` for the local base URL).
+- AWS: resolves queue URL from stack outputs and sends via SQS using the chosen profile; region comes from the AWS SDK default chain unless `--region` is set.
 - `--base64` decodes the message before sending.
 
 ## trigger
 
 ```shell
-transire trigger <schedule> [--env local]
+transire trigger <schedule> [--env local] [--profile transire-sandbox] [--region <region>] [--manifest transire.yaml]
 ```
 
 - Validates the schedule exists in the project.
 - Local/default: POSTs to `/_transire/schedules/{name}`.
-- AWS: invokes the deployed Lambda with a fabricated EventBridge payload; schedule names come from stack outputs.
+- AWS: invokes the deployed Lambda with a fabricated EventBridge payload; schedule names come from stack outputs and the configured profile (region from AWS SDK defaults unless `--region` is set).
 
 ## version
 

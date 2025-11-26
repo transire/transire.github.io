@@ -56,6 +56,112 @@ app.SetQueueSender(metricsSender{next: app.QueueSender()})
 
 Dispatchers are small adapters with a `Run` method. The built-in ones cover local dev and AWS. If you need to target another runtime, implement the `Dispatcher` interface and wire it via `app.SetDispatcher`.
 
+## Add custom AWS infrastructure
+
+Transire auto-generates CDK for Lambda, API Gateway, SQS, and EventBridge. To provision additional resources or customize Lambda settings, create `infra/extend.ts` in your project root with two optional exports:
+
+### Configure Lambda settings
+
+Use `configure` to customize the Lambda before it's created—set VPC, memory, timeout, or add environment variables:
+
+```typescript
+// infra/extend.ts
+import * as cdk from "aws-cdk-lib";
+import * as ec2 from "aws-cdk-lib/aws-ec2";
+import * as lambda from "aws-cdk-lib/aws-lambda";
+
+export function configure(stack: cdk.Stack, env: string): Partial<lambda.FunctionProps> {
+  const vpc = new ec2.Vpc(stack, "AppVpc", { maxAzs: 2 });
+
+  return {
+    vpc,
+    vpcSubnets: { subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS },
+    memorySize: 1024,
+    timeout: cdk.Duration.seconds(60),
+    environment: {
+      DATABASE_URL: `postgres://db.${env}.internal:5432/app`,
+    },
+  };
+}
+```
+
+The returned config is merged with Transire's defaults. User-provided `environment` variables are merged with Transire's queue/schedule env vars.
+
+### Add resources after Lambda creation
+
+Use `extend` to provision additional resources and grant permissions to the Lambda:
+
+```typescript
+// infra/extend.ts
+import * as cdk from "aws-cdk-lib";
+import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
+import * as lambda from "aws-cdk-lib/aws-lambda";
+
+export function extend(stack: cdk.Stack, fn: lambda.Function, env: string) {
+  const table = new dynamodb.Table(stack, "UsersTable", {
+    tableName: `myapp-users-${env}`,
+    partitionKey: { name: "pk", type: dynamodb.AttributeType.STRING },
+    billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+  });
+
+  table.grantReadWriteData(fn);
+  fn.addEnvironment("USERS_TABLE", table.tableName);
+}
+```
+
+### Both exports are optional
+
+You can export just `configure`, just `extend`, or both. Transire calls them if they exist:
+
+- `configure(stack, env)` → called before Lambda creation, returns config properties
+- `extend(stack, fn, env)` → called after Lambda creation, for additional resources
+
+### Complete example
+
+Here's a full `infra/extend.ts` that provisions a VPC with private subnets, increases Lambda resources, and adds a DynamoDB table:
+
+```typescript
+// infra/extend.ts
+import * as cdk from "aws-cdk-lib";
+import * as ec2 from "aws-cdk-lib/aws-ec2";
+import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
+import * as lambda from "aws-cdk-lib/aws-lambda";
+
+export function configure(stack: cdk.Stack, env: string): Partial<lambda.FunctionProps> {
+  const vpc = new ec2.Vpc(stack, "AppVpc", {
+    maxAzs: 2,
+    natGateways: 1,
+  });
+
+  return {
+    vpc,
+    vpcSubnets: { subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS },
+    memorySize: 1024,
+    timeout: cdk.Duration.seconds(60),
+    environment: {
+      CUSTOM_ENV_VAR: `custom-value-${env}`,
+    },
+  };
+}
+
+export function extend(stack: cdk.Stack, fn: lambda.Function, env: string) {
+  const table = new dynamodb.Table(stack, "UsersTable", {
+    tableName: `myapp-users-${env}`,
+    partitionKey: { name: "pk", type: dynamodb.AttributeType.STRING },
+    sortKey: { name: "sk", type: dynamodb.AttributeType.STRING },
+    billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+    removalPolicy: cdk.RemovalPolicy.DESTROY,
+  });
+
+  table.grantReadWriteData(fn);
+  fn.addEnvironment("USERS_TABLE", table.tableName);
+}
+```
+
+The `infra/` directory is yours to organize—add constructs, utilities, or whatever CDK patterns you need.
+
+Generated CDK stays in `dist/` (gitignored); your `infra/` code is source-controlled.
+
 ## Override environments
 
-Use `TRANSIRE_DISPATCHER=aws|local` to force dispatcher selection, and keep `transire.yaml` lean with only names and regions. Everything else is discovered from your Go code, so adding new queues or schedules is as simple as registering another handler.
+Use `TRANSIRE_DISPATCHER=aws|local` to force dispatcher selection, and keep `transire.yaml` lean with only names (plus optional env profiles). Everything else is discovered from your Go code, so adding new queues or schedules is as simple as registering another handler.
